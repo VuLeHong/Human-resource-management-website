@@ -1,0 +1,6 @@
+.tasking {
+    display: flex;
+    align-items: center;
+    width: 345px;
+    justify-content: space-between;
+}
