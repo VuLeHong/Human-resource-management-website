@@ -4,6 +4,7 @@ import Task from './Task/Task';
 import Rank from './Rank/Rank';
 import Navbar from '../components/Navbar/Navbar';
 import Mini_profile from './Mini_profile/Mini_profile'
+import './Home.css'
 function Home() {
 
   const current_theme = localStorage.getItem('current_theme');
@@ -16,13 +17,14 @@ function Home() {
   return (
     <div>
       <div className={`container ${theme}`}>
-          <Navbar theme={theme} setTheme={setTheme} />
-      </div>
-      <Mini_profile/>
-      <div className='Home'>
+           <Navbar theme={theme} setTheme={setTheme} />
+          <Mini_profile/>
+          <div className='Body'>
             <Task/>
             <Rank/>   
       </div>
+      </div>
+      
 
     </div>
   )
