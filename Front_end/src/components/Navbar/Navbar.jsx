@@ -18,21 +18,23 @@ const Navbar = ({ theme, setTheme }) => {
     return (
         <div className='navbar'>
 
-            <img src={theme == 'light' ? logo_light : logo_dark} alt="" className='logo' />
+            <div>
+                <img src={theme == 'light' ? logo_light : logo_dark} alt="" className='logo' />
+            </div>
 
-            <ul>
-                <li>Setting</li>
-                <li>Logout</li>
-                
-            </ul>
 
             <div className='search-box'>
                 <input type='text' placeholder='Search' />
                 <img src={ theme == 'light' ? search_icon_light : search_icon_dark} alt="" />
             </div>
 
-            <img onClick={() => { toggle_mode() }} src={theme == 'light' ? toggle_light : toggle_dark} alt="" className='toggle-icon' />
-
+            <div className='right'>
+                <ul>
+                    <li><button>Setting</button></li>
+                    <li><button>Logout</button></li>
+                </ul>
+                <img onClick={() => { toggle_mode() }} src={theme == 'light' ? toggle_light : toggle_dark} alt="" className='toggle-icon' />
+            </div>
         </div>
     )
 }
