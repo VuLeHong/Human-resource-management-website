@@ -1,36 +1,41 @@
-body {
-    margin: 1%;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 .mini-profile-container {
-    background-color: aqua;
-    display: flex;
-}
-.personal-img {
-    width: 30vh;
-    height: 30vh;
-}
-.personal-img img {
-    width: 30vh;
-    height: 30vh;
-}
-.personal-details {
-    color: black;
-    align-items: center;
-    justify-content: left;
-    padding-left: 50px;
-    /* padding-top: 30px; */
-    font-size: x-large;
-    align-content: space-around;
-}
-.personal-name {
-    padding-top: 10px;
-}
-.personal-role-dept {
-    padding-top: 10px;
-}
-.personal-rank {
-    padding-top: 10px;
-}
-.personal-stats {
-    padding-top: 10px;
+    padding: 20px 30px;
+    .profile {
+        background-color: aqua;
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        padding: 20px 30px;
+        .contact {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+            .personal-details {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                p {
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 700;
+                    font-size: 36px;
+                    line-height: 23px;
+                }
+            }
+            .showProfile button {
+                width: 200px;
+                height: 50px;
+                font-family: 'Poppins', sans-serif;
+                font-weight: 400;
+                font-size: 23px;
+                line-height: 23px;
+            }
+        }
+    }
 }
