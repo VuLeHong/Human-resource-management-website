@@ -1,8 +1,9 @@
 import React from 'react'
+import './Rank.css'
 
 function Rank() {
   return (
-    <div>
+    <div className='ranking'>
         <h2>Ranking</h2>
     </div>
   )
