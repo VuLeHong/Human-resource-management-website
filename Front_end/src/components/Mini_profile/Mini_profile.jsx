@@ -1,5 +1,6 @@
 import React from 'react'
 import './Mini_profile.css'
+import popUpMiniProfile from '../popup_miniprofile/popup'
 
 function Mini_profile() {
   return (
@@ -15,6 +16,7 @@ function Mini_profile() {
             <div class="personal-rank">Rank: D</div>
             <div class="personal-stats">Stats: 5</div>
         </div>
+        <popUpMiniProfile />
       </div>
     </div>
   )
