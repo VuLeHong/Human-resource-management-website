@@ -15,7 +15,7 @@ function Home() {
   }, [theme]);
 
   return (
-    <div>
+    <div className='UI'>
       <div className={`container ${theme}`}>
            <Navbar theme={theme} setTheme={setTheme} />
           <Mini_profile/>
