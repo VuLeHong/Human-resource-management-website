@@ -3,33 +3,59 @@ const mongoose = require('mongoose')
 const UserSchema = new mongoose.Schema({
     username:{
         type:String,
-        required:true
     },
 
     password:{
         type:String,
-        required:true
     },
 
     truename:{
         type:String,
-        required:true
     },
 
     role:{
         type:String,
-        required:true
     },
 
     rank:{
         type:String,
-        required:true
+        required:true,
+        default: 'E'
     },
 
-    rating:{
-        type:String,
-        required:true
-    }
+    stats : [
+        {
+            team_work:{
+                type:String,
+                required:true,
+                default: '0'
+            },
+
+            tech_skill:{
+                type:String,
+                required:true,
+                default: '0'
+            },
+
+            patient:{
+                type:String,
+                required:true,
+                default: '0'
+            },
+
+            learning_attitude:{
+                type:String,
+                required:true,
+                default: '0'
+            },
+
+            leading_skill:{
+                type:String,
+                required:true,
+                default: '0'
+            }
+        }
+    ]
 })
 
 const user_collection = new mongoose.model("user_collection",UserSchema)
