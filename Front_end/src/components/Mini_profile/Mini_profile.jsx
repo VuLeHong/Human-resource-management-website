@@ -23,7 +23,6 @@ function Mini_profile() {
             <div className='showProfile'>
               <button>
                 Show Profile Details
-                {/* <i class="fa-solid fa-bars"></i>  */}
               </button>
               <popUpMiniProfile open={openProfile} />
             </div>
