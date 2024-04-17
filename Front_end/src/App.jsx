@@ -4,10 +4,12 @@ import Header from './components/head/Header'
 import Sidebar from './components/sidebar/Sidebar'
 // import Home from './Home'
 import Profile from './components/profile/Profile'
+
 import Task from './components/Task/Task'
 import Ranking from './components/ranking/Ranking'
 import Project from './components/pr0ject/Project'
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
+
 
 
 function App() {

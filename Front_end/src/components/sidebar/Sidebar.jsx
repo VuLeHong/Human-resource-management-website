@@ -21,6 +21,7 @@ function Sidebar({openSidebarToggle}) {
             <li className='sidebar-list-item'>
                 <a href=''>
                 <Link to='/task'><BsListTask className='icon'/> Tasks</Link>
+
                 </a>
             </li>
             <li className='sidebar-list-item'>
@@ -31,6 +32,7 @@ function Sidebar({openSidebarToggle}) {
             <li className='sidebar-list-item'>
                 <a href="">   
                     <Link to='/project'><BsFillArchiveFill className='icon'/> Project</Link>
+
                 </a>
             </li>
         </ul>
