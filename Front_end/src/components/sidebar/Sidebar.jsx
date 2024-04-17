@@ -1,6 +1,7 @@
 import React from 'react'
 import { BsFillPersonFill, BsListTask, BsClipboard2Pulse, BsFillArchiveFill } from 'react-icons/bs'
 import logo from '../../assets/logo-white.png'
+import { Link, useNavigate } from 'react-router-dom'
 
 function Sidebar({openSidebarToggle}) {
   return (
@@ -14,22 +15,24 @@ function Sidebar({openSidebarToggle}) {
         <ul className='sidebar-list'>
             <li className='sidebar-list-item'>
                 <a href=''>
-                    <BsFillPersonFill className='icon'/> Profile
+                    <Link to='/'><BsFillPersonFill className='icon'/> Profile</Link>
                 </a>
             </li>
             <li className='sidebar-list-item'>
                 <a href=''>
-                    <BsListTask className='icon'/> Tasks
+                <Link to='/task'><BsListTask className='icon'/> Tasks</Link>
+
                 </a>
             </li>
             <li className='sidebar-list-item'>
                 <a href="">
-                    <BsClipboard2Pulse className='icon'/> Ranking
+                    <Link to='/rank'><BsClipboard2Pulse className='icon'/> Ranking</Link>
                 </a>
             </li>
             <li className='sidebar-list-item'>
-                <a href="">
-                    <BsFillArchiveFill className='icon'/> Project
+                <a href="">   
+                    <Link to='/project'><BsFillArchiveFill className='icon'/> Project</Link>
+
                 </a>
             </li>
         </ul>
