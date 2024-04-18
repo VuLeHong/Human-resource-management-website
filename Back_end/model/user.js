@@ -60,4 +60,4 @@ const UserSchema = new mongoose.Schema({
 
 const user_collection = new mongoose.model("user_collection",UserSchema)
 
-module.export = user_collection
+module.exports = user_collection
