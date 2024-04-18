@@ -26,7 +26,9 @@ function Sidebar({openSidebarToggle}) {
             </li>
             <li className='sidebar-list-item'>
                 <a href="">
+
                     <Link to='/ranking'><BsClipboard2Pulse className='icon'/> Ranking</Link>
+
                 </a>
             </li>
             <li className='sidebar-list-item'>

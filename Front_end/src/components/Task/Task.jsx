@@ -1,21 +1,14 @@
-import React, { useState } from 'react'
-import './Task.css'
+import React, {useState} from 'react'
 
-function Task() {
-    const [tasks, setTasks] = useState([])
+const Task = () => {
+
+  const [Task, setTask] = useState("");
+
   return (
-    <div className='tasking'>
-        {
-            tasks.length === 0 ?
-            <div><h2>No Task</h2></div>
-            :
-            tasks.map(task =>(
-                <diV>
-                    {task}
-                </diV>
-            ))
-        }
-    </div>
+    <>
+      <div className="task">
+      </div>
+    </>
   )
 }
 
