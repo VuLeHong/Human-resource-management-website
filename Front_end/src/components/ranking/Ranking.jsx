@@ -1,10 +1,11 @@
 import React from 'react'
+import user from '../profile/mockData'
 import './Ranking.css'
 
 const Ranking = () => {
   return (
-    <div>
-        <h1>Hello team</h1>
+    <div className='ranking'>
+        <h1>Hello {user[0].fullName}, here is your rank!</h1>
     </div>
   )
 }

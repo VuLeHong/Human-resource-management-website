@@ -22,7 +22,7 @@ const Task = () => {
     <>
       <div className="task">
       <h1>Hi {user[0].fullName}, here's your task list</h1>
-      <h3>You have {user[0].tasks.length} tasks</h3>
+      <h3>Today you have {user[0].tasks.length} tasks</h3>
         {user[0].tasks.length > 0 ? 
           <div className="list">
             
