@@ -25,7 +25,7 @@ const user = [
             "isdone": true
           },
           {
-            "content": "Develop web",
+            "content": "Develope web",
             "rank": "B",
             "isdone": false
           }

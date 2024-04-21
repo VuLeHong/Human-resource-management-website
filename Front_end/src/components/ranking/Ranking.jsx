@@ -17,7 +17,7 @@ const Ranking = () => {
   const sumArr = []
   statsMap.forEach(obj => {
     let objSum = 0
-    for(const key in obj) {
+    for (const key in obj) {
       if (obj.hasOwnProperty(key)) {
         objSum += obj[key]
       }
@@ -25,7 +25,14 @@ const Ranking = () => {
     sumArr.push(objSum)
   })
 
-  // console.log(sumArr)
+  // let sortedSumArr = []
+  // sortedSumArr = [...sumArr]
+  // sortedSumArr.sort((a, b) => b - a)
+  // for (let i = 0; i < sortedSumArr.length; i++) {
+  //   if (sumArr[i] === sortedSumArr[i]) {
+  //     return i
+  //   }
+  // }
 
   return (
     <div className='ranking'>
@@ -37,7 +44,7 @@ const Ranking = () => {
             <img src={avatar} alt="" />
           </div>
           <div className="rank">
-
+            {/* <h3>{}</h3> */}
           </div>
           <div className="name">
             <h3>{user[0].fullName}</h3>
@@ -47,7 +54,10 @@ const Ranking = () => {
           </div>
         </div>
         <div className='ladderboard'>
-
+          <div className="subTitle">
+            <h1>Ladderboard</h1>
+          </div>
+          <div className="dashBoard"></div>
         </div>
     </div>
   )
