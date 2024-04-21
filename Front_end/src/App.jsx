@@ -16,6 +16,7 @@ function App() {
 
   return (
     <div className='grid-container'>
+      
       <BrowserRouter>
         <Header />
         <Sidebar />
