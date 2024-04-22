@@ -25,14 +25,10 @@ const Ranking = () => {
     sumArr.push(objSum)
   })
 
-  // let sortedSumArr = []
-  // sortedSumArr = [...sumArr]
-  // sortedSumArr.sort((a, b) => b - a)
-  // for (let i = 0; i < sortedSumArr.length; i++) {
-  //   if (sumArr[i] === sortedSumArr[i]) {
-  //     return i
-  //   }
+  // for (let i = 0; i < sumArr.length; i++) {
+  //   user[i].score = (user[i].score || 0) + sumArr[i]
   // }
+  // user.sort((a, b) => b.score - a.score)
 
   return (
     <div className='ranking'>
