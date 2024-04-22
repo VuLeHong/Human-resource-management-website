@@ -31,7 +31,7 @@ const ToDoList = () => {
 
       <ol>
         {tasks.map((task, index) =>
-        <li key={index}>
+        <li key={index} className="seperate_button">
             <span className="text">{task}</span>
             <button
             className='comment-button'
