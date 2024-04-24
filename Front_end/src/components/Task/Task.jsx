@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import "./Task.css"
 import user from '../profile/mockData';
+import { BsChat, BsFillFolderFill } from 'react-icons/bs'
 
 const ToDoList = () => {
 
   const [tasks, setTasks] = useState(["Eat breakfast", "Take a shower", "Walk the dog"]);
-  const [newTask, setNewTask] = useState("");
   const commentEl = document.getElementById("commentEl");
 
   const commentTask = () => {
@@ -27,9 +27,11 @@ const ToDoList = () => {
               <div className="btn">
                 <button className='comment-btn' onClick={commentTask()}>
                     Comment
+                    <BsChat className='icons'/>
                 </button>
                 <button className='move-btn' onClick="">
                     Upload
+                    <BsFillFolderFill className='icons'/>
                 </button>
               </div>
             </div>
