@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 import Header from '../head/Header'
 import Sidebar from '../sidebar/Sidebar'
+=======
+>>>>>>> a407ca35f8a8ecd40754ebdebcffcc1dca86a8b7
 import user from '../profile/mockData'
 import './Ranking.css'
 import axios from "axios";
@@ -31,6 +34,7 @@ function Rank() {
 const Ranking = () => {
 
   const avatar = "https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-541.jpg?size=338&ext=jpg&ga=GA1.1.735520172.1711411200&semt=ais";
+<<<<<<< HEAD
   
   const statsMap = user.map(employee => ({
     "organizational_skill": employee.stats.organizational_skill, 
@@ -61,6 +65,11 @@ const Ranking = () => {
       <Header />
       <Sidebar />
       <div className='ranking'>
+=======
+
+  return (
+    <div className='ranking'>
+>>>>>>> a407ca35f8a8ecd40754ebdebcffcc1dca86a8b7
         <div className="title">
           <h1>Hello {user[user.length - 1].truename}, here is your total stats!</h1>
         </div>
@@ -85,8 +94,11 @@ const Ranking = () => {
           <div className="dashBoard"></div>
         </div>
     </div>
+<<<<<<< HEAD
     </>
     
+=======
+>>>>>>> a407ca35f8a8ecd40754ebdebcffcc1dca86a8b7
 //   return (
 //     <div className='ranking-container'>
 //         <h2>Ranking</h2>

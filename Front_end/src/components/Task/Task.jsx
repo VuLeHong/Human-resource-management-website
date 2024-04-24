@@ -1,21 +1,52 @@
 import React, { useState } from 'react'
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 import './Task.css'
+=======
+import "./Task.css"
+import user from '../profile/mockData';
+import { BsChat, BsFillFolderFill } from 'react-icons/bs'
 
-function Task() {
-    const [tasks, setTasks] = useState([])
+const ToDoList = () => {
+
+  const [tasks, setTasks] = useState(["Eat breakfast", "Take a shower", "Walk the dog"]);
+  const commentEl = document.getElementById("commentEl");
+
+  const commentTask = () => {
+    return null;
+  }
+>>>>>>> a407ca35f8a8ecd40754ebdebcffcc1dca86a8b7
+
   return (
-    <div className='tasking'>
-        {
-            tasks.length === 0 ?
-            <div><h2>No Task</h2></div>
-            :
-            tasks.map(task =>(
-                <diV>
-                    {task}
-                </diV>
-            ))
-        }
+    <div className='todo'>
+
+      <h1 className='title'>UIT Evaluation System</h1>
+
+      <div>
+      {tasks.map((task, index) =>
+        <div key={index} className="separate-btn">
+            <div className="task-list">
+              <div className='task-name'>
+                <h1 className="text">{task}</h1>
+              </div>
+              <div className="btn">
+                <button className='comment-btn' onClick={commentTask()}>
+                    Comment
+                    <BsChat className='icons'/>
+                </button>
+                <button className='move-btn' onClick="">
+                    Upload
+                    <BsFillFolderFill className='icons'/>
+                </button>
+              </div>
+            </div>
+            <div className="comment" id='comment'>
+              
+            </div>
+        </div>
+      )}
+      </div>
+
     </div>
 =======
 import "./Task.css"
@@ -64,4 +95,6 @@ const ToDoList = () => {
   )
 }
 
-export default Task
+// Có mồi function backend rồi á
+
+export default ToDoList

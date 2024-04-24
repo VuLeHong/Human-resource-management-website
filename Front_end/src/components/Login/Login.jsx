@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Login.css';
+<<<<<<< HEAD
 import { Navigate,useNavigate } from 'react-router-dom';
 
 const LoginForm = ({ onSubmit }) => {
@@ -35,6 +36,18 @@ const LoginForm = ({ onSubmit }) => {
       console.log(e);
     }
   }
+=======
+import { Navigate } from 'react-router-dom';
+
+const LoginForm = ({ onSubmit }) => {
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
+
+  const submitForm = (e) => {
+    e.preventDefault();
+    onSubmit(username, password);
+  };
+>>>>>>> a407ca35f8a8ecd40754ebdebcffcc1dca86a8b7
 
   return (
     <div className='wrapper'>
@@ -46,7 +59,11 @@ const LoginForm = ({ onSubmit }) => {
         </div>
 
         <div className="input-box">
+<<<<<<< HEAD
           <input type="password" placeholder='Password' required />
+=======
+          <input type="password" placeholder='Passwork' required />
+>>>>>>> a407ca35f8a8ecd40754ebdebcffcc1dca86a8b7
         </div>
 
         <div className='remember-forgot'>
