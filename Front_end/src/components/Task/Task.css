@@ -1,69 +1,53 @@
-body{
-    background-color: hsl(0, 0%, 10%);
-}
-.to-do-list{
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin-top: 100px;
-}
-h1{
-    font-size: 4rem;
-    color: white;
-}
-button{
-    font-size: 1.7rem;
-    font-weight: bold;
-    padding: 10px 20px;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.5s ease;
-}
-.add-button{
-    background-color: hsl(125, 47%, 54%);
-}
-.add-button:hover{
-    background-color: hsl(125, 47%, 44%);
-}
-.comment-button{
-    background-color: hsl(10, 90%, 50%);
-}
-.comment-button:hover{
-    background-color: hsl(10, 90%, 40%);
-}
-.move-button{
-    background-color: hsl(207, 90%, 64%);
-}
-.move-button:hover{
-    background-color: hsl(207, 90%, 54%);
-}
-input[type="text"]{
-    font-size: 1.6rem;
-    padding: 10px;
-    border: 2px solid hsla(0, 0%, 80%, 0.5);
-    border-radius: 5px;
-    color: hsla(0, 0%, 0%, 0.5);
-}
-ol{
+.todo {
+    width: 100%;
+    margin: 0;
     padding: 0;
-}
-.seperate_button{
-    font-size: 2rem;
-    font-weight: bold;
-    padding: 15px;
-    background-color: hsl(0, 0%, 97%);
-    margin-bottom: 10px;
-    border: 3px solid hsla(0, 0%, 85%, 0.75);
-    border-radius: 5px;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
-.text{
-    flex: 1;
+
+.separate-btn {
+    width: 100%;
+    background-color: #fff;
+    margin: 20px 0;
 }
-.comment-button, .move-button{
-    padding: 8px 12px;
-    font-size: 1.4rem;
-    margin-left: 10px;
+
+.task-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-direction: row;
+    padding: 0 30px;
+}
+
+.text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 36px;
+}
+
+.btn button {
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 32px;
+    color: #fff;
+}
+
+.comment-btn {
+    background-color: red;
+}
+
+.move-btn {
+    background-color: lightblue;
 }
