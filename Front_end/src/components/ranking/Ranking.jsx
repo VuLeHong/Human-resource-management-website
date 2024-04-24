@@ -63,7 +63,7 @@ const Ranking = () => {
           <h1>Hello {user[user.length - 1].truename}, here is your total stats!</h1>
         </div>
         <div className="rank">
-          <div className="rank">
+          <div className="rank-number">
             <h1>{user.indexOf(user[user.length - 1]) + 1}</h1>
           </div>
           <div className="avatar">
