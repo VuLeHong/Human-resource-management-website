@@ -2,7 +2,7 @@ const user = [
   { //1
     "username": "vu",
     "password": "1",
-	  "fullName": "Le Hong Vu",
+	  "truename": "Le Hong Vu",
 	  "isMale": true,
 	  "role": "leader",
 	  "rank": "B",
@@ -25,7 +25,7 @@ const user = [
             "isdone": true
           },
           {
-            "content": "Develop web",
+            "content": "Develope web",
             "rank": "B",
             "isdone": false
           }
@@ -484,5 +484,33 @@ const user = [
     ]
   }
 ];
+
+//Logic sap xep thu tu hang dua vao chi so diem
+
+// const statsMap = user.map(employee => ({
+//   "organizational_skill": employee.stats.organizational_skill, 
+//   "techical_skill": employee.stats.techical_skill,
+//   "idea_contribution": employee.stats.idea_contribution,
+//   "communication_skill": employee.stats.communication_skill,
+//   "product_optimization": employee.stats.product_optimization
+// }))
+
+// const sumArr = []
+// statsMap.forEach(obj => {
+//   let objSum = 0
+//   for (const key in obj) {
+//     if (obj.hasOwnProperty(key)) {
+//       objSum += obj[key]
+//     }
+//   }
+//   sumArr.push(objSum)
+// })
+
+// for (let i = 0; i < sumArr.length; i++) {
+//   user[i].score = (user[i].score || 0) + sumArr[i]
+// }
+// user.sort((a, b) => b.score - a.score)
+
+// console.log(user)
 
 export default user;
