@@ -4,7 +4,7 @@ import './Ranking.css'
 import axios from "axios";
 import { React, useState, useEffect } from 'react';
 
-function Ranking() {
+function Rank() {
 
   const [isLoading, setIsLoading] = useState(false);
   const [users, setUsers] = useState([]);
@@ -25,6 +25,7 @@ function Ranking() {
   useEffect(() => {
     getUsers();
   }, []);
+}
 
 const Ranking = () => {
 
@@ -82,26 +83,7 @@ const Ranking = () => {
           <div className="dashBoard"></div>
         </div>
     </div>
-
-//   return (
-//     <div className='ranking-container'>
-//         <h2>Ranking</h2>
-//           <div className='ranking'>
-//           {
-//             users.length === 0 ?
-//             <div><h2>No Ranking</h2></div>
-//             :
-//             users.map(user =>(
-//                 <div>
-//                     <p>{user.truename}</p>
-//                     <p>{user.role}</p>
-//                     <p>{user.rank}</p>
-//                 </div>
-//             ))
-//           }
-//           </div>
-//       </div>
   )
 }
 
-export default Ranking
+export default Ranking;
