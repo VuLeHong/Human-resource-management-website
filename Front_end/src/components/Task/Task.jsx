@@ -6,7 +6,6 @@ import { BsChat, BsFillFolderFill } from 'react-icons/bs'
 const ToDoList = () => {
 
   const [tasks, setTasks] = useState(["Eat breakfast", "Take a shower", "Walk the dog"]);
-  const [newTask, setNewTask] = useState("");
   const commentEl = document.getElementById("commentEl");
 
   const commentTask = () => {
