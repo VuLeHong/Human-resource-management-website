@@ -25,28 +25,30 @@ const Ranking = () => {
     sumArr.push(objSum)
   })
 
-  // for (let i = 0; i < sumArr.length; i++) {
-  //   user[i].score = (user[i].score || 0) + sumArr[i]
-  // }
-  // user.sort((a, b) => b.score - a.score)
+  for (let i = 0; i < sumArr.length; i++) {
+    user[i].score = (user[i].score || 0) + sumArr[i]
+  }
+  user.sort((a, b) => b.score - a.score)
+
+  // console.log(user)
 
   return (
     <div className='ranking'>
         <div className="title">
-          <h1>Hello {user[0].fullName}, here is your total stats!</h1>
+          <h1>Hello {user[user.length - 1].truename}, here is your total stats!</h1>
         </div>
         <div className="rank">
-          <div className="avatar">
-            <img src={avatar} alt="" />
-          </div>
           <div className="rank">
-            {/* <h3>{}</h3> */}
+            <h1>{user.indexOf(user[user.length - 1]) + 1}</h1>
+          </div>
+          <div className="avatar">
+            <img src={avatar} alt="" width='70' height='70' />
           </div>
           <div className="name">
-            <h3>{user[0].fullName}</h3>
+            <p>{user[user.length - 1].truename}</p>
           </div>
           <div className="total">
-            <h5>{sumArr[0]}</h5>
+            <h3>{user[user.length - 1].score}</h3>
           </div>
         </div>
         <div className='ladderboard'>
