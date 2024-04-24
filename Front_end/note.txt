@@ -1,0 +1,7 @@
+Sau khi pull repo này về, hãy mở terminal và nhập các lệnh sau đây:
+    cd Front_end/
+    npm i
+    npm i react-icons --save
+    npm i axios
+    npm i react-router-dom
+    npm run dev
