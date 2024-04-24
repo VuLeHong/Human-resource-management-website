@@ -1,4 +1,3 @@
-
 import user from '../profile/mockData'
 import './Ranking.css'
 import axios from "axios";
@@ -30,35 +29,6 @@ function Rank() {
 const Ranking = () => {
 
   const avatar = "https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-541.jpg?size=338&ext=jpg&ga=GA1.1.735520172.1711411200&semt=ais";
-  
-  const statsMap = user.map(employee => ({
-    "organizational_skill": employee.stats.organizational_skill, 
-    "techical_skill": employee.stats.techical_skill,
-    "idea_contribution": employee.stats.idea_contribution,
-    "communication_skill": employee.stats.communication_skill,
-    "product_optimization": employee.stats.product_optimization
-  }))
-
-  const sumArr = []
-  statsMap.forEach(obj => {
-    let objSum = 0
-    for (const key in obj) {
-      if (obj.hasOwnProperty(key)) {
-        objSum += obj[key]
-      }
-    }
-    sumArr.push(objSum)
-  })
-
-  for (let i = 0; i < sumArr.length; i++) {
-    user[i].score = (user[i].score || 0) + sumArr[i]
-  }
-  user.sort((a, b) => b.score - a.score)
-  // console.log(user)
-  // for (let i = 0; i < sumArr.length; i++) {
-  //   user[i].score = (user[i].score || 0) + sumArr[i]
-  // }
-  // user.sort((a, b) => b.score - a.score)
 
   return (
     <div className='ranking'>
