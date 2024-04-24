@@ -16,13 +16,15 @@ function App() {
 
   return (
     <div className='grid-container'>
-      {/* <LoginForm /> */}
+
+      
       <BrowserRouter>
         <Header />
         <Sidebar />
         <Routes>
-          <Route path='/' element={<Profile />}/>
-          <Route path='/task' element={<Task />}/>
+
+          <Route path='/' element={<Profile/>}/>
+          <Route path='/task' element={<Task/>}/>
           <Route path='/ranking' element={<Ranking />}/>
           <Route path='/project' element={<Project />}/>
         </Routes>
