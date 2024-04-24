@@ -12,10 +12,12 @@
 .separate-btn {
     width: 100%;
     background-color: #fff;
-    margin: 20px 0;
+    margin: 30px 0;
+    border-radius: 20px;
 }
 
 .task-list {
+    /* width: 100%; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -29,6 +31,11 @@
     font-weight: 700;
     font-size: 32px;
     line-height: 36px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
 }
 
 .btn button {
@@ -46,8 +53,18 @@
 
 .comment-btn {
     background-color: red;
+    display: flex;
+    align-items: center;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
 }
 
 .move-btn {
     background-color: lightblue;
+    display: flex;
+    align-items: center;
 }
