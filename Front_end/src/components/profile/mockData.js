@@ -2,7 +2,7 @@ const user = [
   { //1
     "username": "vu",
     "password": "1",
-	  "fullName": "Le Hong Vu",
+	  "truename": "Le Hong Vu",
 	  "isMale": true,
 	  "role": "leader",
 	  "rank": "B",
