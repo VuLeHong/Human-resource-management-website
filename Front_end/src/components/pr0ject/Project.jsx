@@ -1,19 +1,4 @@
-<<<<<<< HEAD
-import React from 'react'
-import Header from '../head/Header'
-import Sidebar from '../sidebar/Sidebar'
 
-const Project = () => {
-  return (
-    <>
-      <Header />
-      <Sidebar />
-    <div>
-      <h1>Hello VSCode</h1>
-    </div>
-    </>
-    
-=======
 import React, { useState } from 'react'
 import "./Project.css"
 import { } from 'react-icons/bs'
@@ -61,7 +46,7 @@ const Project = () => {
       </div>
 
     </div>
->>>>>>> a407ca35f8a8ecd40754ebdebcffcc1dca86a8b7
+
   )
 }
 
