@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
+import axios from "axios";
 import './Login.css';
-import {useNavigate } from 'react-router-dom';
 
-const LoginForm = ({ onSubmit }) => {
+const LoginForm = () => {
   const history = useNavigate();
-  const [username, setUsername] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   async function submit(e){
     e.preventDefault();
@@ -36,42 +37,29 @@ const LoginForm = ({ onSubmit }) => {
     }
   }
 
-
   return (
+    <div className="big-wrapper">
     <div className='wrapper'>
-      <form action=''>
+      <form onSubmit={submit}>
         <h1>Login</h1>
         <div className="input-box">
-          <input type='text' placeholder='Username' required />
-         
+          <input type='text' onChange={(e) => {setUsername(e.target.value) } } placeholder='Username' required />
         </div>
-
         <div className="input-box">
-
-          <input type="password" placeholder='Password' required />
-
+          <input type="password" onChange={(e) => { setPassword(e.target.value) }} placeholder='Passwork' required />
         </div>
-
-        <div className='remember-forgot'>
+        {/* <div className='remember-forgot'>
           <label>
             <input type='checkbox'/> Remember me
           </label>
           <a href="#">Forgot password?</a>
-        </div>
-
+        </div> */}
         <div>
         <button type='submit' className='btn'>Login</button>
         </div>
-
-        <div className='register-link'>
-          <p>Don't have an account?
-            <a href="#"> Register</a>
-          </p>
-        </div>
       </form>
-
     </div>
-    
+    </div>
   );
 };
 
