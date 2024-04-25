@@ -2,7 +2,8 @@ import user from '../profile/mockData'
 import './Ranking.css'
 import axios from "axios";
 import { React, useState, useEffect } from 'react';
-
+import Sidebar from '../sidebar/Sidebar';
+import Header from '../head/Header';
 function Rank() {
 
   const [isLoading, setIsLoading] = useState(false);
@@ -31,7 +32,10 @@ const Ranking = () => {
   const avatar = "https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-541.jpg?size=338&ext=jpg&ga=GA1.1.735520172.1711411200&semt=ais";
 
   return (
-    <div className='ranking'>
+    <div className='grid-container'>  
+      <Header />
+      <Sidebar />
+      <div className='ranking'>
         <div className="title">
           <h1>Hello {user[user.length - 1].truename}, here is your total stats!</h1>
         </div>
@@ -55,6 +59,7 @@ const Ranking = () => {
           </div>
           <div className="dashBoard"></div>
         </div>
+    </div>
     </div>
 //   return (
 //     <div className='ranking-container'>

@@ -4,7 +4,8 @@ import "./Project.css"
 import { } from 'react-icons/bs'
 import { IoSearchSharp } from "react-icons/io5";
 import { FaPlus } from "react-icons/fa6";
-
+import Sidebar from '../sidebar/Sidebar';
+import Header from '../head/Header';
 
 
 const Project = () => {
@@ -18,33 +19,36 @@ const Project = () => {
   }
 
   return (
-    <div className='project'>
+    <div className='grid-container'>
+      <Header />
+      <Sidebar />
+      <div className='project'>
+    <button className='create' onClick="">
+      <FaPlus />
+      Create Project
+    </button>
 
-        <button className='create' onClick="">
-          <FaPlus />
-          Create Project
-        </button>
-
-      <div>
-        {tasks.map((task, index) =>
-          <div key={index} className="view-project-btn">
-            <div className="project-list">
-              <div className='task-name'>
-                <h1 className="text">{task}</h1>
-              </div>
-              <div className="btn">
-                <button className='move-btn' onClick="">
-                  View Details <IoSearchSharp />
-                </button>
-              </div>
-            </div>
-            <div className="comment" id='comment'>
-
-            </div>
-          </div>
-        )}
+<div>
+{tasks.map((task, index) =>
+  <div key={index} className="view-project-btn">
+    <div className="project-list">
+      <div className='task-name'>
+        <h1 className="text">{task}</h1>
       </div>
+      <div className="btn">
+        <button className='move-btn' onClick="">
+          View Details <IoSearchSharp />
+        </button>
+      </div>
+    </div>
+    <div className="comment" id='comment'>
 
+    </div>
+  </div>
+)}
+</div>
+
+</div>
     </div>
 
   )

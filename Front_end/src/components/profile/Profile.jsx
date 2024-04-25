@@ -1,7 +1,8 @@
 import React from 'react'
 import './Profile.css'
 import user from './mockData';
-
+import Sidebar from '../sidebar/Sidebar';
+import Header from '../head/Header';
 const Profile = () => {
 
   const avatar = "https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-541.jpg?size=338&ext=jpg&ga=GA1.1.735520172.1711411200&semt=ais";
@@ -9,7 +10,10 @@ const Profile = () => {
   const auth1 = JSON.parse(auth);
 
   return (
-    <div className='contain'>
+    <div className='grid-container'>
+      <Header />
+      <Sidebar />
+      <div className='contain'>
       <div className='profile-container'>
         <div className="profile">
           <div className='avatar'>
@@ -57,6 +61,8 @@ const Profile = () => {
         </div>
       </div>
     </div>
+    </div>
+    
   )
 }
 
