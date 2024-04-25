@@ -11,11 +11,15 @@
     align-items: center;
     flex-direction: row;
     border-radius: 15px;
-    border: 1px solid #fff;
+    border: none;
+    background-color: #fff;
     padding: 10px 30px;
     .rank-number h1 {
         padding: 0 15px;
-        letter-spacing: 2px;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 36px;
+        letter-spacing: 1px;
     }
     .avatar {
         padding: 0 15px;
@@ -23,13 +27,13 @@
     .name p {
         padding-right: 30px;
         font-weight: 700;
-        font-size: 32px;
+        font-size: 36px;
         line-height: 36px;
         letter-spacing: 1px;
     }
     .total h3 {
-        font-weight: 400;
-        font-size: 32px;
+        font-weight: 500;
+        font-size: 36px;
         line-height: 36px;
         letter-spacing: 2px;
     }

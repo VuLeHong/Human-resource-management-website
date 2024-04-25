@@ -3,10 +3,10 @@ import "./Task.css"
 import user from '../profile/mockData';
 import { BsChat, BsFillFolderFill } from 'react-icons/bs'
 
-const ToDoList = () => {
+const Task = () => {
 
   const [tasks, setTasks] = useState(["Eat breakfast", "Take a shower", "Walk the dog"]);
-  const commentEl = document.getElementById("commentEl");
+  const commentEl = document.getElementById("comment");
 
   const commentTask = () => {
     return null;
@@ -48,4 +48,4 @@ const ToDoList = () => {
 
 // Có mồi function backend rồi á
 
-export default ToDoList
+export default Task

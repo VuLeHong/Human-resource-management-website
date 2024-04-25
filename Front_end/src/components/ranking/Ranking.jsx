@@ -6,7 +6,7 @@ import { React, useState, useEffect } from 'react';
 function Rank() {
 
   const [isLoading, setIsLoading] = useState(false);
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([user]);
 
   const getUsers = async () => {
     try {
@@ -51,9 +51,13 @@ const Ranking = () => {
         </div>
         <div className='ladderboard'>
           <div className="subTitle">
-            <h1>Ladderboard</h1>
+            <h1>Leaderboard</h1>
           </div>
-          <div className="dashBoard"></div>
+          <div className="dashBoard">
+            {user.map(() => 
+              <div></div>
+            )}
+          </div>
         </div>
     </div>
 //   return (
