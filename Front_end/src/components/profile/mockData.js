@@ -493,7 +493,7 @@ const statsMap = user.map(employee => ({
   "idea_contribution": employee.stats.idea_contribution,
   "communication_skill": employee.stats.communication_skill,
   "product_optimization": employee.stats.product_optimization
-}))
+})) //map qua cac chi so cua nhan vien
 
 const sumArr = []
 statsMap.forEach(obj => {
@@ -504,11 +504,22 @@ statsMap.forEach(obj => {
     }
   }
   sumArr.push(objSum)
-})
+}) //tinh tong diem va luu vao bo nho tam thoi
 
 for (let i = 0; i < sumArr.length; i++) {
   user[i].score = (user[i].score || 0) + sumArr[i]
-}
-user.sort((a, b) => b.score - a.score)
+} //chuyen tu bo nho tam thoi ve bo nho chinh
 
-export default user;
+user.sort((a, b) => {
+  if (a.score > b.score) return -1;
+  if (a.score < b.score) return 1;
+}) //sap xiep thu tu hang
+
+// console.log(user);
+
+let rankedArr = user.map((arr, index) => ({
+  ...arr,
+  rank: index + 1
+})) //them thuoc tinh hang vao bo nho chinh
+
+export default rankedArr;

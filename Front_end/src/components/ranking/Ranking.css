@@ -14,6 +14,7 @@
     border: none;
     background-color: #fff;
     padding: 10px 30px;
+    margin: 10px 0;
     .rank-number h1 {
         padding: 0 15px;
         font-weight: 700;
@@ -21,20 +22,50 @@
         line-height: 36px;
         letter-spacing: 1px;
     }
+    .profile-comp {
+        display: flex;
+        align-items: center;
+        padding: 0 30px;
+    }
     .avatar {
-        padding: 0 15px;
+        padding: 0 10px;
     }
     .name p {
-        padding-right: 30px;
         font-weight: 700;
         font-size: 36px;
         line-height: 36px;
         letter-spacing: 1px;
     }
+    .role p {
+        padding: 0 30px;
+        font-weight: 700;
+        font-size: 23px;
+        line-height: 36px;
+        letter-spacing: 1px;
+    }
     .total h3 {
+        padding: 0 15px;
         font-weight: 500;
         font-size: 36px;
         line-height: 36px;
         letter-spacing: 2px;
+    }
+}
+
+.leaderboard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .dashboard {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-evenly;
+        gap: 30px;
+        .div-Component {
+            margin: 0 80px;
+        }
     }
 }
