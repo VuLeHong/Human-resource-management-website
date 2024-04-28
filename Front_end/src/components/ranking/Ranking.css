@@ -11,26 +11,74 @@
     align-items: center;
     flex-direction: row;
     border-radius: 15px;
-    border: 1px solid #fff;
+    border: none;
+    background-color: #fff;
     padding: 10px 30px;
+    margin: 10px 0;
     .rank-number h1 {
         padding: 0 15px;
-        letter-spacing: 2px;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 36px;
+        letter-spacing: 1px;
+    }
+    .profile-comp {
+        display: flex;
+        align-items: center;
+        padding: 0 30px;
     }
     .avatar {
-        padding: 0 15px;
+        padding: 0 10px;
     }
     .name p {
-        padding-right: 30px;
         font-weight: 700;
-        font-size: 32px;
+        font-size: 36px;
+        line-height: 36px;
+        letter-spacing: 1px;
+    }
+    .role p {
+        padding: 0 30px;
+        font-weight: 700;
+        font-size: 23px;
         line-height: 36px;
         letter-spacing: 1px;
     }
     .total h3 {
-        font-weight: 400;
-        font-size: 32px;
+        padding: 0 15px;
+        font-weight: 500;
+        font-size: 36px;
         line-height: 36px;
         letter-spacing: 2px;
+    }
+}
+
+.leaderboard {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .dashboard {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-evenly;
+        .div-comp {
+            padding: 0 100px;
+        }
+    }
+    .leader {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: row;
+    }
+    .avt-and-name {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0 10px;
     }
 }
