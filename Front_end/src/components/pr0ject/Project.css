@@ -1,0 +1,63 @@
+
+.project {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.view-project-btn {
+    width: 100%;
+    background-color: #fff;
+    margin: 20px 0;
+}
+
+.project-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-direction: row;
+    padding: 0 30px;
+}
+
+.project-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 36px;
+}
+
+.btn button {
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 32px;
+    color: #fff;
+}
+.move-btn {
+    background-color: lightblue;
+}
+
+.create{ 
+    margin-right: 17em;
+    font-weight: 500px;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 32px;
+    
+}

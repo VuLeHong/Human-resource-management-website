@@ -1,0 +1,36 @@
+body {
+    margin: 1%;
+}
+.mini-profile-container {
+    background-color: aqua;
+    display: flex;
+}
+.personal-img {
+    width: 30vh;
+    height: 30vh;
+}
+.personal-img img {
+    width: 30vh;
+    height: 30vh;
+}
+.personal-details {
+    color: black;
+    align-items: center;
+    justify-content: left;
+    padding-left: 50px;
+    /* padding-top: 30px; */
+    font-size: x-large;
+    align-content: space-around;
+}
+.personal-name {
+    padding-top: 10px;
+}
+.personal-role-dept {
+    padding-top: 10px;
+}
+.personal-rank {
+    padding-top: 10px;
+}
+.personal-stats {
+    padding-top: 10px;
+}
