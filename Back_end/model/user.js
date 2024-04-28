@@ -2,62 +2,107 @@ const mongoose = require('mongoose')
 
 const UserSchema = new mongoose.Schema({
     username:{
-        type:String,
+        type: String,
     },
 
     password:{
-        type:String,
+        type: String,
     },
 
     truename:{
-        type:String,
+        type: String,
+    },
+
+    ismale:{
+        type: Boolean,
+        required: true,
+        default: true
     },
 
     role:{
-        type:String,
+        type: String,
     },
 
     rank:{
-        type:String,
+        type: String,
         required:true,
         default: 'E'
     },
 
-    stats : [
+    tasks:[
         {
-            team_work:{
-                type:String,
+            content:{
+                type: String
+            }, 
+
+            rank:{
+                type: String,
                 required:true,
-                default: '0'
+                default: 'E'
             },
 
-            tech_skill:{
-                type:String,
-                required:true,
-                default: '0'
-            },
-
-            patient:{
-                type:String,
-                required:true,
-                default: '0'
-            },
-
-            learning_attitude:{
-                type:String,
-                required:true,
-                default: '0'
-            },
-
-            leading_skill:{
-                type:String,
-                required:true,
-                default: '0'
+            isdone:{
+                type: Boolean,
+                required: true,
+                default: false
             }
         }
-    ]
+    ],
+
+    stats :
+        {
+            organizational_skill:{
+                type: Number,
+                required:true,
+                default: 0
+            },
+
+            techical_skill:{
+                type: Number,
+                required:true,
+                default: 0
+            },
+
+            idea_contribution:{
+                type: Number,
+                required:true,
+                default: 0
+            },
+
+            communication_skill:{
+                type: Number,
+                required:true,
+                default: 0
+            },
+
+            product_optimization:{
+                type: Number,
+                required:true,  
+                default: 0
+            }
+        },
+
+        history:[
+            {
+                time:{
+                    type: Date
+                }, 
+    
+                change:{
+                    type: Number,
+                    required:true,
+                    default: 0
+                },
+    
+                point:{
+                    type: Number,
+                    required: true,
+                    default: 0
+                }
+            }
+        ]
 })
 
-const user_collection = new mongoose.model("user_collection",UserSchema)
+const user_collection = mongoose.model("user_collection",UserSchema)
 
 module.exports = user_collection

@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const dotenv = require('dotenv');
 const user_collection = require('./model/user')
+const asyncHandler = require('express-async-handler')
 
 dotenv.config();
 
@@ -92,6 +93,45 @@ app.delete('/home/:id', async(req, res) =>{
         res.status(500).json({message: error.message})
     }
 })
+
+app.post('/get', (req,res) =>{
+    const {username} = req.body;
+    user_collection.findOne({username: username})
+    .then(user => {
+            res.json(user);   
+    })
+    .catch(err => res.json(err))
+})
+
+app.post('/updatedone', asyncHandler(async(req,res) =>{
+    const{username, index} = req.body;
+    const getUsertoChange = await user_collection.findOne({username: username});
+    update = getUsertoChange.tasks;
+    update[index].isdone = true;
+    console.log(update);
+    const works = await user_collection.findOneAndUpdate({username: username}, {tasks: update})
+    .then(result => res.json(result))
+    .catch(err => res.json(err))
+}))
+
+app.post('/update', asyncHandler(async(req,res) =>{
+    const{username, index} = req.body;
+    const getUsertoChange = await user_collection.findOne({username: username});
+    update = getUsertoChange.tasks;
+    update[index].isdone = false;
+    console.log(update);
+    const works = await user_collection.findOneAndUpdate({username: username}, {tasks: update})
+    .then(result => res.json(result))
+    .catch(err => res.json(err))
+}))
+
+app.post('/delete', asyncHandler(async(req,res) =>{
+    const{username, id} = req.body;
+    const task = {_id: id}
+    const works = await user_collection.findOneAndUpdate({username: username}, {$pull: {tasks:task}})
+    .then(result => res.json(result))
+    .catch(err => res.json(err))
+}))
 
 async function connect () {
     try {
