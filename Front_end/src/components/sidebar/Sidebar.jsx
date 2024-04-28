@@ -15,7 +15,7 @@ function Sidebar({openSidebarToggle}) {
         <ul className='sidebar-list'>
             <li className='sidebar-list-item'>
                 <a href=''>
-                    <Link to='/'><BsFillPersonFill className='icon'/> Profile</Link>
+                    <Link to='/profile'><BsFillPersonFill className='icon'/> Profile</Link>
                 </a>
             </li>
             <li className='sidebar-list-item'>
