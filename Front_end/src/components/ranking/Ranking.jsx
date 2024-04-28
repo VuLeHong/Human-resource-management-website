@@ -55,17 +55,112 @@ const Ranking = () => {
             <h1>Leaderboard</h1>
           </div>
           <div className="dashboard">
-            <div className="div-Component rank-num">
+            <div className="div-comp rank-num">
                 <h1>No.</h1>
             </div>
-            <div className="div-Component truename">
+            <div className="div-comp truename">
               <p>Employee</p>
             </div>
-            <div className="div-Component role">
+            <div className="div-comp role">
               <p>Role</p>
             </div>
-            <div className="div-Component score">
+            <div className="div-comp score">
               <h3>Score</h3>
+            </div>
+          </div>
+          <div className="leader">
+            <div className="rank-no">
+              <h1>{rankedArr[rankedArr.length - 1].rank}</h1>
+            </div>
+            <div className="avt-and-name">
+              <div className="avt">
+                <img src={avatar} width='70' height='70' />
+              </div>
+              <div className="profile-name">
+                <p>{rankedArr[rankedArr.length - 1].truename}</p>
+              </div>
+            </div>
+            <div className="role">
+              <p>{rankedArr[rankedArr.length - 1].role}</p>
+            </div>
+            <div className="score">
+              <h3>{rankedArr[rankedArr.length - 1].score}</h3>
+            </div>
+          </div>
+          <div className="leader">
+            <div className="rank-no">
+              <h1>{rankedArr[rankedArr.length - 1].rank}</h1>
+            </div>
+            <div className="avt-and-name">
+              <div className="avt">
+                <img src={avatar} width='70' height='70' />
+              </div>
+              <div className="profile-name">
+                <p>{rankedArr[rankedArr.length - 1].truename}</p>
+              </div>
+            </div>
+            <div className="role">
+              <p>{rankedArr[rankedArr.length - 1].role}</p>
+            </div>
+            <div className="score">
+              <h3>{rankedArr[rankedArr.length - 1].score}</h3>
+            </div>
+          </div>
+          <div className="leader">
+            <div className="rank-no">
+              <h1>{rankedArr[rankedArr.length - 1].rank}</h1>
+            </div>
+            <div className="avt-and-name">
+              <div className="avt">
+                <img src={avatar} width='70' height='70' />
+              </div>
+              <div className="profile-name">
+                <p>{rankedArr[rankedArr.length - 1].truename}</p>
+              </div>
+            </div>
+            <div className="role">
+              <p>{rankedArr[rankedArr.length - 1].role}</p>
+            </div>
+            <div className="score">
+              <h3>{rankedArr[rankedArr.length - 1].score}</h3>
+            </div>
+          </div>
+          <div className="leader">
+            <div className="rank-no">
+              <h1>{rankedArr[rankedArr.length - 1].rank}</h1>
+            </div>
+            <div className="avt-and-name">
+              <div className="avt">
+                <img src={avatar} width='70' height='70' />
+              </div>
+              <div className="profile-name">
+                <p>{rankedArr[rankedArr.length - 1].truename}</p>
+              </div>
+            </div>
+            <div className="role">
+              <p>{rankedArr[rankedArr.length - 1].role}</p>
+            </div>
+            <div className="score">
+              <h3>{rankedArr[rankedArr.length - 1].score}</h3>
+            </div>
+          </div>
+          <div className="leader">
+            <div className="rank-no">
+              <h1>{rankedArr[rankedArr.length - 1].rank}</h1>
+            </div>
+            <div className="avt-and-name">
+              <div className="avt">
+                <img src={avatar} width='70' height='70' />
+              </div>
+              <div className="profile-name">
+                <p>{rankedArr[rankedArr.length - 1].truename}</p>
+              </div>
+            </div>
+            <div className="role">
+              <p>{rankedArr[rankedArr.length - 1].role}</p>
+            </div>
+            <div className="score">
+              <h3>{rankedArr[rankedArr.length - 1].score}</h3>
             </div>
           </div>
           <div className="leader">
