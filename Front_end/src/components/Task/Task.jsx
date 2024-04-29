@@ -1,17 +1,27 @@
 import React, { useState } from 'react'
 import "./Task.css"
-import user from '../profile/mockData';
-import { BsChat, BsFillFolderFill } from 'react-icons/bs'
+import rankedArr from '../profile/mockData';
+import { BsChat, BsFillFolderFill, BsFillSendFill, BsXSquare } from 'react-icons/bs'
 
 const Task = () => {
 
-  const [tasks, setTasks] = useState(["Eat breakfast", "Take a shower", "Walk the dog"]);
-  const commentEl = document.getElementById("comment");
+  const [tasks, setTasks] = useState(["Eat breakfast", "Take a shower", "Walk the dog"])
 
-  const commentTask = () => {
-    return null;
+  const showBtn = document.getElementById("showComment")
+  const sendEl = document.getElementById("send")
+  const commentEl = document.getElementById("comment")
+  const closeBtn = document.getElementById("close")
+  
+  showBtn.addEventListener("click", showItem)
+  function showItem() {
+    commentEl.style.display = "block"
   }
 
+  closeBtn.addEventListener("click", hideItem)
+
+  function hideItem() {
+    commentEl.style.display = "none"
+  }
   return (
     <div className='todo'>
 
@@ -25,7 +35,7 @@ const Task = () => {
                 <h1 className="text">{task}</h1>
               </div>
               <div className="btn">
-                <button className='comment-btn' onClick={commentTask()}>
+                <button className='comment-btn' id='showComment'>
                     Comment
                     <BsChat className='icons'/>
                 </button>
@@ -36,7 +46,15 @@ const Task = () => {
               </div>
             </div>
             <div className="comment" id='comment'>
-              
+              <div className="close-div">
+                <button id='close'>
+                  <BsXSquare />
+                </button>
+              </div>
+              <div className="comment-div">
+                <input type="text" placeholder='Comment here...' id="" />
+                <button type="submit" id='send'><BsFillSendFill /></button>
+              </div>
             </div>
         </div>
       )}
