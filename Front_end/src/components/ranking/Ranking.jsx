@@ -13,11 +13,11 @@ const Ranking = () => {
     try {
       setIsLoading(true);
       const response = await axios.get("http://localhost:5000/home");
-      console.log(response.data)
+      //console.log(response.data)
       setUsers(response.data);
       setIsLoading(false);
     } catch (error) {
-      console.error(error.message);
+      //console.error(error.message);
       setIsLoading(false);
     }
   };
@@ -45,15 +45,18 @@ const Ranking = () => {
     sumArr.push(objSum)
   })
   
+   let rankedArr = users.map((arr, index) => ({
+     ...arr,
+     rank: index + 1
+   }))
   for (let i = 0; i < sumArr.length; i++) {
     users[i].score = (users[i].score || 0) + sumArr[i]
   }
   users.sort((a, b) => b.score - a.score)
-
   const auth = localStorage.getItem("user");
   const auth1 = JSON.parse(auth);
   const avatar = "https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-541.jpg?size=338&ext=jpg&ga=GA1.1.735520172.1711411200&semt=ais";
-
+  //console.log(rankedArr);
   return (
     <div className='grid-container'>  
       <Header />
@@ -96,7 +99,7 @@ const Ranking = () => {
               <h3>Score</h3>
             </div>
           </div>
-          {users.map(user =>(
+          {rankedArr.map(user =>(
           <div className="leader">
             <div className="rank-no">
               <h1>{user.rank}</h1>

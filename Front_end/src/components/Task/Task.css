@@ -72,3 +72,6 @@
 .line_through {
     text-decoration: line-through;
 }
+.comment {
+    width: 100%;
+}
