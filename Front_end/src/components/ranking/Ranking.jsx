@@ -17,7 +17,8 @@ const Ranking = () => {
       setUsers(response.data);
       setIsLoading(false);
     } catch (error) {
-      //console.error(error.message);
+
+      console.error(error.message);
       setIsLoading(false);
     }
   };
@@ -100,6 +101,7 @@ const Ranking = () => {
             </div>
           </div>
           {rankedArr.map(user =>(
+
           <div className="leader">
             <div className="rank-no">
               <h1>{user.rank}</h1>
