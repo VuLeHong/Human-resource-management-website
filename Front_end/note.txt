@@ -5,3 +5,7 @@ Sau khi pull repo này về, hãy mở terminal và nhập các lệnh sau đây
     npm i react-router-dom
     npm i react-icons --save
     npm run dev
+    cd Back_end/
+    npm i dotenv
+    npm i express-async-handler
+    npm start
