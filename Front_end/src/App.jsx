@@ -17,11 +17,11 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+          <Route path='/' element={<LoginForm />}/>
           <Route path='/profile' element={<Profile/>}/>
           <Route path='/task' element={<Task/>}/>
           <Route path='/ranking' element={<Ranking />}/>
           <Route path='/project' element={<Project />}/>
-          <Route path='/' element={<LoginForm />}/>
         </Routes>
       {/* <Home /> */}
       </BrowserRouter>
