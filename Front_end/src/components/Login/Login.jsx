@@ -5,14 +5,14 @@ import './Login.css';
 
 const LoginForm = () => {
   const history = useNavigate();
-  const [username, setUsername] = useState('');
+  const [user_id, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   async function submit(e){
     e.preventDefault();
     try {
       await axios.post("http://localhost:5000/login",{
-        username,password
+        user_id,password
       })
       .then(res => {
         if(res.status===200){
@@ -43,7 +43,7 @@ const LoginForm = () => {
         <form className="login" onSubmit={submit}>
           <p className='login-title'>Login</p>
           <div className="input-box">
-            <input type='text' onChange={(e) => {setUsername(e.target.value) } } placeholder='Username' required />
+            <input type='text' onChange={(e) => {setUsername(e.target.value) } } placeholder='User ID' required />
           </div>
           <div className="input-box">
             <input type="password" onChange={(e) => { setPassword(e.target.value) }} placeholder='Passwork' required />
