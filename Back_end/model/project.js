@@ -1,46 +1,30 @@
 const mongoose = require('mongoose')
 
-const UserSchema = new mongoose.Schema({
-    truename:{
-        type: mongoose.Schema.Types.String,
+const Projectschema = new mongoose.Schema({
+    owner_id:{
+        type: mongoose.Schema.Types.ObjectId,
+        required:true,
         ref:'user'
     },
     name:{
         type: String,
-    },
-
-    rank:{
-        type: String,
         required:true,
-        default: 'E'
+        default:''
     },
-
+    desc:{
+        type:String,
+        default:''
+    },
     tasks:[
         {
-            content:{
-                type: String
+            task_id:{
+                type:mongoose.Schema.Types.ObjectId,
+                required:true
             }, 
-
-            rank:{
-                type: String,
-                required:true,
-                default: 'E'
-            },
-
-            isdone:{
-                type: Boolean,
-                required: true,
-                default: false
-            },
-            byuser:{
-                type:String,
-                required:true,
-
-            }
         }
     ],
 })
 
-const user_collection = mongoose.model("user_collection",UserSchema)
+const Project_collection = mongoose.model("Project_collection",Projectschema)
 
-module.exports = user_collection
+module.exports = Project_collection

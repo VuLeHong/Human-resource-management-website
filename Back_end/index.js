@@ -4,6 +4,8 @@ const cors = require('cors')
 const dotenv = require('dotenv');
 const user_collection = require('./model/user')
 const asyncHandler = require('express-async-handler')
+const Project_collection = require('./model/project')
+const Task_collection = require('./model/task')
 
 dotenv.config();
 
@@ -132,6 +134,37 @@ app.post('/delete', asyncHandler(async(req,res) =>{
     .then(result => res.json(result))
     .catch(err => res.json(err))
 }))
+
+//project
+app.post('/project', async(req, res) => {
+    try {
+        const user = await Project_collection.create(req.body)
+        res.status(200).json(user);
+    }
+    catch (error) {
+        console.log(error.message);
+        res.status(500).json({message: error.message});
+    }
+})
+
+//task 
+app.post('/addtask', asyncHandler(async(req,res) =>{
+    const{ content, rank, Project_id: Project_id, user_id:user_id} = req.body;
+    const task = {content: content, rank: rank, isdone: false ,Project_id: Project_id, user_id: user_id};
+   const works = await Task_collection.create(task)
+    .then(result => res.json(result))
+    .catch(err => res.json(err))
+}))
+app.get('/gettask', async(req, res) => {
+    try {
+        const user = await Task_collection.find({});
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+})
+
+
 
 async function connect () {
     try {
