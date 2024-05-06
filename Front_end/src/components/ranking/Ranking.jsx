@@ -17,12 +17,7 @@ const Ranking = () => {
       setUsers(response.data);
       setIsLoading(false);
     } catch (error) {
-<<<<<<< HEAD
-      //console.error(error.message);
-=======
-
       console.error(error.message);
->>>>>>> ae5108146957ae4ec99f2b5070ee995651e694d3
       setIsLoading(false);
     }
   };
