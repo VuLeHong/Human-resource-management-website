@@ -105,10 +105,6 @@ const Ranking = () => {
             </div>
           </div>
           {rankedArr.map(user =>(
-<<<<<<< HEAD
-=======
-
->>>>>>> ae5108146957ae4ec99f2b5070ee995651e694d3
           <div className="leader">
             <div className="rank-no">
               <h1>{user.rank}</h1>
