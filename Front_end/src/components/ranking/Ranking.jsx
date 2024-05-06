@@ -63,7 +63,7 @@ const Ranking = () => {
       <Header />
       <Sidebar />
       <div className='ranking'>
-        <div className="title">
+        <div className="RankTitle">
           <h1>Hello {auth1.truename}, here is your total stats!</h1>
         </div>
         <div className="rank">

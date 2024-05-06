@@ -59,5 +59,13 @@
     font-weight: 500;
     font-size: 23px;
     line-height: 32px;
-    
+    color: black;
+    box-shadow: tomato;
+}
+
+.create:hover {
+    letter-spacing: 2px;
+    background-color: aqua;
+    color: black;
+    transform: scale(1.1);
 }

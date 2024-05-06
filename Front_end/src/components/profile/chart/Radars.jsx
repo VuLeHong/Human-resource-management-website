@@ -5,7 +5,7 @@ import {} from "react-chartjs-2"
 const Radars = () => {
   return (
     <div>
-      
+      <h1>Hello World</h1>
     </div>
   )
 }
