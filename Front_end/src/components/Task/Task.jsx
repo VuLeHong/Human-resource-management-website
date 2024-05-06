@@ -37,37 +37,14 @@ function Task() {
     const auth = localStorage.getItem("user");
     const auth1 = JSON.parse(auth);
     useEffect(() => {
-      axios.post('http://localhost:5000/get', {username: auth1.username}) 
+      axios.get('http://localhost:5000/gettasks') 
       .then(result => {
-        setTasks(result.data.tasks)
-        console.log(result.data.tasks)
+        console.log(result.data)
+        setTasks(result.data)
+        
       })
       .catch(err => console.log(err))
     }, [])
-
-    const handleEditdone = (index) => {
-    axios.post('http://localhost:5000/updatedone',{username: auth1.username, index})
-    .then(result => {
-        location.reload()
-    })
-    .catch(err => console.log(err))
-    }
-
-    const handleEdit = (index) => {
-      axios.post('http://localhost:5000/update',{username: auth1.username, index})
-      .then(result => {
-          location.reload()
-      })
-      .catch(err => console.log(err))
-    }
-
-    const handleDelete = (id) => {
-      axios.post('http://localhost:5000/delete',{username: auth1.username, id})
-      .then(result => {
-          location.reload()
-      })  
-      .catch(err => console.log(err))
-    }
 
   return (
     <div className='grid-container'>
@@ -78,6 +55,7 @@ function Task() {
         <div>
           {tasks.map((task, index) =>(
               <div key={index} className="separate-btn">
+                {task.user_id === auth1.user_id ? 
                 <div className="task-list">
                   <div className='task-name'>
                     <p className={task.isdone ? "line_through text" : "text"}>{task.content}</p>
@@ -87,6 +65,8 @@ function Task() {
                     <button className='move-btn' onClick={() => {}}>Upload<BsFillFolderFill className='icons'/></button>
                   </div>
                 </div>
+                :
+                <></>}
                 {show[index] &&
                   <div className="comment">
                     <div className="comment-div">
