@@ -38,27 +38,27 @@ const LoginForm = () => {
   }
 
   return (
-    <div className="big-wrapper">
     <div className='wrapper'>
-      <form onSubmit={submit}>
-        <h1>Login</h1>
-        <div className="input-box">
-          <input type='text' onChange={(e) => {setUsername(e.target.value) } } placeholder='Username' required />
-        </div>
-        <div className="input-box">
-          <input type="password" onChange={(e) => { setPassword(e.target.value) }} placeholder='Passwork' required />
-        </div>
-        {/* <div className='remember-forgot'>
-          <label>
-            <input type='checkbox'/> Remember me
-          </label>
-          <a href="#">Forgot password?</a>
-        </div> */}
-        <div>
-        <button type='submit' className='btn'>Login</button>
-        </div>
-      </form>
-    </div>
+      <div className="login-form">
+        <form className="login" onSubmit={submit}>
+          <p className='login-title'>Login</p>
+          <div className="input-box">
+            <input type='text' onChange={(e) => {setUsername(e.target.value) } } placeholder='Username' required />
+          </div>
+          <div className="input-box">
+            <input type="password" onChange={(e) => { setPassword(e.target.value) }} placeholder='Passwork' required />
+          </div>
+            {/* <div className='remember-forgot'>
+              <label>
+                <input type='checkbox'/> Remember me
+              </label>
+              <a href="#">Forgot password?</a>
+            </div> */}
+          <div className='submit-btn'>
+          <button type='submit' className='btn'>Login</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

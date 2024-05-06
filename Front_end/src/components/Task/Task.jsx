@@ -10,12 +10,30 @@ function Task() {
 
     const [show, setShow] = useState(Array(tasks.length).fill(false))
 
+    // const toggle = (index) => {
+    //   setShow(show.map((item, i) => {
+    //     return i === index ? !item : item
+    //     // console.log(1)
+    //   }))
+    // }
+
+    // const toggle = (index) => {
+    //   console.log("Toggle function called with index:", index);
+    //   setShow(show.map((item, i) => {
+    //     const updatedItem = i === index ? !item : item;
+    //     console.log(`Item at index ${i} - updated: ${updatedItem}`);
+    //     return updatedItem;
+    //   }));
+    // };
+    
     const toggle = (index) => {
-      setShow(show.map((item, i) => {
-        i === index ? !item : item
-        console.log(1)
-      }))
-    }
+      setShow(prevShow => {
+        const updatedShow = [...prevShow];
+        updatedShow[index] = !updatedShow[index];
+        return updatedShow;
+      });
+    };
+
     const auth = localStorage.getItem("user");
     const auth1 = JSON.parse(auth);
     useEffect(() => {
@@ -65,7 +83,7 @@ function Task() {
                   <p className={task.isdone ? "line_through text" : "text"}>{task.content}</p>
                 </div>
                 <div className="btn">
-                  <button className='comment-btn' onClick={() => toggle(index)}>Comment<BsChat className='icons'/></button>
+                  <button className='comment-btn' onClick={() => { console.log("Clicked comment button for index:", index); toggle(index)}}>Comment<BsChat className='icons'/></button>
                   <button className='move-btn' onClick={() => {}}>Upload<BsFillFolderFill className='icons'/></button>
                 </div>
               </div>
