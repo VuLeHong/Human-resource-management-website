@@ -2,6 +2,7 @@ import React from 'react'
 import { BsFillPersonFill, BsListTask, BsClipboard2Pulse, BsFillArchiveFill } from 'react-icons/bs'
 import logo from '../../assets/logo-white.png'
 import { Link, useNavigate } from 'react-router-dom'
+import './Sidebar.css'
 
 function Sidebar({openSidebarToggle}) {
   return (
@@ -15,7 +16,7 @@ function Sidebar({openSidebarToggle}) {
         <ul className='sidebar-list'>
             <li className='sidebar-list-item'>
                 <a href=''>
-                    <Link to='/'><BsFillPersonFill className='icon'/> Profile</Link>
+                    <Link to='/profile'><BsFillPersonFill className='icon'/> Profile</Link>
                 </a>
             </li>
             <li className='sidebar-list-item'>

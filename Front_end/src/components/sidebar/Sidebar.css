@@ -1,0 +1,26 @@
+.sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-list-item:hover {
+    cursor: pointer;
+    background-color: rgba(72, 10, 243, 0.3);
+    transition: 0.5s;
+    transform: scale(1.05);
+}
+
+.sidebar-list-item a {
+    width: 100%;
+    padding: 10px;
+    color: aqua;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* .sidebar-list-item a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: 0.5s;
+    transform: scale(1.15);
+} */
