@@ -82,3 +82,22 @@
         padding: 0 10px;
     }
 }
+
+.RankTitle {
+    color: pink;
+}
+
+.subTitle {
+    color: aqua;
+}
+
+.dashboard {
+    color: aqua;
+}
+
+.leader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

@@ -7,7 +7,6 @@ import { FaPlus } from "react-icons/fa6";
 import Sidebar from '../sidebar/Sidebar';
 import Header from '../head/Header';
 
-
 const Project = () => {
 
   const [tasks, setTasks] = useState(["Making Front_end", "Merge", "DCM"]);
