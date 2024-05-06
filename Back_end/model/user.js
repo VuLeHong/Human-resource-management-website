@@ -1,12 +1,15 @@
 const mongoose = require('mongoose')
 
 const UserSchema = new mongoose.Schema({
-    username:{
+    user_id:{
         type: String,
+        required:true,
+        unique: true
     },
 
     password:{
         type: String,
+        required:true,
     },
 
     truename:{
@@ -28,7 +31,6 @@ const UserSchema = new mongoose.Schema({
         required:true,
         default: 'E'
     },
-    
     stats :
         {
             organizational_skill:{

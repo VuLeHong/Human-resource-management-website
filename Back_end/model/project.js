@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const Projectschema = new mongoose.Schema({
     owner_id:{
-        type: mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.String,
         required:true,
         ref:'user'
     },

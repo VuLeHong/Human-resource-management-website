@@ -25,7 +25,7 @@ const Taskschema = new mongoose.Schema({
         required:true
     },
     user_id:{
-        type:mongoose.Schema.Types.ObjectId,
+        type:mongoose.Schema.Types.String,
         required:true
     }
         
