@@ -27,6 +27,10 @@ const Taskschema = new mongoose.Schema({
     user_id:{
         type:mongoose.Schema.Types.String,
         required:true
+    },
+    res:{
+        type:String,
+        default:''
     }
         
 })

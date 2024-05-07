@@ -35,20 +35,10 @@ app.post("/login", async(req, res) => {
         res.json("fail")
     }
 })
-
+//user
 app.get('/home', async(req, res) => {
     try {
         const user = await user_collection.find({});
-        res.status(200).json(user);
-    } catch (error) {
-        res.status(500).json({message: error.message})
-    }
-})
-
-app.get('/home/:id', async(req, res) =>{
-    try {
-        const {id} = req.params;
-        const user = await user_collection.findById(id);
         res.status(200).json(user);
     } catch (error) {
         res.status(500).json({message: error.message})
@@ -66,16 +56,39 @@ app.post('/home', async(req, res) => {
     }
 })
 
-
 app.post('/get', (req,res) =>{
-    const {username} = req.body;
-    user_collection.findOne({username: username})
+    const {user_id} = req.body;
+    user_collection.findOne({user_id: user_id})
     .then(user => {
             res.json(user);   
     })
     .catch(err => res.json(err))
 })
 
+app.post('/upscore', asyncHandler(async(req,res) =>{
+    const{user_id: user_id, 
+        organizational_up: organizational_up, 
+        techical_up: techical_up,
+        idea_up: idea_up,
+        communication_up: communication_up,
+        product_up: product_up,
+        organizational_skill:organizational_skill,
+        techical_skill:techical_skill,
+        idea_contribution: idea_contribution,
+        communication_skill: communication_skill,
+        product_optimization: product_optimization
+        } = req.body;
+    const stats = {organizational_skill:organizational_skill+organizational_up, 
+                    techical_skill:techical_skill+techical_up, 
+                    idea_contribution: idea_contribution + idea_up,
+                    communication_skill: communication_skill + communication_up,
+                    product_optimization: product_optimization + product_up,
+                    };
+    //console.log(task)
+   const works = await user_collection.findOneAndUpdate({user_id: user_id}, {stats:stats})
+    .then(result => res.json(result))
+    .catch(err => res.json(err))
+}))
 //project
 app.post('/project', async(req, res) => {
     try {
@@ -85,6 +98,14 @@ app.post('/project', async(req, res) => {
     catch (error) {
         console.log(error.message);
         res.status(500).json({message: error.message});
+    }
+})
+app.get('/getprojects', async(req, res) => {
+    try {
+        const user = await Project_collection.find({});
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500).json({message: error.message})
     }
 })
 app.post('/pushtaskid', asyncHandler(async(req,res) =>{
@@ -154,7 +175,12 @@ app.get('/gettask', async(req, res) => {
         res.status(500).json({message: error.message})
     }
 })
-
+app.post('/result', asyncHandler(async(req,res) =>{
+    const{task_id: task_id, res: res} = req.body;
+   const works = await Task_collection.findOneAndUpdate({_id: task_id}, {res: res})
+    .then(result => res.json(result))
+    .catch(err => res.json(err))
+}))
 
 
 async function connect () {
