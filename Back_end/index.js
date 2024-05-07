@@ -90,21 +90,6 @@ app.post('/project', async(req, res) => {
 app.post('/pushtaskid', asyncHandler(async(req,res) =>{
     const{ Project_id:Project_id, task_id: task_id} = req.body;
     const task = {task_id:task_id};
-   const works = await Project_collection.findOneAndUpdate({_id: Project_id}, {$push: {tasks:task}})
-//project
-app.post('/project', async(req, res) => {
-    try {
-        const result = await Project_collection.create(req.body)
-        res.status(200).json(result);
-    }
-    catch (error) {
-        console.log(error.message);
-        res.status(500).json({message: error.message});
-    }
-})
-app.post('/pushtaskid', asyncHandler(async(req,res) =>{
-    const{ Project_id:Project_id, task_id: task_id} = req.body;
-    const task = {task_id:task_id};
     //console.log(task)
    const works = await Project_collection.findOneAndUpdate({_id: Project_id}, {$push:{tasks:task}})
     .then(result => res.json(result))
