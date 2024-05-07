@@ -28,7 +28,7 @@ const Taskschema = new mongoose.Schema({
         type:mongoose.Schema.Types.String,
         required:true
     },
-    res:{
+    ans:{
         type:String,
         default:''
     }

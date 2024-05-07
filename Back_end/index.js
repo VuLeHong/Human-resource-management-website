@@ -176,8 +176,8 @@ app.get('/gettask', async(req, res) => {
     }
 })
 app.post('/result', asyncHandler(async(req,res) =>{
-    const{task_id: task_id, res: res} = req.body;
-   const works = await Task_collection.findOneAndUpdate({_id: task_id}, {res: res})
+    const{task_id: task_id, ans: ans} = req.body;
+   const works = await Task_collection.findOneAndUpdate({_id: task_id}, {ans: ans})
     .then(result => res.json(result))
     .catch(err => res.json(err))
 }))
