@@ -9,22 +9,6 @@ function Task() {
     const [tasks, setTasks] = useState([]);
 
     const [show, setShow] = useState(Array(tasks.length).fill(false))
-
-    // const toggle = (index) => {
-    //   setShow(show.map((item, i) => {
-    //     return i === index ? !item : item
-    //     // console.log(1)
-    //   }))
-    // }
-
-    // const toggle = (index) => {
-    //   console.log("Toggle function called with index:", index);
-    //   setShow(show.map((item, i) => {
-    //     const updatedItem = i === index ? !item : item;
-    //     console.log(`Item at index ${i} - updated: ${updatedItem}`);
-    //     return updatedItem;
-    //   }));
-    // };
     
     const toggle = (index) => {
       setShow(prevShow => {
