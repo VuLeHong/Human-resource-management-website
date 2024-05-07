@@ -1,4 +1,4 @@
-Sau khi pull repo này về, hãy mở terminal và nhập các lệnh sau đây:
+Sau khi pull repo này về, hãy mở terminal và nhập các lệnh sau đây (nên tách ra làm 2 terminal độc lập để dễ dàng thao tác):
     cd Front_end/
     npm i
     npm i axios
