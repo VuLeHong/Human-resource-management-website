@@ -89,8 +89,8 @@ app.post('/project', async(req, res) => {
 })
 app.post('/pushtaskid', asyncHandler(async(req,res) =>{
     const{ Project_id:Project_id, task_id: task_id} = req.body;
-    const task = {task_id};
-   const works = await Project_collection.findOneAndUpdate({Project_id: Project_id}, {$push: {tasks:task}})
+    const task = {task_id:task_id};
+   const works = await Project_collection.findOneAndUpdate({_id: Project_id}, {$push: {tasks:task}})
     .then(result => res.json(result))
     .catch(err => res.json(err))
 }))
@@ -113,8 +113,8 @@ app.get('/gettasks', async(req, res) => {
     }
 })
 app.post('/addcmt', asyncHandler(async(req,res) =>{
-    const{_id: _id, t_desc : t_desc} = req.body;
-   const works = await Task_collection.findOneAndUpdate({_id: _id}, {t_desc:t_desc})
+    const{task_id:task_id, t_desc : t_desc} = req.body;
+   const works = await Task_collection.findOneAndUpdate({_id: task_id}, {t_desc:t_desc})
     .then(result => res.json(result))
     .catch(err => res.json(err))
 }))
