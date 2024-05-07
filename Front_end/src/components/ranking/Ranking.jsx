@@ -86,20 +86,6 @@ const Ranking = () => {
           <div className="subTitle">
             <h1>Leaderboard</h1>
           </div>
-          <div className="dashboard">
-            <div className="div-comp rank-num">
-                <h1>No.</h1>
-            </div>
-            <div className="div-comp truename">
-              <p>Employee</p>
-            </div>
-            <div className="div-comp role">
-              <p>Role</p>
-            </div>
-            <div className="div-comp score">
-              <h3>Score</h3>
-            </div>
-          </div>
           {rankedArr.map(user =>(
 
           <div className="leader">

@@ -72,14 +72,37 @@
         width: 100%;
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
+        /* justify-content: space-evenly; */
         flex-direction: row;
+        padding: 20px 0;
+    }
+
+    .rank-no, .role, .score {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .rank-no {
+        width: 50px;
+        height: 50px;
+        padding: 0 50px;
     }
     .avt-and-name {
+        width: 400px;
+        height: 50px;
         display: flex;
         align-items: center;
         gap: 10px;
         padding: 0 10px;
+    }
+    .role {
+        width: 200px;
+        height: 50px;
+    }
+    .score {
+        width: 200px;
+        height: 50px;
     }
 }
 
@@ -101,3 +124,5 @@
     align-items: center;
     width: 100%;
 }
+
+
