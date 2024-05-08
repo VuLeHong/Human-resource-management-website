@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import "./Modal.css";
 import {} from "react-icons"
@@ -50,6 +51,7 @@ const Task_modal = () => {
       )}
     </>
   );
+
 }
 
 export default Task_modal

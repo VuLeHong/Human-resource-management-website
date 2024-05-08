@@ -3,15 +3,15 @@ import "./Modal.css";
 import {} from "react-icons"
 
 import axios from 'axios'
+import { IoMdClose } from "react-icons/io";
+
+
 const Modal = () => {
   const [modal, setModal] = useState(false);
-  const [name, setName] = useState();
-  const [Desc, setDesc] = useState();
+
   const toggleModal = () => {
     setModal(!modal);
   };
-  const auth = localStorage.getItem("user");
-  const auth1 = JSON.parse(auth);
 
   if(modal) {
     document.body.classList.add('active-modal')
@@ -42,20 +42,20 @@ const Modal = () => {
             <div className="title-project">
                 <h2>Create Project</h2>
                 <button className="close-modal" onClick={toggleModal}>
-                CLOSE
+                <IoMdClose />
                 </button>
             </div>
-            <form onSubmit={handleAdd}>
+            <form className="form-create" action="">
                 <div className="name-project">
-                    <p className="text-label" htmlFor="">Name:</p>
-                    <input type="text" placeholder="Name of project" onChange={ (e) => setName(e.target.value)}/>
+                    <p className="text-label" htmlFor="">Name :</p>
+                    <input type="text" placeholder=" Name of project" name="" id="" required />
                 </div>
                 <div className="desc-project">
-                    <label className="text-label" htmlFor="">Description:</label>
-                    <input type="text" placeholder="Desciption" onChange={ (e) => setDesc(e.target.value)} />
+                    <label className="text-label" htmlFor="">Description :</label>
+                    <input className="Desc-table" type="text" placeholder=" Desciption..." id="" required />
                 </div>
                 <div className="create-project">
-                    <button type ="submit">Create project</button>
+                    <button className="create-project1">Create project</button>
                 </div>
             </form>
             
