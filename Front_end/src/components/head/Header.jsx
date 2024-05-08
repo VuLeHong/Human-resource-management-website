@@ -1,18 +1,15 @@
 import React from 'react'
-import 
- {BsFillBellFill, BsFillEnvelopeFill, BsPersonCircle, BsJustify}
- from 'react-icons/bs'
+import {BsFillBellFill, BsFillEnvelopeFill, BsPersonCircle} from 'react-icons/bs'
 
-function Header({OpenSidebar}) {
+function Header() {
   return (
     <header className='header'>
-        <div className='menu-icon'>
-            <BsJustify className='icon' onClick={OpenSidebar}/>
-        </div>
         <div className='header-right'>
-            <BsFillBellFill className='icon'/>
-            <BsFillEnvelopeFill className='icon'/>
-            <BsPersonCircle className='icon'/>
+            <button>
+              <button>
+                Log out
+              </button>
+            </button>
         </div>
     </header>
   )

@@ -18,7 +18,7 @@ const Project = () => {
   useEffect(() => {
     axios.get('http://localhost:5000/getprojects') 
     .then(result => {
-      console.log(result.data)
+      //console.log(result.data)
       setProjects(result.data)
       
     })
@@ -30,7 +30,7 @@ const Project = () => {
    axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
    .then(result => {
            setOwner(result.data)
-           console.log(owner.stats)
+           //console.log(owner.stats)
    })
    .catch(err => console.log(err))
  },[])
