@@ -25,9 +25,15 @@ const Project = () => {
     .catch(err => console.log(err))
   }, [])
 
-  const commentTask = () => {
-    return null;
-  }
+  const [owner, setOwner] = useState({});
+  useEffect(() => {
+   axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
+   .then(result => {
+           setOwner(result.data)
+           console.log(owner.stats)
+   })
+   .catch(err => console.log(err))
+ },[])
 
   return (
     <div className='grid-container'>
@@ -38,7 +44,7 @@ const Project = () => {
         <div>
           {projects.map((project, index) =>
             <div key={index} className="view-project-btn">
-              {project.owner_id === auth1.user_id ? 
+              {project.owner_id === owner.user_id ? 
                 <div className="project-list">
                   <div className='task-name'>
                     <h1 className="text">{project.name}</h1>
