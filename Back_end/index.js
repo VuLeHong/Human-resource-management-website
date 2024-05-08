@@ -66,7 +66,8 @@ app.post('/get', (req,res) =>{
 })
 
 app.post('/upscore', asyncHandler(async(req,res) =>{
-    const{user_id: user_id, 
+    const{
+        user_id: user_id, 
         organizational_up: organizational_up, 
         techical_up: techical_up,
         idea_up: idea_up,
@@ -77,13 +78,14 @@ app.post('/upscore', asyncHandler(async(req,res) =>{
         idea_contribution: idea_contribution,
         communication_skill: communication_skill,
         product_optimization: product_optimization
-        } = req.body;
-    const stats = {organizational_skill:organizational_skill+organizational_up, 
-                    techical_skill:techical_skill+techical_up, 
-                    idea_contribution: idea_contribution + idea_up,
-                    communication_skill: communication_skill + communication_up,
-                    product_optimization: product_optimization + product_up,
-                    };
+    } = req.body;
+    const stats = {
+        organizational_skill: parseInt(organizational_skill) + parseInt(organizational_up), 
+        techical_skill: parseInt(techical_skill) + parseInt(techical_up),
+        idea_contribution: parseInt(idea_contribution) + parseInt(idea_up),
+        communication_skill: parseInt(communication_skill) + parseInt(communication_up),
+        product_optimization: parseInt(product_optimization) + parseInt(product_up),
+    };
     //console.log(task)
    const works = await user_collection.findOneAndUpdate({user_id: user_id}, {stats:stats})
     .then(result => res.json(result))
