@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./Modal.css";
 import {} from "react-icons"
+import { IoMdClose } from "react-icons/io";
+
 
 const Modal = () => {
   const [modal, setModal] = useState(false);
@@ -28,20 +30,20 @@ const Modal = () => {
             <div className="title-project">
                 <h2>Create Project</h2>
                 <button className="close-modal" onClick={toggleModal}>
-                CLOSE
+                <IoMdClose />
                 </button>
             </div>
-            <form action="">
+            <form className="form-create" action="">
                 <div className="name-project">
-                    <p className="text-label" htmlFor="">Name:</p>
-                    <input type="text" placeholder="Name of project" name="" id="" />
+                    <p className="text-label" htmlFor="">Name :</p>
+                    <input type="text" placeholder=" Name of project" name="" id="" required />
                 </div>
                 <div className="desc-project">
-                    <label className="text-label" htmlFor="">Description:</label>
-                    <input type="text" placeholder="Desciption" name="" id="" />
+                    <label className="text-label" htmlFor="">Description :</label>
+                    <input className="Desc-table" type="text" placeholder=" Desciption..." id="" required />
                 </div>
                 <div className="create-project">
-                    <button>Create project</button>
+                    <button className="create-project1">Create project</button>
                 </div>
             </form>
             

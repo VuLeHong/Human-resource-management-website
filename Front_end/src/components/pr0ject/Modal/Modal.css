@@ -6,6 +6,15 @@ body.active-modal {
     padding: 10px 20px;
     display: block;
     font-size: 18px;
+    border: 2px solid black;
+    border-radius: 10%;
+}
+
+.btn-modal:hover {
+    background-color: black;
+    color: white;
+    transform: scale(1.2);
+    animation-delay: 1ms;
 }
 
 .modal, .overlay {
@@ -26,7 +35,7 @@ body.active-modal {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #f1f1f1;
+    background: #ccc;
     border-radius: 10px;
     padding: 30px 30px;
     display: flex;
@@ -35,9 +44,93 @@ body.active-modal {
     flex-direction: column;
 }
 
+.form-create {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.text-label {
+    width: 200px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 .title-project {
     display: flex;
     align-items: center;
+    /* justify-content: space-between; */
     gap: 30px;
+    color: black;
+    font-weight: 500em;
+    font-size: larger;
+    margin-bottom: 10%;
 }
+
+.close-modal {
+    display: flex;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 10%;
+    top: 10px;
+    right: 10px;
+    font-size: 25px;
+    background-color: tomato;
+    color: black;
+    cursor: pointer;
+    /* padding: 5px 10px; */
+}
+
+.close-modal:hover {
+    background-color: red;
+}
+
+.name-project {
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+.desc-project  {
+    display: flex;
+    align-items: center;
+    color: black;
+    margin-top: 5%;
+}
+
+.Desc-table {
+    display: flex;
+    color: black;
+    /* margin-top: 5%; */
+    width: 200px;
+    height:100px;
+}
+
+.create-project1 {
+    display: flex;
+    align-items: center;
+    color: black;
+    background-color: white;
+    margin-top: 5%;
+    cursor: pointer;
+    border: 2px solid aqua;    
+    border-radius: 15px;
+    padding: 5px 10px;
+    margin-top: 30%;
+}
+
+.create-project1:hover {
+    border: 2px solid black;
+    background-color: aqua;
+    color: white;
+    letter-spacing: 3%;
+}
+
+
 
