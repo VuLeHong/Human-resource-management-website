@@ -73,9 +73,8 @@ function Task() {
                     </div>
                   </div>
                 }
-            </div>
-          )
-
+              </div>
+            )
           )}
         </div>} 
       </div>

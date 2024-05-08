@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Modal.css";
 import {} from "react-icons"
+
 import axios from 'axios'
 const Modal = () => {
   const [modal, setModal] = useState(false);
@@ -17,6 +18,7 @@ const Modal = () => {
   } else {
     document.body.classList.remove('active-modal')
   }
+
   const handleAdd = () => {
     axios.post('http://localhost:5000/project', {owner_id:auth1.user_id, name: name, desc: Desc})
     .then( result=> {
@@ -35,7 +37,7 @@ const Modal = () => {
 
       {modal && (
         <div className="modal">
-          <div onClick={toggleModal} className="overlay"></div>
+          <div className="overlay"></div>
           <div className="modal-content">
             <div className="title-project">
                 <h2>Create Project</h2>
