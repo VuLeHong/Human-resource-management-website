@@ -45,7 +45,7 @@ function Task() {
                     <p className={task.isdone ? "line_through text" : "text"}>{task.content}</p>
                   </div>
                   <div className="btn">
-                    <button className='comment-btn' onClick={() => { console.log("Clicked comment button for index:", index); toggle(index)}}>Comment<BsChat className='icons'/></button>
+                    <button className='comment-btn' onClick={() => {toggle(index)}}>Comment<BsChat className='icons'/></button>
                     <button className='move-btn' onClick={() => {}}>Upload<BsFillFolderFill className='icons'/></button>
                   </div>
                 </div>
