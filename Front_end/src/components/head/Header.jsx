@@ -10,7 +10,7 @@ function Header() {
         <div className='header-right'>
             <button>
               <button>
-              <Link to='/'><a onClick={logout}>Log out</a></Link>
+              <Link to='/'><a onClick={logout}>Logout</a></Link>
               </button>
             </button>
         </div>
