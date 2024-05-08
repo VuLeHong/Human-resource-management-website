@@ -16,23 +16,23 @@ function Sidebar({openSidebarToggle}) {
         <ul className='sidebar-list'>
             <li className='sidebar-list-item'>
                 <a href=''>
-                    <Link to='/profile'><BsFillPersonFill className='icon'/> Profile</Link>
+                    <Link className='component-icon-list' to='/profile'><BsFillPersonFill className='icon'/> <p>Profile</p></Link>
                 </a>
             </li>
             <li className='sidebar-list-item'>
                 <a href=''>
-                <Link to='/task'><BsListTask className='icon'/> Tasks</Link>
+                <Link className='component-icon-list' to='/task'><BsListTask className='icon'/> <p>Tasks</p></Link>
 
                 </a>
             </li>
             <li className='sidebar-list-item'>
                 <a href="">
-                    <Link to='/ranking'><BsClipboard2Pulse className='icon'/> Ranking</Link>
+                    <Link className='component-icon-list' to='/ranking'><BsClipboard2Pulse className='icon'/> <p>Ranking</p></Link>
                 </a>
             </li>
             <li className='sidebar-list-item'>
                 <a href="">   
-                    <Link to='/project'><BsFillArchiveFill className='icon'/> Project</Link>
+                    <Link className='component-icon-list' to='/project'><BsFillArchiveFill className='icon'/> <p>Project</p> </Link>
 
                 </a>
             </li>

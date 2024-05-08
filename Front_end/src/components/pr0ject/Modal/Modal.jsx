@@ -23,7 +23,7 @@ const Modal = () => {
 
       {modal && (
         <div className="modal">
-          <div onClick={toggleModal} className="overlay"></div>
+          <div className="overlay"></div>
           <div className="modal-content">
             <div className="title-project">
                 <h2>Create Project</h2>
