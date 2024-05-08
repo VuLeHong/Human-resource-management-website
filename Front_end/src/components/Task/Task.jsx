@@ -25,21 +25,35 @@ function Task() {
       .then(result => {
         console.log(result.data)
         setTasks(result.data)
+        console.log(tasks)
         
       })
       .catch(err => console.log(err))
     }, [])
 
+    const [owner, setOwner] = useState({});
+  useEffect(() => {
+   axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
+   .then(result => {
+           setOwner(result.data)
+           console.log(owner.stats)
+   })
+   .catch(err => console.log(err))
+ },[])
   return (
     <div className='grid-container'>
       <Header />
       <Sidebar />
       <div className='todo'>
         <h1 className='title'>UIT Evaluation System</h1>
+        {tasks.length === 0 
+        ? 
+        <div><h2>No task</h2></div>
+        :
         <div>
           {tasks.map((task, index) =>(
               <div key={index} className="separate-btn">
-                {task.user_id === auth1.user_id ? 
+                {task.user_id === owner.user_id ? 
                 <div className="task-list">
                   <div className='task-name'>
                     <p className={task.isdone ? "line_through text" : "text"}>{task.content}</p>
@@ -62,7 +76,7 @@ function Task() {
               </div>
             )
           )}
-        </div>
+        </div>} 
       </div>
     </div>
   )
