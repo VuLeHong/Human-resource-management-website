@@ -6,11 +6,11 @@ import { FaPlus } from "react-icons/fa6";
 import Sidebar from '../sidebar/Sidebar';
 import Header from '../head/Header';
 import axios from 'axios' 
+import Modal from './Modal/Modal';
 
 const Project = () => {
 
   const [projects, setProjects] = useState([]);
-  const commentEl = document.getElementById("commentEl");
 
   const auth = localStorage.getItem("user");
   const auth1 = JSON.parse(auth);
@@ -34,7 +34,7 @@ const Project = () => {
       <Header />
       <Sidebar />
       <div className='project'>
-        <button className='create' onClick=""><FaPlus />Create Project</button>
+        <Modal />
         <div>
           {projects.map((project, index) =>
             <div key={index} className="view-project-btn">
