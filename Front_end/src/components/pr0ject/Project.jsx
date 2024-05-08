@@ -6,11 +6,11 @@ import { FaPlus } from "react-icons/fa6";
 import Sidebar from '../sidebar/Sidebar';
 import Header from '../head/Header';
 import axios from 'axios' 
+import Modal from './Modal/Modal';
 
 const Project = () => {
 
   const [projects, setProjects] = useState([]);
-  const commentEl = document.getElementById("commentEl");
 
   const auth = localStorage.getItem("user");
   const auth1 = JSON.parse(auth);
@@ -18,27 +18,33 @@ const Project = () => {
   useEffect(() => {
     axios.get('http://localhost:5000/getprojects') 
     .then(result => {
-      console.log(result.data)
+      //console.log(result.data)
       setProjects(result.data)
       
     })
     .catch(err => console.log(err))
   }, [])
 
-  const commentTask = () => {
-    return null;
-  }
+  const [owner, setOwner] = useState({});
+  useEffect(() => {
+   axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
+   .then(result => {
+           setOwner(result.data)
+           //console.log(owner.stats)
+   })
+   .catch(err => console.log(err))
+ },[])
 
   return (
     <div className='grid-container'>
       <Header />
       <Sidebar />
       <div className='project'>
-        <button className='create' onClick=""><FaPlus />Create Project</button>
+        <Modal />
         <div>
           {projects.map((project, index) =>
             <div key={index} className="view-project-btn">
-              {project.owner_id === auth1.user_id ? 
+              {project.owner_id === owner.user_id ? 
                 <div className="project-list">
                   <div className='task-name'>
                     <h1 className="text">{project.name}</h1>
