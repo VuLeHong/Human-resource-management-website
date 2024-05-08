@@ -7,7 +7,7 @@ import axios from 'axios'
 
 function Task() {
     const [tasks, setTasks] = useState([]);
-
+    const [cmt, setCmt] = useState();
     const [show, setShow] = useState(Array(tasks.length).fill(false))
     
     const toggle = (index) => {
@@ -23,20 +23,28 @@ function Task() {
     useEffect(() => {
       axios.get('http://localhost:5000/gettasks') 
       .then(result => {
-        console.log(result.data)
+        //console.log(result.data)
         setTasks(result.data)
-        console.log(tasks)
+        //console.log(tasks)
         
       })
       .catch(err => console.log(err))
     }, [])
-
-    const [owner, setOwner] = useState({});
+    const handleCmt = (task_id,cmt) => {
+       axios.post('http://localhost:5000/addcmt', {task_id: task_id, t_desc : cmt})
+       .then( result=> {
+         if(result){
+           location.reload()
+         }
+       })
+       .catch(err => console.log(err))
+  }
+  const [owner, setOwner] = useState({});
   useEffect(() => {
    axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
    .then(result => {
            setOwner(result.data)
-           console.log(owner.stats)
+           console.log(owner.tasks)
    })
    .catch(err => console.log(err))
  },[])
@@ -46,8 +54,12 @@ function Task() {
       <Sidebar />
       <div className='todo'>
         <h1 className='title'>UIT Evaluation System</h1>
-        {tasks.length === 0 
+        {owner.tasks ===undefined  
         ? 
+        <div><h2>No task</h2></div>
+        :
+        owner.tasks.length === 0 
+        ?
         <div><h2>No task</h2></div>
         :
         <div>
@@ -68,8 +80,8 @@ function Task() {
                 {show[index] &&
                   <div className="comment">
                     <div className="comment-div">
-                      <input type="text" placeholder='Comment here...' id="" />
-                      <button className='btn-send' type="submit" onClick={() => {}}><BsFillSendFill /></button>
+                      <input type="text" placeholder='Comment here...' onChange={ (e) => setCmt(e.target.value)} />
+                      <button className='btn-send' type="submit" onClick={() => handleCmt(tasks[index]._id,cmt)}><BsFillSendFill /></button>
                     </div>
                   </div>
                 }

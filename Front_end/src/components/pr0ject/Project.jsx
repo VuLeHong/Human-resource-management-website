@@ -32,7 +32,6 @@ const Project = () => {
     .then(result => {
       //console.log(result.data)
       setProjects(result.data)
-      
     })
     .catch(err => console.log(err))
   }, [])
