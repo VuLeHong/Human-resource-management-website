@@ -27,6 +27,15 @@ const Ranking = () => {
     getUsers();
   }, []);
 
+  const [owner, setOwner] = useState({});
+  useEffect(() => {
+   axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
+   .then(result => {
+           setOwner(result.data)
+           console.log(owner.stats)
+   })
+   .catch(err => console.log(err))
+ },[])
   const statsMap = users.map(employee => ({
     "organizational_skill": employee.stats.organizational_skill, 
     "techical_skill": employee.stats.techical_skill,
@@ -64,22 +73,22 @@ const Ranking = () => {
       <Sidebar />
       <div className='ranking'>
         <div className="RankTitle">
-          <h1>Hello {auth1.truename}, here is your total stats!</h1>
+          <h1>Hello {owner.truename}, here is your total stats!</h1>
         </div>
         <div className="rank">
           <div className="rank-number">
-            <h1>{auth1.rank}</h1>
+            <h1>{owner.rank}</h1>
           </div>
           <div className="profile-comp">
               <div className="avatar">
                 <img src={avatar} alt="" width='70' height='70' />
               </div>
               <div className="name">
-                <p>{auth1.truename}</p>
+                <p>{owner.truename}</p>
               </div>
           </div>
           <div className="total">
-            <h3>{auth1.stats.organizational_skill + auth1.stats.techical_skill + auth1.stats.idea_contribution + auth1.stats.communication_skill + auth1.stats.product_optimization}</h3>
+            <h3>{owner.stats === undefined ? auth1.stats.organizational_skill + auth1.stats.techical_skill + auth1.stats.idea_contribution + auth1.stats.communication_skill + auth1.stats.product_optimization: owner.stats.organizational_skill + owner.stats.techical_skill + owner.stats.idea_contribution + owner.stats.communication_skill + owner.stats.product_optimization}</h3>
           </div>
         </div>
         <div className='leaderboard'>

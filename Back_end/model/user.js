@@ -63,7 +63,14 @@ const UserSchema = new mongoose.Schema({
                 default: 0
             }
         },
-
+        tasks:[
+            {
+                task_id:{
+                    type:mongoose.Schema.Types.ObjectId,
+                    required:true
+                }, 
+            }
+        ],
         history:[
             {
                 time:{

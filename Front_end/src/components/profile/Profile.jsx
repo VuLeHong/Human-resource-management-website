@@ -5,13 +5,11 @@ import Sidebar from '../sidebar/Sidebar'
 import axios from 'axios' 
 
 function Profile (){
-  const [owner, setOwner] = useState({});
+  
   const avatar = "https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-541.jpg?size=338&ext=jpg&ga=GA1.1.735520172.1711411200&semt=ais";
   const auth = localStorage.getItem("user");
   const auth1 = JSON.parse(auth);
-
-  
-  
+  const [owner, setOwner] = useState({});
    useEffect(() => {
     axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
     .then(result => {
