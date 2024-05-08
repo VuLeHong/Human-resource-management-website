@@ -7,7 +7,7 @@ function Header() {
         <div className='header-right'>
             <button>
               <button>
-                Log out
+                Logout
               </button>
             </button>
         </div>
