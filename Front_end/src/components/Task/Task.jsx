@@ -25,6 +25,7 @@ function Task() {
       .then(result => {
         console.log(result.data)
         setTasks(result.data)
+        console.log(tasks)
         
       })
       .catch(err => console.log(err))
@@ -45,6 +46,10 @@ function Task() {
       <Sidebar />
       <div className='todo'>
         <h1 className='title'>UIT Evaluation System</h1>
+        {tasks.length === 0 
+        ? 
+        <div><h2>No task</h2></div>
+        :
         <div>
           {tasks.map((task, index) =>(
               <div key={index} className="separate-btn">
@@ -72,7 +77,7 @@ function Task() {
           )
 
           )}
-        </div>
+        </div>} 
       </div>
     </div>
   )
