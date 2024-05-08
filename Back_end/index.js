@@ -86,8 +86,15 @@ app.post('/upscore', asyncHandler(async(req,res) =>{
         communication_skill: parseInt(communication_skill) + parseInt(communication_up),
         product_optimization: parseInt(product_optimization) + parseInt(product_up),
     };
-    //console.log(task)
    const works = await user_collection.findOneAndUpdate({user_id: user_id}, {stats:stats})
+    .then(result => res.json(result))
+    .catch(err => res.json(err))
+}))
+app.post('/addtaskid', asyncHandler(async(req,res) =>{
+    const{ user_id:user_id, task_id: task_id} = req.body;
+    const task = {task_id:task_id};
+    //console.log(task)
+   const works = await user_collection.findOneAndUpdate({_id: user_id}, {$push:{tasks:task}})
     .then(result => res.json(result))
     .catch(err => res.json(err))
 }))
