@@ -15,7 +15,15 @@ const Task_modal = () => {
   } else {
     document.body.classList.remove('active-modal')
   }
-
+  const handleAdd = () => {
+    axios.post('http://localhost:5000/project', {owner_id:auth1.user_id, name: name, desc: Desc})
+    .then( result=> {
+      if(result){
+        location.reload()
+      }
+    })
+    .catch(err => console.log(err))
+}
   return (
     <>
       <button onClick={toggleModal} className="btn-modal">
