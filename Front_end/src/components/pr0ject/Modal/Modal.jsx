@@ -8,7 +8,10 @@ import { IoMdClose } from "react-icons/io";
 
 const Modal = () => {
   const [modal, setModal] = useState(false);
-
+  const [name, setName] = useState();
+  const [Desc, setDesc] = useState();
+  const auth = localStorage.getItem("user");
+  const auth1 = JSON.parse(auth);
   const toggleModal = () => {
     setModal(!modal);
   };
@@ -45,17 +48,17 @@ const Modal = () => {
                 <IoMdClose />
                 </button>
             </div>
-            <form className="form-create" action="">
+            <form className="form-create" onSubmit={handleAdd}>
                 <div className="name-project">
                     <p className="text-label" htmlFor="">Name :</p>
-                    <input type="text" placeholder=" Name of project" name="" id="" required />
+                    <input type="text" placeholder=" Name of project" onChange={ (e) => setName(e.target.value)} required />
                 </div>
                 <div className="desc-project">
                     <label className="text-label" htmlFor="">Description :</label>
-                    <input className="Desc-table" type="text" placeholder=" Desciption..." id="" required />
+                    <input className="Desc-table" type="text" placeholder=" Desciption..." onChange={ (e) => setDesc(e.target.value)} required />
                 </div>
                 <div className="create-project">
-                    <button className="create-project1">Create project</button>
+                    <button className="create-project1" type="submit">Create project</button>
                 </div>
             </form>
             
