@@ -4,6 +4,9 @@ import {} from "react-icons"
 
 import axios from 'axios'
 import { IoMdClose } from "react-icons/io";
+import { TiPlus } from "react-icons/ti";
+
+
 
 
 const Modal = () => {
@@ -32,8 +35,9 @@ const Modal = () => {
   return (
     <>
       <button onClick={toggleModal} className="btn-modal">
-        Open
-      </button>
+        <i class="icon"><TiPlus /></i>
+        OPEN
+        </button>
 
       {modal && (
         <div className="modal">
