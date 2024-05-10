@@ -1,0 +1,32 @@
+/* Modal.css */
+
+/* ... (other styles) ... */
+
+.logout {
+    padding: 10px;
+    background-color: #263043;
+    margin: 5px;
+    border: 2px solid bold;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+   
+}
+
+.logout:hover {
+    background-color: red;
+    /* Keep the hover effect as before */
+}
+
+.logout:hover a{
+    color: black;
+}
+
+.logout a{
+    color: white; /* Add this line to set the text color to white */
+    text-decoration: none;
+    letter-spacing: 10%;
+
+}

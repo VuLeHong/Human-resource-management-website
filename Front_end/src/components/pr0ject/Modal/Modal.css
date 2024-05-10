@@ -3,12 +3,20 @@ body.active-modal {
 }
 
 .btn-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     padding: 10px 20px;
     display: block;
     font-size: 18px;
     border: 2px solid black;
     border-radius: 10%;
+    margin-right: 300px;
+    cursor: pointer;
 }
+
+
 
 .btn-modal:hover {
     background-color: black;

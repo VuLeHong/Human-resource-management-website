@@ -1,7 +1,9 @@
 
 import React, { useState } from "react";
-import "./Modal.css";
+import "./Task-modal.css";
 import {} from "react-icons"
+import { IoMdClose } from "react-icons/io";
+
 
 const Task_modal = () => {
   const [modal, setModal] = useState(false);
@@ -26,7 +28,7 @@ const Task_modal = () => {
 }
   return (
     <>
-      <button onClick={toggleModal} className="btn-modal">
+      <button onClick={toggleModal} className="open-button">
         Open
       </button>
 
@@ -37,20 +39,27 @@ const Task_modal = () => {
             <div className="title-project">
                 <h2>Create Project</h2>
                 <button className="close-modal" onClick={toggleModal}>
-                CLOSE
+                <IoMdClose />
+
                 </button>
             </div>
             <form action="">
                 <div className="name-project">
-                    <p className="text-label" htmlFor="">Name:</p>
-                    <input type="text" placeholder="Name of project" name="" id="" />
+                    <p className="text-label" htmlFor="">Content :</p>
+                    <input type="text" placeholder="Name of project" name="" id="" required />
                 </div>
                 <div className="desc-project">
-                    <label className="text-label" htmlFor="">Description:</label>
-                    <input type="text" placeholder="Desciption" name="" id="" />
+                    <label className="text-label" htmlFor="">Rank :</label>
+                    <input type="text" placeholder="Rank" name="" id="" required/>
                 </div>
+
+                <div className="desc-project">
+                    <label className="text-label" htmlFor="">User-id task  :</label>
+                    <input type="text" placeholder="User-id task" name="" id="" required />
+                </div>
+
                 <div className="create-project">
-                    <button>Create project</button>
+                    <button className="create-project1">Create project</button>
                 </div>
             </form>
             
