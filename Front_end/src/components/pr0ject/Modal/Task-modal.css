@@ -2,10 +2,21 @@ body.active-modal {
     overflow-y: hidden;
 }
 
-.btn-modal {
+.open-button {
     padding: 10px 20px;
     display: block;
     font-size: 18px;
+    border: 2px solid black;
+    /* margin-left: 200px; */
+    border-radius: 50em;
+    cursor: pointer;
+    
+}
+
+.open-button:hover {
+    background: black;
+    color: white;
+    transition: ease-in-out 0.3s;
 }
 
 .modal, .overlay {
@@ -16,6 +27,7 @@ body.active-modal {
     right: 0;
     bottom: 0;
     position: fixed;
+    /* border-radius: 200em; */
 }
 
 .overlay {
@@ -39,5 +51,13 @@ body.active-modal {
     display: flex;
     align-items: center;
     gap: 30px;
+    
+}
+
+.box1 {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    color: aqua;
 }
 
