@@ -21,8 +21,52 @@ const Task_modal = () => {
   return (
     <>
       <button onClick={toggleModal} className="open-button">
-        Open
+        Create Task
       </button>
+
+      <ul className="test">
+
+      <button className="btn1">
+      <li>
+
+        <label for="check">DO CSS</label>
+        
+        <button>Desc</button>
+
+        <input type="checkbox" id="check"></input>
+
+      </li>
+      
+   
+      </button>
+
+      <button className="btn2">
+      <li>
+        
+        <label for="check">DO CSS</label>
+        
+        <button>Desc</button>
+
+        <input type="checkbox" id="check"></input>
+
+      </li>
+      
+      </button>
+        
+        <button className="btn3">
+        <li>
+        
+        <label for="check">DO CSS</label>
+        
+        <button>Desc</button>
+
+        <input type="checkbox" id="check"></input>
+
+      </li>
+      
+        </button>
+
+      </ul>
 
       {modal && (
         <div className="modal">
