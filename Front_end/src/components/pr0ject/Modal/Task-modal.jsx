@@ -17,20 +17,56 @@ const Task_modal = () => {
   } else {
     document.body.classList.remove('active-modal')
   }
-  const handleAdd = () => {
-    axios.post('http://localhost:5000/project', {owner_id:auth1.user_id, name: name, desc: Desc})
-    .then( result=> {
-      if(result){
-        location.reload()
-      }
-    })
-    .catch(err => console.log(err))
-}
+
   return (
     <>
       <button onClick={toggleModal} className="open-button">
-        Open
+        Create Task
       </button>
+
+      <ul className="test">
+
+      <button className="btn1">
+      <li>
+
+        <label for="check">DO CSS</label>
+        
+        <button>Desc</button>
+
+        <input type="checkbox" id="check"></input>
+
+      </li>
+      
+   
+      </button>
+
+      <button className="btn2">
+      <li>
+        
+        <label for="check">DO CSS</label>
+        
+        <button>Desc</button>
+
+        <input type="checkbox" id="check"></input>
+
+      </li>
+      
+      </button>
+        
+        <button className="btn3">
+        <li>
+        
+        <label for="check">DO CSS</label>
+        
+        <button>Desc</button>
+
+        <input type="checkbox" id="check"></input>
+
+      </li>
+      
+        </button>
+
+      </ul>
 
       {modal && (
         <div className="modal">
