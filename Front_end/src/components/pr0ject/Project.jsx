@@ -70,7 +70,7 @@ const Project = () => {
                 <></>}
                 {show[index] &&
                   <div className="comment">
-                    <Task_modal />
+                    <Task_modal data={projects[index]._id}/>
                     <div className="task-project">
                       <div className="content-project">
                         <h1></h1>
