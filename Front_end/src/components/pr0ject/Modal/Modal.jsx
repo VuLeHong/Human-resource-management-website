@@ -38,7 +38,7 @@ const Modal = () => {
   return (
     <>
       <button onClick={toggleModal} className="btn-modal">
-        <i class="icon"><TiPlus /></i>
+        <i className="icon"><TiPlus /></i>
         OPEN
         </button>
 

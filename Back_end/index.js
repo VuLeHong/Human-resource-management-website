@@ -128,7 +128,7 @@ app.post('/pushtaskid', asyncHandler(async(req,res) =>{
 
 //task 
 app.post('/addtask', asyncHandler(async(req,res) =>{
-    const{ content, rank, Project_id: Project_id, user_id:user_id} = req.body;
+    const{ content:content, rank:rank, Project_id: Project_id, user_id:user_id} = req.body;
     const task = {content: content, rank: rank, isdone: false ,Project_id: Project_id, user_id: user_id};
    const works = await Task_collection.create(task)
     .then(result => res.json(result))

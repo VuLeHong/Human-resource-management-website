@@ -1,11 +1,12 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Task-modal.css";
 import {} from "react-icons"
 import { IoMdClose } from "react-icons/io";
+import axios from 'axios'
 
-
-const Task_modal = (props) => {
+const Task_modal = (project_id) => {
+  const [tasks, setTasks] = useState([]);
   const [modal, setModal] = useState(false);
   const [content, setContent] = useState();
   const [rank, setRank] = useState();
@@ -19,43 +20,48 @@ const Task_modal = (props) => {
   } else {
     document.body.classList.remove('active-modal')
   }
-  const handleAdd = () => {
-    axios.post('http://localhost:5000/project', {content:content, rank:rank, Project_id: props.data, user_id:user_id})
-    .then( result=> {
-      if(result){
-        location.reload()
-      }
+  useEffect(() => {
+    axios.get('http://localhost:5000/gettasks') 
+    .then(result => {
+      setTasks(result.data)
     })
     .catch(err => console.log(err))
-}
+  }, [])
+   const handleAdd = () => {
+     axios.post('http://localhost:5000/addtask', {content:content, rank:rank, Project_id: project_id.project_id, user_id:user_id})
+     .then( result=> {
+       if(result){
+         location.reload()
+       }
+     })
+     .catch(err => console.log(err))
+ }
+ //console.log(project_id)
+//console.log(tasks)
   return (
     <>
       <button onClick={toggleModal} className="open-button">
         Create Task
       </button>
-      <ul className="test">
-      <button className="btn1">
-      <li>
-        <label for="check">DO CSS</label>
-        <button>Desc</button>
-        <input type="checkbox" id="check"></input>
-      </li>
-      </button>
-      <button className="btn2">
-      <li>
-        <label for="check">DO CSS</label>
-        <button>Desc</button>
-        <input type="checkbox" id="check"></input>
-      </li>
-      </button>
-        <button className="btn3">
-        <li>
-        <label for="check">DO CSS</label>
-        <button>Desc</button>
-        <input type="checkbox" id="check"></input>
-      </li>
-        </button>
-      </ul>
+      {tasks.map((task, index) => (
+        task.Project_id === project_id.project_id &&
+        <div key={index} className="btn1">
+          <div className="content-and-desc">
+            <div className="uptask">
+              <p className="check">{task.content}</p>
+            </div>
+            <div className="downtask">
+              <div className="chatbox">
+                <p>Comment: {task.t_desc}</p>
+              </div>
+              <div className="isdonetask">
+                <p>Result: {task.ans}</p>
+              </div>
+            </div>
+          </div>
+          <p className="check">Rank: {task.rank}</p>
+        </div>
+  ))}
       {modal && (
         <div className="modal">
           <div className="overlay"></div>
@@ -66,7 +72,7 @@ const Task_modal = (props) => {
                 <IoMdClose />
                 </button>
             </div>
-            <form action="">
+            <form onSubmit={handleAdd}>
                 <div className="name-project">
                     <p className="text-label" htmlFor="">Content :</p>
                     <input type="text" placeholder="Name of project" onChange={ (e) => setContent(e.target.value)} required />

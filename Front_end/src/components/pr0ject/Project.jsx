@@ -35,7 +35,7 @@ const Project = () => {
     })
     .catch(err => console.log(err))
   }, [])
-
+  
   const [owner, setOwner] = useState({});
   useEffect(() => {
    axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
@@ -70,7 +70,7 @@ const Project = () => {
                 <></>}
                 {show[index] &&
                   <div className="comment">
-                    <Task_modal data={projects[index]._id}/>
+                    <Task_modal project_id={projects[index]._id}/>
                     <div className="task-project">
                       <div className="content-project">
                         <h1></h1>
