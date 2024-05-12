@@ -61,3 +61,48 @@ body.active-modal {
     color: aqua;
 }
 
+.test {
+    /* display: flex;
+    align-items: center; */
+    gap: 30px;
+    color: black;
+    margin-top: 10px;
+    margin-right: 200px;
+}
+
+.btn1 {
+    padding: 10px 20px;
+    display: block;
+    /* font-size: 5px; */
+    border: 2px solid black;
+    border-radius: 50em;
+    cursor: pointer;
+    margin-bottom: 5px;
+    list-style: none;
+    
+}
+
+
+.btn2 {
+    padding: 10px 20px;
+    display: block;
+    /* font-size: 5px; */
+    border: 2px solid black;
+    border-radius: 50em;
+    cursor: pointer;
+    margin-bottom: 5px;
+    list-style: none;
+    
+}
+
+.btn3 {
+    padding: 10px 20px;
+    display: block;
+    /* font-size: 18px; */
+    border: 2px solid black;
+    border-radius: 50em;
+    cursor: pointer;
+    margin-bottom: 5px;
+    list-style: none;
+
+}
