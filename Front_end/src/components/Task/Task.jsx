@@ -44,7 +44,7 @@ function Task() {
    axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
    .then(result => {
            setOwner(result.data)
-           console.log(owner.tasks)
+           //console.log(owner.tasks)
    })
    .catch(err => console.log(err))
  },[])
