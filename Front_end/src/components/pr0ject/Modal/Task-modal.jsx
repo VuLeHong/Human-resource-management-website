@@ -51,10 +51,23 @@ const Task_modal = (project_id) => {
             </div>
             <div className="downtask">
               <div className="chatbox">
-                <p>Comment: {task.t_desc}</p>
+                {
+                  task.t_desc ===""
+                  ?
+                  <p>Comment: No comment</p>
+                  :
+                  <p>Comment: {task.t_desc}</p>
+                }
+                
               </div>
               <div className="isdonetask">
-                <p>Result: {task.ans}</p>
+                {
+                  task.ans ===""
+                  ?
+                  <p>Result: No result</p>
+                  :
+                  <p>Result: {task.ans}</p>
+                }
               </div>
             </div>
           </div>
