@@ -59,6 +59,7 @@ const Ranking = () => {
      ...arr,
      rank: index + 1
    }))
+
   for (let i = 0; i < sumArr.length; i++) {
     users[i].score = (users[i].score || 0) + sumArr[i]
   }
@@ -66,7 +67,7 @@ const Ranking = () => {
   const auth = localStorage.getItem("user");
   const auth1 = JSON.parse(auth);
   const avatar = "https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-541.jpg?size=338&ext=jpg&ga=GA1.1.735520172.1711411200&semt=ais";
-  //console.log(rankedArr);
+
   return (
     <div className='grid-container'>  
       <Header />

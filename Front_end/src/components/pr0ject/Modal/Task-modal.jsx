@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./Task-modal.css";
 import {} from "react-icons"
 import { IoMdClose } from "react-icons/io";
+import Modal from "./Modal";
 
 
 const Task_modal = () => {
@@ -23,50 +24,33 @@ const Task_modal = () => {
       <button onClick={toggleModal} className="open-button">
         Create Task
       </button>
+      <div className="btn1">
+          <p className="check">DO CSS</p>
+          <p className="check">Rank: C</p>
+      </div>
 
-      <ul className="test">
+      <div className="btn1">
+          <div className="content-and-desc">
+            <div className="uptask">
+              <p className="check">DO CSS</p>
+            </div>
+            <div className="downtask">
+              <div className="chatbox">
+                <p>A: abc</p>
+              </div>
+              <div className="isdonetask">
+                <p>Result: abcxyzcde</p>
+              </div>
+            </div>
+          </div>
+          <p className="check">Rank: C</p>
+          
+      </div>
 
-      <button className="btn1">
-      <li>
-
-        <label for="check">DO CSS</label>
-        
-        <button>Desc</button>
-
-        <input type="checkbox" id="check"></input>
-
-      </li>
-      
-   
-      </button>
-
-      <button className="btn2">
-      <li>
-        
-        <label for="check">DO CSS</label>
-        
-        <button>Desc</button>
-
-        <input type="checkbox" id="check"></input>
-
-      </li>
-      
-      </button>
-        
-        <button className="btn3">
-        <li>
-        
-        <label for="check">DO CSS</label>
-        
-        <button>Desc</button>
-
-        <input type="checkbox" id="check"></input>
-
-      </li>
-      
-        </button>
-
-      </ul>
+      <div className="btn1">
+          <p className="check">DO CSS</p>
+          <p className="check">Rank: C</p>
+      </div>
 
       {modal && (
         <div className="modal">

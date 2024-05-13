@@ -10,7 +10,7 @@ body.active-modal {
     /* margin-left: 200px; */
     border-radius: 50em;
     cursor: pointer;
-    
+    margin: 15px 0;
 }
 
 .open-button:hover {
@@ -61,48 +61,51 @@ body.active-modal {
     color: aqua;
 }
 
-.test {
-    /* display: flex;
-    align-items: center; */
-    gap: 30px;
-    color: black;
-    margin-top: 10px;
-    margin-right: 200px;
-}
-
-.btn1 {
+.btn1, .btn2, .btn3 {
+    width: 100%;
     padding: 10px 20px;
-    display: block;
-    /* font-size: 5px; */
     border: 2px solid black;
     border-radius: 50em;
-    cursor: pointer;
-    margin-bottom: 5px;
+    margin: 10px 0;
     list-style: none;
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-
-.btn2 {
-    padding: 10px 20px;
-    display: block;
-    /* font-size: 5px; */
-    border: 2px solid black;
-    border-radius: 50em;
-    cursor: pointer;
-    margin-bottom: 5px;
-    list-style: none;
-    
+.check {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 36px;
+    padding: 0 20px;
 }
 
-.btn3 {
-    padding: 10px 20px;
-    display: block;
-    /* font-size: 18px; */
-    border: 2px solid black;
-    border-radius: 50em;
+.descript {
+    padding: 0 10px;
+    margin: 0 20px;
+    border-radius: 10px;
     cursor: pointer;
-    margin-bottom: 5px;
-    list-style: none;
+}
 
+.checkbox {
+    height: 30px;
+    width: 30px;
+    margin: 0 20px;
+}
+
+.chatbox, .isdonetask {
+    border: 1px solid #080808;
+}
+
+.content-and-desc {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.downtask {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
 }
