@@ -7,7 +7,6 @@ body.active-modal {
     display: block;
     font-size: 18px;
     border: 2px solid black;
-    /* margin-left: 200px; */
     border-radius: 50em;
     cursor: pointer;
     margin: 15px 0;
@@ -27,7 +26,6 @@ body.active-modal {
     right: 0;
     bottom: 0;
     position: fixed;
-    /* border-radius: 200em; */
 }
 
 .overlay {
@@ -54,14 +52,11 @@ body.active-modal {
     
 }
 
-.box1 {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    color: aqua;
+.task-project-component {
+    margin: 10px 0;
 }
 
-.btn1, .btn2, .btn3 {
+.btn1 {
     width: 100%;
     padding: 10px 20px;
     border: 2px solid black;
@@ -75,8 +70,8 @@ body.active-modal {
 
 .check {
     font-weight: 700;
-    font-size: 32px;
-    line-height: 36px;
+    font-size: 23px;
+    line-height: 32px;
     padding: 0 20px;
 }
 
@@ -93,14 +88,12 @@ body.active-modal {
     margin: 0 20px;
 }
 
-.chatbox, .isdonetask {
-    border: 1px solid #080808;
-}
-
 .content-and-desc {
     display: flex;
     align-items: center;
     flex-direction: column;
+    width: 250px;
+
 }
 
 .downtask {
@@ -108,4 +101,13 @@ body.active-modal {
     align-items: center;
     flex-direction: column;
     gap: 10px;
+}
+
+.isdonetask {
+    display: flex;
+    gap: 10px;
+}
+
+.rank-taskproj {
+    padding: 0 10px;
 }

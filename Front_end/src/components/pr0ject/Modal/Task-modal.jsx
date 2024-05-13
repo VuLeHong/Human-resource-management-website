@@ -1,15 +1,12 @@
 
 import React, { useEffect, useState } from "react";
 import "./Task-modal.css";
-import {} from "react-icons"
 import { IoMdClose } from "react-icons/io";
-<<<<<<< HEAD
-import Modal from "./Modal";
-=======
 import axios from 'axios'
->>>>>>> 86ad1070f29e31f7668261fc5f35130a9784abe1
+import Checkdone_modal from "./Checkdone-modal";
 
 const Task_modal = (project_id) => {
+  const [checkIsDone, setCheckIsDone] = useState(false)
   const [tasks, setTasks] = useState([]);
   const [modal, setModal] = useState(false);
   const [content, setContent] = useState();
@@ -34,7 +31,7 @@ const Task_modal = (project_id) => {
   }, [])
    const handleAdd = () => {
      axios.post('http://localhost:5000/addtask', {content:content, rank:rank, Project_id: project_id.project_id, user_id:user_id})
-     .then( result=> {
+     .then(result=> {
        if(result){
          location.reload()
        }
@@ -46,56 +43,28 @@ const Task_modal = (project_id) => {
       <button onClick={toggleModal} className="open-button">
         Create Task
       </button>
-<<<<<<< HEAD
-      <div className="btn1">
-          <p className="check">DO CSS</p>
-          <p className="check">Rank: C</p>
-      </div>
-
-      <div className="btn1">
-          <div className="content-and-desc">
-            <div className="uptask">
-              <p className="check">DO CSS</p>
-            </div>
-            <div className="downtask">
-              <div className="chatbox">
-                <p>A: abc</p>
-              </div>
-              <div className="isdonetask">
-                <p>Result: abcxyzcde</p>
-              </div>
-            </div>
-          </div>
-          <p className="check">Rank: C</p>
-          
-      </div>
-
-      <div className="btn1">
-          <p className="check">DO CSS</p>
-          <p className="check">Rank: C</p>
-      </div>
-
-=======
       {tasks.map((task, index) => (
         task.Project_id === project_id.project_id &&
-        <div key={index} className="btn1">
-          <div className="content-and-desc">
-            <div className="uptask">
+        <div className="task-project-component">
+          <div key={index} className="btn1">
+            <div className="content-and-desc">
               <p className="check">{task.content}</p>
             </div>
-            <div className="downtask">
-              <div className="chatbox">
-                <p>Comment: {task.t_desc}</p>
-              </div>
-              <div className="isdonetask">
-                <p>Result: {task.ans}</p>
-              </div>
+            <div className="rank-taskproj">
+              <p className="check">Rank: {task.rank}</p>
             </div>
           </div>
-          <p className="check">Rank: {task.rank}</p>
+          <div className="downtask">
+                <div className="chatbox">
+                  <p>Comment: {task.t_desc}</p>
+                </div>
+                <div className="isdonetask">
+                  <p>Result: {task.ans}</p>
+                  <Checkdone_modal />
+                </div>
+            </div>
         </div>
   ))}
->>>>>>> 86ad1070f29e31f7668261fc5f35130a9784abe1
       {modal && (
         <div className="modal">
           <div className="overlay"></div>

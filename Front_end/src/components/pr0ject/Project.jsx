@@ -58,7 +58,6 @@ const Project = () => {
                   <div className='task-name'>
                     <h1 className="text">{project.name}</h1>
                   </div>
-
                   <div className="btn">
                     <button className='move-btn' onClick={() => {toggleProject(index)}}><p>View Details</p> <IoSearchSharp /></button>
                   </div>

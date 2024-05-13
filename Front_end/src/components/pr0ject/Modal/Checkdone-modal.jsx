@@ -1,71 +1,83 @@
-import React, { useState } from 'react'
-import { MdCheckBoxOutlineBlank, MdCheckBox } from 'react-icons/md'
-import "./Checkdone-modal.css"
+import React, { useState } from "react";
+import "./Checkdone-modal.css";
+import { MdCheckBoxOutlineBlank, MdCheckBox } from "react-icons/md"
 
-const Checkdone_modal = () => {
-    const [check, isCheck] = useState(false)
-    const [modal, setModal] = useState(false)
-    const toggleModalCheck = () => {
-        setModal(!modal)
-    }
+const Modal = () => {
+  const [modal, setModal] = useState(false);
+  const toggleModal = () => {
+    setModal(!modal);
+  };
 
-    if(modal) {
-        document.body.classList.add('active-modal')
-    } else {
-        document.body.classList.remove('active-modal')
-    }
+  const [check, setCheck] = useState(false)
+  const toggleCheck = () => {
+    setCheck(!check)
+  }
 
-    return (
-        <>
-            <button onClick={toggleModalCheck} className="btn-modalcheck">
-                <i class="icon"><TiPlus /></i>
-                OPEN
-            </button>
+  if(modal) {
+    document.body.classList.add('active-modal')
+  } else {
+    document.body.classList.remove('active-modal')
+  }
 
-            {modal && (
-                <div className="modalcheck">
-                    <div className="overlay"></div>
-                    <div className="modalcheck-content">
-                        <div className="content-check">
-                            <p>Task: Do CSS</p>
-                            <p>Rank: C</p>
-                            <p>Points: 10</p>
-                        </div>
-                        <form action="">
-                            <div className="points">
-                                <label htmlFor="">Organization skill:</label>
-                                <input type="number" />
-                            </div>
-                            <div className="points">
-                                <label htmlFor="">Technology skill:</label>
-                                <input type="number" />
-                            </div>
-                            <div className="points">
-                                <label htmlFor="">Idea contribution:</label>
-                                <input type="number" />
-                            </div>
-                            <div className="points">
-                                <label htmlFor="">Communication skill:</label>
-                                <input type="number" />
-                            </div>
-                            <div className="points">
-                                <label htmlFor="">Product optimization:</label>
-                                <input type="number" />
-                            </div>
-                        </form>
-                        {check === false ? (
-                            <></>
-                        ) : (
-                            <></>
-                        )
-                        }
-                        <button type="submit">Submit</button>
+  return (
+    <>
+      <button onClick={toggleModal} className="btn-modalcheck">
+        Check Done
+        </button>
+
+      {modal && (
+        <div className="modalcheck">
+          <div className="overlay" onClick={toggleModal}></div>
+          <div className="check-content">
+            <div className="title-check">
+                <h2>Task</h2>
+            </div>
+            <div className="content-task-project">
+                <h3>Content of the task: Do CSS</h3>
+                <h3>Rank of the task: C</h3>
+                <h3>Score: 10</h3>
+            </div>
+            <form action="">
+                <div className="content-plus-points">
+                    <h3>Which skills do you want to add?</h3>
+                </div>
+                <div className="plusploint-form">
+                    <div className="plus">
+                        <label htmlFor="">Organization skill:</label>
+                        <input type="text" required />
+                    </div>
+                    <div className="plus">
+                        <label htmlFor="">Technology skill:</label>
+                        <input type="text" required />
+                    </div>
+                    <div className="plus">
+                        <label htmlFor="">Idea contribution:</label>
+                        <input type="text" required />
+                    </div>
+                    <div className="plus">
+                        <label htmlFor="">Communication skill:</label>
+                        <input type="text" required />
+                    </div>
+                    <div className="plus">
+                        <label htmlFor="">Product optimization:</label>
+                        <input type="text" required />
                     </div>
                 </div>
-            )}
-        </>
-    )
-
+            </form>
+            <div className="btn-check">
+                <h3>isDone?</h3>
+                <button onClick={toggleCheck}>
+                    {check ? <MdCheckBoxOutlineBlank className="tick" /> : <MdCheckBox className="non-tick" />}
+                </button>
+            </div>
+            <div className="create-project">
+                <button className="create-project1" type="submit">Submit</button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
 }
 
-export default Checkdone_modal
+export default Modal
