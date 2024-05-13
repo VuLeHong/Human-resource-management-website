@@ -2,28 +2,25 @@ body.active-modal {
     overflow-y: hidden;
 }
 
-.btn-modal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 20px;
-    display: block;
-    font-size: 18px;
-    border: 2px solid black;
-    border-radius: 10%;
+.btn-modalcheck {
     cursor: pointer;
 }
 
-
-
-.btn-modal:hover {
+.btn-modalcheck:hover {
     background-color: black;
     color: white;
-    transform: scale(1.2);
+    transition: 0.8s;
+    transform: scale(1.1);
     animation-delay: 1ms;
 }
 
-.modal, .overlay {
+.btn-modalcheck:not(:hover) {
+    transition: 0.8s;
+    transform: scale(1);
+    animation-delay: 1ms;
+}
+
+.modalcheck, .overlay {
     width: 100%;
     height: 100vh;
     top: 0;
@@ -36,7 +33,8 @@ body.active-modal {
 .overlay {
     background: rgba(49,49,49,0.8);
 }
-.modal-content {
+
+.check-content {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -50,72 +48,53 @@ body.active-modal {
     flex-direction: column;
 }
 
-.form-create {
+.title-check {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.text-label {
-    width: 200px;
-}
-
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.title-project {
-    display: flex;
-    align-items: center;
-    /* justify-content: space-between; */
     gap: 30px;
     color: black;
     font-weight: 500em;
     font-size: larger;
-    margin-bottom: 10%;
+    padding: 10px 0;
 }
 
-.close-modal {
+.content-task-project, .content-plus-points {
     display: flex;
     align-items: center;
-    border: 2px solid black;
-    border-radius: 10%;
-    top: 10px;
-    right: 10px;
-    font-size: 25px;
-    background-color: tomato;
-    color: black;
-    cursor: pointer;
-    /* padding: 5px 10px; */
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px 0;
 }
 
-.close-modal:hover {
-    background-color: red;
-}
-
-.name-project {
+.plus {
+    margin: 5px 10px;
     display: flex;
     align-items: center;
-    color: black;
+    label {
+        width: 200px;
+    }
+    input {
+        width: 100px;
+    }
 }
 
-.desc-project  {
+.btn-check {
     display: flex;
     align-items: center;
-    color: black;
-    margin-top: 5%;
-}
-
-.Desc-table {
-    display: flex;
-    color: black;
-    /* margin-top: 5%; */
-    width: 200px;
-    height:100px;
+    h3 {
+        padding: 10px 20px;
+    }
+    button {
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        height: 30px;
+        width: 30px;
+    }
+    .tick, .non-tick {
+        width: 30px;
+        height: 30px;
+    }
 }
 
 .create-project1 {
@@ -133,9 +112,15 @@ input[type="text"] {
 
 .create-project1:hover {
     border: 2px solid black;
+    transition: 0.5s;
     background-color: aqua;
     color: white;
     letter-spacing: 3%;
+}
+
+.create-project1:not(:hover) {
+    transition: 0.5s;
+
 }
 
 

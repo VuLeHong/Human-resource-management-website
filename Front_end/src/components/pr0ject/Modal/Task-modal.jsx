@@ -1,11 +1,12 @@
 
 import React, { useEffect, useState } from "react";
 import "./Task-modal.css";
-import {} from "react-icons"
 import { IoMdClose } from "react-icons/io";
 import axios from 'axios'
+import Checkdone_modal from "./Checkdone-modal";
 
 const Task_modal = (project_id) => {
+  const [checkIsDone, setCheckIsDone] = useState(false)
   const [tasks, setTasks] = useState([]);
   const [modal, setModal] = useState(false);
   const [content, setContent] = useState();
@@ -30,7 +31,7 @@ const Task_modal = (project_id) => {
   }, [])
    const handleAdd = () => {
      axios.post('http://localhost:5000/addtask', {content:content, rank:rank, Project_id: project_id.project_id, user_id:user_id})
-     .then( result=> {
+     .then(result=> {
        if(result){
          location.reload()
        }
@@ -44,34 +45,24 @@ const Task_modal = (project_id) => {
       </button>
       {tasks.map((task, index) => (
         task.Project_id === project_id.project_id &&
-        <div key={index} className="btn1">
-          <div className="content-and-desc">
-            <div className="uptask">
+        <div className="task-project-component">
+          <div key={index} className="btn1">
+            <div className="content-and-desc">
               <p className="check">{task.content}</p>
             </div>
-            <div className="downtask">
-              <div className="chatbox">
-                {
-                  task.t_desc ===""
-                  ?
-                  <p>Comment: No comment</p>
-                  :
-                  <p>Comment: {task.t_desc}</p>
-                }
-                
-              </div>
-              <div className="isdonetask">
-                {
-                  task.ans ===""
-                  ?
-                  <p>Result: No result</p>
-                  :
-                  <p>Result: {task.ans}</p>
-                }
-              </div>
+            <div className="rank-taskproj">
+              <p className="check">Rank: {task.rank}</p>
             </div>
           </div>
-          <p className="check">Rank: {task.rank}</p>
+          <div className="downtask">
+                <div className="chatbox">
+                  <p>Comment: {task.t_desc}</p>
+                </div>
+                <div className="isdonetask">
+                  <p>Result: {task.ans}</p>
+                  <Checkdone_modal />
+                </div>
+            </div>
         </div>
   ))}
       {modal && (

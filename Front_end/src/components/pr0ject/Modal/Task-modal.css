@@ -7,10 +7,9 @@ body.active-modal {
     display: block;
     font-size: 18px;
     border: 2px solid black;
-    /* margin-left: 200px; */
     border-radius: 50em;
     cursor: pointer;
-    
+    margin: 15px 0;
 }
 
 .open-button:hover {
@@ -27,7 +26,6 @@ body.active-modal {
     right: 0;
     bottom: 0;
     position: fixed;
-    /* border-radius: 200em; */
 }
 
 .overlay {
@@ -54,55 +52,62 @@ body.active-modal {
     
 }
 
-.box1 {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    color: aqua;
-}
-
-.test {
-    /* display: flex;
-    align-items: center; */
-    gap: 30px;
-    color: black;
-    margin-top: 10px;
-    margin-right: 200px;
+.task-project-component {
+    margin: 10px 0;
 }
 
 .btn1 {
+    width: 100%;
     padding: 10px 20px;
-    display: block;
-    /* font-size: 5px; */
     border: 2px solid black;
     border-radius: 50em;
-    cursor: pointer;
-    margin-bottom: 5px;
+    margin: 10px 0;
     list-style: none;
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-
-.btn2 {
-    padding: 10px 20px;
-    display: block;
-    /* font-size: 5px; */
-    border: 2px solid black;
-    border-radius: 50em;
-    cursor: pointer;
-    margin-bottom: 5px;
-    list-style: none;
-    
+.check {
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 32px;
+    padding: 0 20px;
 }
 
-.btn3 {
-    padding: 10px 20px;
-    display: block;
-    /* font-size: 18px; */
-    border: 2px solid black;
-    border-radius: 50em;
+.descript {
+    padding: 0 10px;
+    margin: 0 20px;
+    border-radius: 10px;
     cursor: pointer;
-    margin-bottom: 5px;
-    list-style: none;
+}
 
+.checkbox {
+    height: 30px;
+    width: 30px;
+    margin: 0 20px;
+}
+
+.content-and-desc {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 250px;
+
+}
+
+.downtask {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.isdonetask {
+    display: flex;
+    gap: 10px;
+}
+
+.rank-taskproj {
+    padding: 0 10px;
 }

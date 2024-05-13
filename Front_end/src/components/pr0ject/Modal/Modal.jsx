@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "./Modal.css";
-import {} from "react-icons"
-
 import axios from 'axios'
 import { IoMdClose } from "react-icons/io";
 import { TiPlus } from "react-icons/ti";

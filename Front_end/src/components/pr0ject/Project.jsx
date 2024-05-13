@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import "./Project.css"
 import { } from 'react-icons/bs'
 import { IoSearchSharp } from "react-icons/io5";
-import { FaPlus } from "react-icons/fa6";
-import { BsFillSendFill } from "react-icons/bs"
 import Sidebar from '../sidebar/Sidebar';
 import Header from '../head/Header';
 import axios from 'axios' 
@@ -60,9 +58,8 @@ const Project = () => {
                   <div className='task-name'>
                     <h1 className="text">{project.name}</h1>
                   </div>
-
                   <div className="btn">
-                    <button className='move-btn' onClick={() => {toggleProject(index)}}>View Details <IoSearchSharp /></button>
+                    <button className='move-btn' onClick={() => {toggleProject(index)}}><p>View Details</p> <IoSearchSharp /></button>
                   </div>
                   
                 </div>
