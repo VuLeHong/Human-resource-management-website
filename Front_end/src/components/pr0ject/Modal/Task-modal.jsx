@@ -20,6 +20,7 @@ const Task_modal = (project_id) => {
   } else {
     document.body.classList.remove('active-modal')
   }
+
   useEffect(() => {
     axios.get('http://localhost:5000/gettasks') 
     .then(result => {
@@ -36,8 +37,6 @@ const Task_modal = (project_id) => {
      })
      .catch(err => console.log(err))
  }
- //console.log(project_id)
-//console.log(tasks)
   return (
     <>
       <button onClick={toggleModal} className="open-button">
