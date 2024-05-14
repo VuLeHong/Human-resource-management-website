@@ -5,7 +5,7 @@ import { IoMdClose } from "react-icons/io";
 import axios from 'axios'
 import Checkdone_modal from "./Checkdone-modal";
 
-const Task_modal = (project_id) => {
+const Task_modal = (data) => {
   const [checkIsDone, setCheckIsDone] = useState(false)
   const [tasks, setTasks] = useState([]);
   const [modal, setModal] = useState(false);
@@ -30,7 +30,7 @@ const Task_modal = (project_id) => {
     .catch(err => console.log(err))
   }, [])
    const handleAdd = () => {
-     axios.post('http://localhost:5000/addtask', {content:content, rank:rank, Project_id: project_id.project_id, user_id:user_id})
+     axios.post('http://localhost:5000/addtask', {content:content, rank:rank, Project_id: data.project_id, user_id:user_id})
      .then(result=> {
        if(result){
          location.reload()
@@ -44,7 +44,7 @@ const Task_modal = (project_id) => {
         Create Task
       </button>
       {tasks.map((task, index) => (
-        task.Project_id === project_id.project_id &&
+        task.Project_id === data.project_id &&
         <div className="task-project-component">
           <div key={index} className="btn1">
             <div className="content-and-desc">
@@ -56,11 +56,25 @@ const Task_modal = (project_id) => {
           </div>
           <div className="downtask">
                 <div className="chatbox">
-                  <p>Comment: {task.t_desc}</p>
+                  {
+                    task.t_desc === ""
+                    ?
+                    <p>Comment: No comment</p>
+                    :
+                    <p>Comment: {task.t_desc}</p>
+                  }
                 </div>
                 <div className="isdonetask">
-                  <p>Result: {task.ans}</p>
-                  <Checkdone_modal />
+                  {
+                    task.ans === ""
+                    ?
+                    <p>Result: No result</p>
+                    :
+                    <>
+                     <p>Result: {task.ans}</p>
+                      <Checkdone_modal content = {task.content} rank = {task.rank} isdone = {task.isdone} user_id = {task.user_id} />
+                    </>
+                  }
                 </div>
             </div>
         </div>
