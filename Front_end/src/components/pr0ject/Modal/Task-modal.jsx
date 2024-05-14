@@ -72,7 +72,7 @@ const Task_modal = (data) => {
                     :
                     <>
                      <p>Result: {task.ans}</p>
-                      <Checkdone_modal content = {task.content} rank = {task.rank} isdone = {task.isdone} user_id = {task.user_id} />
+                      <Checkdone_modal content = {task.content} rank = {task.rank} isdone = {task.isdone} user_id = {task.user_id} task_id = {task._id}/>
                     </>
                   }
                 </div>

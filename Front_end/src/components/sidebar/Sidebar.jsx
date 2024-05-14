@@ -3,18 +3,21 @@ import { BsFillPersonFill, BsListTask, BsClipboard2Pulse, BsFillArchiveFill } fr
 import logo from '../../assets/logo-white.png'
 import { Link, useNavigate } from 'react-router-dom'
 import './Sidebar.css'
-const auth = localStorage.getItem("user");
-const auth1 = JSON.parse(auth);
-const [owner, setOwner] = useState({});
-  useEffect(() => {
-   axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
-   .then(result => {
-           setOwner(result.data)
-           //console.log(owner.stats)
-   })
-   .catch(err => console.log(err))
- },[])
+
+import axios from 'axios'
+
 function Sidebar({openSidebarToggle}) {
+    const auth = localStorage.getItem("user");
+    const auth1 = JSON.parse(auth);
+    const [owner, setOwner] = useState({});
+    useEffect(() => {
+        axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
+        .then(result => {
+                setOwner(result.data)
+                //console.log(owner.stats)
+        })
+        .catch(err => console.log(err))
+      },[])
   return (
     <aside id="sidebar" className={openSidebarToggle ? "sidebar-responsive": ""}>
         <div className='sidebar-title'>
