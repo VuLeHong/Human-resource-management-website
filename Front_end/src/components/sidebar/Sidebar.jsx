@@ -5,11 +5,13 @@ import { Link, useNavigate } from 'react-router-dom'
 import './Sidebar.css'
 import axios from 'axios'
 
-
 function Sidebar({openSidebarToggle}) {
     const auth = localStorage.getItem("user");
     const auth1 = JSON.parse(auth);
     const [owner, setOwner] = useState({});
+    const notify = () => {
+        alert("Your rank is not enough")
+    };
     useEffect(() => {
         axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
         .then(result => {
@@ -18,6 +20,7 @@ function Sidebar({openSidebarToggle}) {
         })
         .catch(err => console.log(err))
       },[])
+
   return (
     <aside id="sidebar" className={openSidebarToggle ? "sidebar-responsive": ""}>
         <div className='sidebar-title'>
@@ -44,9 +47,26 @@ function Sidebar({openSidebarToggle}) {
                 </a>
             </li>
             <li className='sidebar-list-item'>
-                <a href="">   
+                    {owner.rank === 'E'
+                    ?
+                    <div onClick={notify}>
+                        <a href=""><BsFillArchiveFill className='icon' /> <p>Project</p></a>
+                    </div>
+                    :
+                    owner.rank === 'D'
+                    ?
+                    <div onClick={notify}>
+                        <a href=""><BsFillArchiveFill className='icon' /> <p>Project</p></a>
+                    </div>
+                    :
+                    owner.rank === 'C'
+                    ?
+                    <div onClick={notify}>
+                        <a href=""><BsFillArchiveFill className='icon' /> <p>Project</p></a>
+                    </div>
+                    :
                     <Link className='component-icon-list'to='/project'><BsFillArchiveFill className='icon'/> <p>Project</p> </Link>
-                </a>
+                    }
             </li>
         </ul>
     </aside>
