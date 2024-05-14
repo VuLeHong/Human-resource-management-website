@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react' 
 import "./Checkdone-modal.css";
 import { MdCheckBoxOutlineBlank, MdCheckBox } from "react-icons/md"
-
+import axios from 'axios'
 const Checkdone_modal = (data) => {
   const [modal, setModal] = useState(false);
   const [Organization, setOrganization] = useState();
@@ -23,14 +23,46 @@ const Checkdone_modal = (data) => {
   } else {
     document.body.classList.remove('active-modal')
   }
+  const [owner, setOwner] = useState({});
+  useEffect(() => {
+   axios.post('http://localhost:5000/get', {user_id: data.user_id}) 
+   .then(result => {
+           setOwner(result.data)
+   })
+   .catch(err => console.log(err))
+ },[])
   const handleAdd = () => {
-    axios.post('http://localhost:5000/upscore', {content:content, rank:rank, Project_id: data.project_id, user_id:user_id})
-    .then(result=> {
-      if(result){
-        location.reload()
-      }
-    })
-    .catch(err => console.log(err))
+    if(check===false){
+      axios.post('http://localhost:5000/upscore', {
+        user_id: data.user_id,
+        organizational_up: Organization, 
+        techical_up: Technology,
+        idea_up: Idea,
+        communication_up: Communication,
+        product_up: Product,
+        organizational_skill: owner.stats.organizational_skill,
+        techical_skill: owner.stats.techical_skill,
+        idea_contribution: owner.stats.idea_contribution,
+        communication_skill: owner.stats.communication_skill,
+        product_optimization: owner.stats.product_optimization
+      })
+      .then(result=> {
+        if(result){
+          location.reload()
+        }
+      })
+      .catch(err => console.log(err))
+      axios.post('http://localhost:5000/updone', {task_id: data.task_id})
+       .then(result=> {
+         if(result){
+           location.reload()
+         }
+       })
+       .catch(err => console.log(err))
+    }
+    else{
+      alert("please check done")
+    }
 }
   return (
     <>
@@ -57,35 +89,36 @@ const Checkdone_modal = (data) => {
                 <div className="plusploint-form">
                     <div className="plus">
                         <label htmlFor="">Organization skill:</label>
-                        <input type="text"onChange={ (e) => setOrganization(e.target.value)} required />
+                        <input type="number"onChange={ (e) => setOrganization(e.target.value)} required />
                     </div>
                     <div className="plus">
                         <label htmlFor="">Technology skill:</label>
-                        <input type="text" onChange={ (e) => setTechnology(e.target.value)} required />
+                        <input type="number" onChange={ (e) => setTechnology(e.target.value)} required />
                     </div>
                     <div className="plus">
                         <label htmlFor="">Idea contribution:</label>
-                        <input type="text" onChange={ (e) => setIdea(e.target.value)} required />
+                        <input type="number" onChange={ (e) => setIdea(e.target.value)} required />
                     </div>
                     <div className="plus">
                         <label htmlFor="">Communication skill:</label>
-                        <input type="text" onChange={ (e) => setCommunication(e.target.value)} required />
+                        <input type="number" onChange={ (e) => setCommunication(e.target.value)} required />
                     </div>
                     <div className="plus">
                         <label htmlFor="">Product optimization:</label>
-                        <input type="text" onChange={ (e) => setProduct(e.target.value)} required />
+                        <input type="number" onChange={ (e) => setProduct(e.target.value)} required />
                     </div>
                 </div>
-            </form>
-            <div className="btn-check">
+                <div className="btn-check">
                 <h3>isDone?</h3>
                 <button onClick={toggleCheck}>
-                    {check ? <MdCheckBoxOutlineBlank className="tick" /> : <MdCheckBox className="non-tick" />}
+                    {check===false ? <MdCheckBoxOutlineBlank className="tick" /> : <MdCheckBox className="non-tick" />}
                 </button>
             </div>
             <div className="create-project">
                 <button className="create-project1" type="submit">Submit</button>
             </div>
+            </form>
+            
           </div>
         </div>
       )}
