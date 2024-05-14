@@ -94,7 +94,7 @@ app.post('/addtaskid', asyncHandler(async(req,res) =>{
     const{ user_id:user_id, task_id: task_id} = req.body;
     const task = {task_id:task_id};
     //console.log(task)
-   const works = await user_collection.findOneAndUpdate({_id: user_id}, {$push:{tasks:task}})
+   const works = await user_collection.findOneAndUpdate({user_id: user_id}, {$push:{tasks:task}})
     .then(result => res.json(result))
     .catch(err => res.json(err))
 }))
