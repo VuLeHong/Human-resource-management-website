@@ -6,20 +6,16 @@ import Sidebar from '../sidebar/Sidebar'
 
 const Ranking = () => {
 
-  const [isLoading, setIsLoading] = useState(false);
+
   const [users, setUsers] = useState([])
 
   const getUsers = async () => {
     try {
-      setIsLoading(true);
       const response = await axios.get("http://localhost:5000/home");
       //console.log(response.data)
       setUsers(response.data);
-      setIsLoading(false);
     } catch (error) {
-
       console.error(error.message);
-      setIsLoading(false);
     }
   };
 
