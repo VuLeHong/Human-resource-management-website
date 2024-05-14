@@ -19,6 +19,10 @@ const Checkdone_modal = (data) => {
     setCheck(!check)
   }
 
+  const wrong_submit = () => {
+    alert("You input wrong points")
+  }
+
   if(modal) {
     document.body.classList.add('active-modal')
   } else {
@@ -33,7 +37,7 @@ const Checkdone_modal = (data) => {
    .catch(err => console.log(err))
  },[])
   const handleAdd = () => {
-    if(check===false){
+    alert("You submit successfully")
       axios.post('http://localhost:5000/upscore', {
         user_id: data.user_id,
         organizational_up: Organization, 
@@ -60,16 +64,14 @@ const Checkdone_modal = (data) => {
          }
        })
        .catch(err => console.log(err))
-    }
-    else{
-      alert("please check done")
-    }
-}
+  }
+  const total = parseInt(Organization) + parseInt(Technology) + parseInt(Idea) + parseInt(Communication) + parseInt(Product);
+
   return (
     <>
       <button onClick={toggleModal} className="btn-modalcheck">
         Check Done
-        </button>
+      </button>
 
       {modal && (
         <div className="modalcheck">
@@ -80,46 +82,152 @@ const Checkdone_modal = (data) => {
             </div>
             <div className="content-task-project">
                 <h3>Content of the task: {data.content}</h3>
+                <h3>By: {data.user_id}</h3>
                 <h3>Rank of the task: {data.rank}</h3>
-                <h3>Score: 10</h3>
+                {
+                data.rank === 'F' ? <h3>Score: 5</h3> :
+                data.rank === 'E' ? <h3>Score: 15</h3> :
+                data.rank === 'D' ? <h3>Score: 25</h3> :
+                data.rank === 'C' ? <h3>Score: 35</h3> :
+                data.rank === 'B' ? <h3>Score: 55</h3> :
+                data.rank === 'A' ? <h3>Score: 70</h3> :
+                data.rank === 'S' ? <h3>Score: 80</h3> :
+                <></>
+                }
             </div>
-            <form onSubmit={handleAdd}>
+            <form>
                 <div className="content-plus-points">
                     <h3>Which skills do you want to add?</h3>
                 </div>
                 <div className="plusploint-form">
                     <div className="plus">
                         <label htmlFor="">Organization skill:</label>
-                        <input type="number"onChange={ (e) => setOrganization(e.target.value)} required />
+                        {
+                        data.rank === 'F' ? <input type="number" min="0" max="5" onChange={ (e) => setOrganization(e.target.value)} required /> :
+                        data.rank === 'E' ? <input type="number" min="0" max="15" onChange={ (e) => setOrganization(e.target.value)} required /> :
+                        data.rank === 'D' ? <input type="number" min="0" max="25" onChange={ (e) => setOrganization(e.target.value)} required /> :
+                        data.rank === 'C' ? <input type="number" min="0" max="35" onChange={ (e) => setOrganization(e.target.value)} required /> :
+                        data.rank === 'B' ? <input type="number" min="0" max="55" onChange={ (e) => setOrganization(e.target.value)} required /> :
+                        data.rank === 'A' ? <input type="number" min="0" max="70" onChange={ (e) => setOrganization(e.target.value)} required /> :
+                        data.rank === 'S' ? <input type="number" min="0" max="80" onChange={ (e) => setOrganization(e.target.value)} required /> :
+                        <></>
+                        }
                     </div>
                     <div className="plus">
                         <label htmlFor="">Technology skill:</label>
-                        <input type="number" onChange={ (e) => setTechnology(e.target.value)} required />
+                        {
+                        data.rank === 'F' ? <input type="number" min="0" max="5" onChange={ (e) => setTechnology(e.target.value)} required /> :
+                        data.rank === 'E' ? <input type="number" min="0" max="15" onChange={ (e) => setTechnology(e.target.value)} required /> :
+                        data.rank === 'D' ? <input type="number" min="0" max="25" onChange={ (e) => setTechnology(e.target.value)} required /> :
+                        data.rank === 'C' ? <input type="number" min="0" max="35" onChange={ (e) => setTechnology(e.target.value)} required /> :
+                        data.rank === 'B' ? <input type="number" min="0" max="55" onChange={ (e) => setTechnology(e.target.value)} required /> :
+                        data.rank === 'A' ? <input type="number" min="0" max="70" onChange={ (e) => setTechnology(e.target.value)} required /> :
+                        data.rank === 'S' ? <input type="number" min="0" max="80" onChange={ (e) => setTechnology(e.target.value)} required /> :
+                        <></>
+                        }
                     </div>
                     <div className="plus">
                         <label htmlFor="">Idea contribution:</label>
-                        <input type="number" onChange={ (e) => setIdea(e.target.value)} required />
+                        {
+                        data.rank === 'F' ? <input type="number" min="0" max="5" onChange={ (e) => setIdea(e.target.value)} required /> :
+                        data.rank === 'E' ? <input type="number" min="0" max="15" onChange={ (e) => setIdea(e.target.value)} required /> :
+                        data.rank === 'D' ? <input type="number" min="0" max="25" onChange={ (e) => setIdea(e.target.value)} required /> :
+                        data.rank === 'C' ? <input type="number" min="0" max="35" onChange={ (e) => setIdea(e.target.value)} required /> :
+                        data.rank === 'B' ? <input type="number" min="0" max="55" onChange={ (e) => setIdea(e.target.value)} required /> :
+                        data.rank === 'A' ? <input type="number" min="0" max="70" onChange={ (e) => setIdea(e.target.value)} required /> :
+                        data.rank === 'S' ? <input type="number" min="0" max="80" onChange={ (e) => setIdea(e.target.value)} required /> :
+                        <></>
+                        }
                     </div>
                     <div className="plus">
                         <label htmlFor="">Communication skill:</label>
-                        <input type="number" onChange={ (e) => setCommunication(e.target.value)} required />
+                        {
+                        data.rank === 'F' ? <input type="number" min="0" max="5" onChange={ (e) => setCommunication(e.target.value)} required /> :
+                        data.rank === 'E' ? <input type="number" min="0" max="15" onChange={ (e) => setCommunication(e.target.value)} required /> :
+                        data.rank === 'D' ? <input type="number" min="0" max="25" onChange={ (e) => setCommunication(e.target.value)} required /> :
+                        data.rank === 'C' ? <input type="number" min="0" max="35" onChange={ (e) => setCommunication(e.target.value)} required /> :
+                        data.rank === 'B' ? <input type="number" min="0" max="55" onChange={ (e) => setCommunication(e.target.value)} required /> :
+                        data.rank === 'A' ? <input type="number" min="0" max="70" onChange={ (e) => setCommunication(e.target.value)} required /> :
+                        data.rank === 'S' ? <input type="number" min="0" max="80" onChange={ (e) => setCommunication(e.target.value)} required /> :
+                        <></>
+                        }
                     </div>
                     <div className="plus">
                         <label htmlFor="">Product optimization:</label>
-                        <input type="number" onChange={ (e) => setProduct(e.target.value)} required />
+                        {
+                        data.rank === 'F' ? <input type="number" min="0" max="5" onChange={ (e) => setProduct(e.target.value)} required /> :
+                        data.rank === 'E' ? <input type="number" min="0" max="15" onChange={ (e) => setProduct(e.target.value)} required /> :
+                        data.rank === 'D' ? <input type="number" min="0" max="25" onChange={ (e) => setProduct(e.target.value)} required /> :
+                        data.rank === 'C' ? <input type="number" min="0" max="35" onChange={ (e) => setProduct(e.target.value)} required /> :
+                        data.rank === 'B' ? <input type="number" min="0" max="55" onChange={ (e) => setProduct(e.target.value)} required /> :
+                        data.rank === 'A' ? <input type="number" min="0" max="70" onChange={ (e) => setProduct(e.target.value)} required /> :
+                        data.rank === 'S' ? <input type="number" min="0" max="80" onChange={ (e) => setProduct(e.target.value)} required /> :
+                        <></>
+                        }
                     </div>
                 </div>
-                <div className="btn-check">
-                <h3>isDone?</h3>
-                <button onClick={toggleCheck}>
-                    {check===false ? <MdCheckBoxOutlineBlank className="tick" /> : <MdCheckBox className="non-tick" />}
-                </button>
-            </div>
             <div className="create-project">
-                <button className="create-project1" type="submit">Submit</button>
+                {
+                data.rank === 'F' 
+                ? 
+                total === 5 
+                  ? 
+                  <button className="create-project1" type="submit" onClick={handleAdd}>Submit</button>
+                  :
+                  <button className="create-project1" onClick={wrong_submit}>Submit</button>
+                :
+                data.rank === 'E' 
+                ? 
+                total === 15 
+                  ? 
+                  <button className="create-project1" type="submit" onClick={handleAdd}>Submit</button>
+                  :
+                  <button className="create-project1" onClick={wrong_submit}>Submit</button>
+                :
+                data.rank === 'D' 
+                ? 
+                total === 25 
+                  ? 
+                  <button className="create-project1" type="submit" onClick={handleAdd}>Submit</button>
+                  :
+                  <button className="create-project1" onClick={wrong_submit}>Submit</button>
+                :
+                data.rank === 'C' 
+                ? 
+                total === 35 
+                  ? 
+                  <button className="create-project1" type="submit" onClick={handleAdd}>Submit</button>
+                  :
+                  <button className="create-project1" onClick={wrong_submit}>Submit</button>
+                :
+                data.rank === 'B' 
+                ? 
+                total === 55 
+                  ? 
+                  <button className="create-project1" type="submit" onClick={handleAdd}>Submit</button>
+                  :
+                  <button className="create-project1" onClick={wrong_submit}>Submit</button>
+                :
+                data.rank === 'A' 
+                ? 
+                total === 70 
+                  ? 
+                  <button className="create-project1" type="submit" onClick={handleAdd}>Submit</button>
+                  :
+                  <button className="create-project1" onClick={wrong_submit}>Submit</button>
+                :
+                data.rank === 'S' 
+                ? 
+                total === 80
+                  ? 
+                  <button className="create-project1" type="submit" onClick={handleAdd}>Submit</button>
+                  :
+                  <button className="create-project1" onClick={wrong_submit}>Submit</button>
+                :
+                <></>
+                }
             </div>
-            </form>
-            
+          </form>
           </div>
         </div>
       )}
