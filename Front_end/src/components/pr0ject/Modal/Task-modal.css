@@ -1,0 +1,113 @@
+body.active-modal {
+    overflow-y: hidden;
+}
+
+.open-button {
+    padding: 10px 20px;
+    display: block;
+    font-size: 18px;
+    border: 2px solid black;
+    border-radius: 50em;
+    cursor: pointer;
+    margin: 15px 0;
+}
+
+.open-button:hover {
+    background: black;
+    color: white;
+    transition: ease-in-out 0.3s;
+}
+
+.modal, .overlay {
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+.overlay {
+    background: rgba(49,49,49,0.8);
+}
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #f1f1f1;
+    border-radius: 10px;
+    padding: 30px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.title-project {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    
+}
+
+.task-project-component {
+    margin: 10px 0;
+}
+
+.btn1 {
+    width: 100%;
+    padding: 10px 20px;
+    border: 2px solid black;
+    border-radius: 50em;
+    margin: 10px 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.check {
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 32px;
+    padding: 0 20px;
+}
+
+.descript {
+    padding: 0 10px;
+    margin: 0 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.checkbox {
+    height: 30px;
+    width: 30px;
+    margin: 0 20px;
+}
+
+.content-and-desc {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 250px;
+
+}
+
+.downtask {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.isdonetask {
+    display: flex;
+    gap: 10px;
+}
+
+.rank-taskproj {
+    padding: 0 10px;
+}

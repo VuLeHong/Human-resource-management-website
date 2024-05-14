@@ -3,7 +3,8 @@ import { BsFillPersonFill, BsListTask, BsClipboard2Pulse, BsFillArchiveFill } fr
 import logo from '../../assets/logo-white.png'
 import { Link, useNavigate } from 'react-router-dom'
 import './Sidebar.css'
-
+const auth = localStorage.getItem("user");
+const auth1 = JSON.parse(auth);
 function Sidebar({openSidebarToggle}) {
   return (
     <aside id="sidebar" className={openSidebarToggle ? "sidebar-responsive": ""}>
@@ -32,8 +33,7 @@ function Sidebar({openSidebarToggle}) {
             </li>
             <li className='sidebar-list-item'>
                 <a href="">   
-                    <Link className='component-icon-list' to='/project'><BsFillArchiveFill className='icon'/> <p>Project</p> </Link>
-
+                    <Link className='component-icon-list'to='/project'><BsFillArchiveFill className='icon'/> <p>Project</p> </Link>
                 </a>
             </li>
         </ul>

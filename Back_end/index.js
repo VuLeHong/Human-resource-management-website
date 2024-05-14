@@ -128,7 +128,7 @@ app.post('/pushtaskid', asyncHandler(async(req,res) =>{
 
 //task 
 app.post('/addtask', asyncHandler(async(req,res) =>{
-    const{ content, rank, Project_id: Project_id, user_id:user_id} = req.body;
+    const{ content:content, rank:rank, Project_id: Project_id, user_id:user_id} = req.body;
     const task = {content: content, rank: rank, isdone: false ,Project_id: Project_id, user_id: user_id};
    const works = await Task_collection.create(task)
     .then(result => res.json(result))
@@ -156,34 +156,6 @@ app.post('/updone', asyncHandler(async(req,res) =>{
     .catch(err => res.json(err))
 }))
 
-//project
-app.post('/project', async(req, res) => {
-    try {
-        const user = await Project_collection.create(req.body)
-        res.status(200).json(user);
-    }
-    catch (error) {
-        console.log(error.message);
-        res.status(500).json({message: error.message});
-    }
-})
-
-//task 
-app.post('/addtask', asyncHandler(async(req,res) =>{
-    const{ content, rank, Project_id: Project_id, user_id:user_id} = req.body;
-    const task = {content: content, rank: rank, isdone: false ,Project_id: Project_id, user_id: user_id};
-   const works = await Task_collection.create(task)
-    .then(result => res.json(result))
-    .catch(err => res.json(err))
-}))
-app.get('/gettask', async(req, res) => {
-    try {
-        const user = await Task_collection.find({});
-        res.status(200).json(user);
-    } catch (error) {
-        res.status(500).json({message: error.message})
-    }
-})
 app.post('/result', asyncHandler(async(req,res) =>{
     const{task_id: task_id, ans: ans} = req.body;
    const works = await Task_collection.findOneAndUpdate({_id: task_id}, {ans: ans})
