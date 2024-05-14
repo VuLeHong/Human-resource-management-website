@@ -4,6 +4,7 @@ import "./Task-modal.css";
 import { IoMdClose } from "react-icons/io";
 import axios from 'axios'
 import Checkdone_modal from "./Checkdone-modal";
+import { MdCheckBox } from "react-icons/md"
 
 const Task_modal = (data) => {
   const [checkIsDone, setCheckIsDone] = useState(false)
@@ -71,8 +72,13 @@ const Task_modal = (data) => {
                     <p>Result: No result</p>
                     :
                     <>
-                     <p>Result: {task.ans}</p>
+                      <p>Result: {task.ans}</p>
+                      {task.isdone === true 
+                      ? 
+                      <div className="btn-check"><MdCheckBox className="non-tick" /></div>
+                      :
                       <Checkdone_modal content = {task.content} rank = {task.rank} isdone = {task.isdone} user_id = {task.user_id} task_id = {task._id}/>
+                      } 
                     </>
                   }
                 </div>
@@ -84,7 +90,7 @@ const Task_modal = (data) => {
           <div className="overlay"></div>
           <div className="modal-content">
             <div className="title-project">
-                <h2>Create Project</h2>
+                <h2>Create Task</h2>
                 <button className="close-modal" onClick={toggleModal}>
                 <IoMdClose />
                 </button>
@@ -104,7 +110,7 @@ const Task_modal = (data) => {
                     <input type="text" placeholder="User-id task" onChange={ (e) => setUser_id(e.target.value)} required />
                 </div>
                 <div className="create-project">
-                    <button className="create-project1">Create project</button>
+                    <button className="create-project1">Create task</button>
                 </div>
             </form>
             
