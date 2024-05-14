@@ -72,22 +72,28 @@ const Ranking = () => {
         <div className="RankTitle">
           <h1>Hello {owner.truename}, here is your total stats!</h1>
         </div>
-        <div className="rank">
-          <div className="rank-number">
-            <h1>{owner.rank}</h1>
-          </div>
-          <div className="profile-comp">
+        {rankedArr.map(user =>(
+          user.user_id == owner.user_id 
+          ?
+          <div className="rank">
+            <div className="rank-number">
+              <h1>{user.rank}</h1>
+            </div>
+            <div className="profile-comp">
               <div className="avatar">
                 <img src={avatar} alt="" width='70' height='70' />
               </div>
               <div className="name">
                 <p>{owner.truename}</p>
               </div>
-          </div>
+            </div>
           <div className="total">
             <h3>{owner.stats === undefined ? auth1.stats.organizational_skill + auth1.stats.techical_skill + auth1.stats.idea_contribution + auth1.stats.communication_skill + auth1.stats.product_optimization: owner.stats.organizational_skill + owner.stats.techical_skill + owner.stats.idea_contribution + owner.stats.communication_skill + owner.stats.product_optimization}</h3>
           </div>
         </div>
+        : 
+        <></>
+        ))}
         <div className='leaderboard'>
           <div className="subTitle">
             <h1>Leaderboard</h1>
@@ -118,6 +124,7 @@ const Ranking = () => {
         </div>
       </div>
     </div>
+
   )
 }
 
