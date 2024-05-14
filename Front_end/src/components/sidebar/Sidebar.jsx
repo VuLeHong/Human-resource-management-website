@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'  
 import { BsFillPersonFill, BsListTask, BsClipboard2Pulse, BsFillArchiveFill } from 'react-icons/bs'
 import logo from '../../assets/logo-white.png'
 import { Link, useNavigate } from 'react-router-dom'
 import './Sidebar.css'
 const auth = localStorage.getItem("user");
 const auth1 = JSON.parse(auth);
+const [owner, setOwner] = useState({});
+  useEffect(() => {
+   axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
+   .then(result => {
+           setOwner(result.data)
+           //console.log(owner.stats)
+   })
+   .catch(err => console.log(err))
+ },[])
 function Sidebar({openSidebarToggle}) {
   return (
     <aside id="sidebar" className={openSidebarToggle ? "sidebar-responsive": ""}>
