@@ -16,7 +16,7 @@ const Modal_rank = (data) => {
 
   return (
     <>
-      <button onClick={toggleModal} className="btn-modal">
+      <button onClick={toggleModal} className="btn-click">
         View Details
         </button>
 
