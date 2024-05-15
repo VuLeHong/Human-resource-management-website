@@ -17,7 +17,8 @@
 
 .logout:hover {
     background-color: red;
-    /* Keep the hover effect as before */
+    /* Keep the hover effect as before ... */
+
 }
 
 .logout:hover a{
