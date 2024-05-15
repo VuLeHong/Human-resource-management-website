@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react' 
 import "./Checkdone-modal.css";
 import { MdCheckBoxOutlineBlank, MdCheckBox } from "react-icons/md"
@@ -28,6 +29,7 @@ const Checkdone_modal = (data) => {
   } else {
     document.body.classList.remove('active-modal')
   }
+
   const [owner, setOwner] = useState({});
   useEffect(() => {
    axios.post('http://localhost:5000/get', {user_id: data.user_id}) 
@@ -72,7 +74,6 @@ const Checkdone_modal = (data) => {
       <button onClick={toggleModal} className="btn-modalcheck">
         Check Done
       </button>
-
       {modal && (
         <div className="modalcheck">
           <div className="overlay" onClick={toggleModal}></div>
@@ -228,6 +229,7 @@ const Checkdone_modal = (data) => {
                 }
             </div>
           </form>
+
           </div>
         </div>
       )}

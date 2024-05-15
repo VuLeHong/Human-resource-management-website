@@ -6,7 +6,6 @@
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     flex-direction: column;
 }
 
@@ -18,7 +17,6 @@
 }
 
 .task-list {
-    /* width: 100%; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -73,9 +71,7 @@
 .line_through {
     text-decoration: line-through;
 }
-.comment {
-    width: 100%;
-}
+
 .title {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
@@ -124,13 +120,12 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     margin: 0 30px;
-    /* margin-right: 20em; */
 }
 
 .btn-send {
     background-color: #ccc ;
     padding: 10px 20px;
-    /* border: none; */
+    border: none;
     border-radius: 5px;
     cursor: pointer;
     display: flex;
