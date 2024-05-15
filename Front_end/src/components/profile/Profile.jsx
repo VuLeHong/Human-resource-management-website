@@ -42,6 +42,9 @@ function Profile (){
                 <div className="staff">
                   <p>Role/Dept : {owner.role}</p>
                 </div>
+                <div className="user_id">
+                  <p>User ID : {owner.user_id}</p>
+                </div>
                 <div className='process'>
                   <p>Rank : {owner.rank}</p>
                   <div className="progress-bar">
