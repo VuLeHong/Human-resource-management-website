@@ -99,12 +99,12 @@ const Task_modal = (data) => {
             <form onSubmit={handleAdd}>
                 <div className="name-project">
                     <p className="text-label" htmlFor="">Content :</p>
-                    <input type="text" placeholder="Name of project" onChange={ (e) => setContent(e.target.value)} required autoFocus/>
+                    <input type="text" className="content" placeholder="Name of project" onChange={ (e) => setContent(e.target.value)} required autoFocus/>
                 </div>
                 <div className="desc-project">
                     <label className="text-label" htmlFor="">Rank :</label>
                     {/* <input type="text" placeholder="Rank" list="rank" onChange={ (e) => setRank(e.target.value)} required/> */}
-                    <select id="rank" onChange={ (e) => setRank(e.target.value) } required>
+                    <select id="rank" className="box" onChange={ (e) => setRank(e.target.value) } required>
                       <option value="S">S</option>
                       <option value="A">A</option>
                       <option value="B">B</option>
@@ -117,10 +117,10 @@ const Task_modal = (data) => {
 
                 <div className="desc-project">
                     <label className="text-label" htmlFor="">User-id task  :</label>
-                    <input type="text" placeholder="User-id task" onChange={ (e) => setUser_id(e.target.value)} required />
+                    <input type="text" className="user-id" placeholder="User-id task" onChange={ (e) => setUser_id(e.target.value)} required />
                 </div>
                 <div className="create-project">
-                    <button className="create-project1">Create task</button>
+                    <button className="create-project2">Create task</button>
                 </div>
             </form>
             
