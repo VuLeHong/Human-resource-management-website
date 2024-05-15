@@ -103,7 +103,15 @@ const Task_modal = (data) => {
                 </div>
                 <div className="desc-project">
                     <label className="text-label" htmlFor="">Rank :</label>
-                    <input type="text" placeholder="Rank" onChange={ (e) => setRank(e.target.value)} required/>
+                    <input type="text" placeholder="Rank" list="rank" onChange={ (e) => setRank(e.target.value)} required/>
+                    <datalist id="rank">
+                      <option value="S">S</option>
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                      <option value="D">D</option>
+                      <option value="E">E</option>
+                    </datalist>
                 </div>
 
                 <div className="desc-project">
