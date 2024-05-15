@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "./Modal.css";
-import {} from "react-icons"
-
 import axios from 'axios'
 import { IoMdClose } from "react-icons/io";
 import { TiPlus } from "react-icons/ti";
@@ -38,8 +36,8 @@ const Modal = () => {
   return (
     <>
       <button onClick={toggleModal} className="btn-modal">
-        <i class="icon"><TiPlus /></i>
-        OPEN
+        <i className="icon"><TiPlus /></i>
+        CREATE PROJECT
         </button>
 
       {modal && (
@@ -55,7 +53,7 @@ const Modal = () => {
             <form className="form-create" onSubmit={handleAdd}>
                 <div className="name-project">
                     <p className="text-label" htmlFor="">Name :</p>
-                    <input type="text" placeholder=" Name of project" onChange={ (e) => setName(e.target.value)} required />
+                    <input className="input-modal" type="text" placeholder=" Name of project" onChange={ (e) => setName(e.target.value)} required />
                 </div>
                 <div className="desc-project">
                     <label className="text-label" htmlFor="">Description :</label>

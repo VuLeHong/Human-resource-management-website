@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import './Profile.css'
 import Header from '../head/Header'
 import Sidebar from '../sidebar/Sidebar'
-import axios from 'axios' 
+import axios from 'axios'
+import Radars from './chart/Radars'
 
 function Profile (){
   
@@ -24,45 +25,52 @@ function Profile (){
     <div className='grid-container'>
       <Header />
       <Sidebar />
-        <div className='contain'>
-      <div className='profile-container'>
-        <div className="profile">
-          <div className='avatar'>
-            <img src={avatar} height="250" width="250" alt="" />
-          </div>
-          <div className='details'>
-            <div className="left">
-              <div className="name">
-                <p>Name : {owner.truename}</p>
-              </div>
-              <div className="gender">
-                {owner.ismale === true ? <p>Gender : Male</p> : <p>Gender: Female</p>}
-              </div>
-              <div className="staff">
-                <p>Role/Dept : {owner.role}</p>
-              </div>
-              <div className='process'>
-                <p>Rank : {owner.rank}</p>
-                <div className="progress-bar">
-                  <progress value="50" max="100"></progress>
-                  <p>50/100</p>
+      <div className='contain'>
+        <div className='profile-container'>
+          <div className="profile">
+            <div className='avatar'>
+              <img src={avatar} height="250" width="250" alt="" />
+            </div>
+            <div className='details'>
+              <div className="left">
+                <div className="name">
+                  <p>Name : {owner.truename}</p>
+                </div>
+                <div className="gender">
+                  {owner.ismale === true ? <p>Gender : Male</p> : <p>Gender: Female</p>}
+                </div>
+                <div className="staff">
+                  <p>Role/Dept : {owner.role}</p>
+                </div>
+                <div className="user_id">
+                  <p>User ID : {owner.user_id}</p>
+                </div>
+                <div className='process'>
+                  <p>Rank : {owner.rank}</p>
+                  <div className="progress-bar">
+                    <progress value="50" max="100"></progress>
+                    <p>50/100</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className='stats'>
-            <ul>
-              <p className='job'>STATS : </p>
-              <li>Organizational skill: {owner.stats === undefined ? auth1.stats.organizational_skill : owner.stats.organizational_skill}</li>
-              <li>Technology skill: {owner.stats === undefined ? auth1.stats.techical_skill : owner.stats.techical_skill}</li>
-              <li>Idea contribution: {owner.stats === undefined ? auth1.stats.idea_contribution : owner.stats.idea_contribution}</li>
-              <li>Communication skill: {owner.stats === undefined ? auth1.stats.communication_skill : owner.stats.communication_skill}</li>
-              <li>Product Optimization: {owner.stats === undefined ? auth1.stats.product_optimization : owner.stats.product_optimization}</li>
-            </ul>
+            <div className='stats'>
+              {/* <ul>
+                <p className='job'>STATS : </p>
+                <li>Organizational skill: {owner.stats === undefined ? auth1.stats.organizational_skill : owner.stats.organizational_skill}</li>
+                <li>Technology skill: {owner.stats === undefined ? auth1.stats.techical_skill : owner.stats.techical_skill}</li>
+                <li>Idea contribution: {owner.stats === undefined ? auth1.stats.idea_contribution : owner.stats.idea_contribution}</li>
+                <li>Communication skill: {owner.stats === undefined ? auth1.stats.communication_skill : owner.stats.communication_skill}</li>
+                <li>Product Optimization: {owner.stats === undefined ? auth1.stats.product_optimization : owner.stats.product_optimization}</li>
+              </ul> */}
+              <Radars />
+            </div>
           </div>
         </div>
+        {/* <div className="chart-container">
+          <Radars />
+        </div> */}
       </div>
-    </div>
     </div>
     
   )

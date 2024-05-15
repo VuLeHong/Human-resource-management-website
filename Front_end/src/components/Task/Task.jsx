@@ -9,6 +9,7 @@ function Task() {
     const [tasks, setTasks] = useState([]);
     const [cmt, setCmt] = useState();
     const [show, setShow] = useState(Array(tasks.length).fill(false))
+    const [upload, setUpload] = useState(Array(tasks.length).fill(false))
     
     const toggle = (index) => {
       setShow(prevShow => {
@@ -17,6 +18,15 @@ function Task() {
         return updatedShow;
       });
     };
+
+    const toggleUpload = (i) => {
+      setUpload(prevUpload => {
+        const updatedUpload = [...prevUpload];
+        updatedUpload[i] = !updatedUpload[i];
+        console.log(updatedUpload)
+        return updatedUpload;
+      })
+    }
 
     const auth = localStorage.getItem("user");
     const auth1 = JSON.parse(auth);
@@ -44,7 +54,7 @@ function Task() {
    axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
    .then(result => {
            setOwner(result.data)
-           console.log(owner.tasks)
+           //console.log(owner.tasks)
    })
    .catch(err => console.log(err))
  },[])
@@ -72,7 +82,7 @@ function Task() {
                   </div>
                   <div className="btn">
                     <button className='comment-btn' onClick={() => {toggle(index)}}>Comment<BsChat className='icons'/></button>
-                    <button className='move-btn' onClick={() => {}}>Upload<BsFillFolderFill className='icons'/></button>
+                    <button className='move-btn' onClick={() => {toggleUpload(index)}}>Upload<BsFillFolderFill className='icons'/></button>
                   </div>
                 </div>
                 :
@@ -84,6 +94,15 @@ function Task() {
                       <button className='btn-send' type="submit" onClick={() => handleCmt(tasks[index]._id,cmt)}><BsFillSendFill /></button>
                     </div>
                   </div>
+                }
+                {upload[index] && 
+                <div className='upload'>
+                  <form action='' method="post" encType="multipart/form-data">
+                    <label htmlFor="">Link:</label>
+                    <input type="text" name="task_id" />
+                    <button type="submit">Upload</button>
+                  </form>
+                </div>
                 }
               </div>
             )

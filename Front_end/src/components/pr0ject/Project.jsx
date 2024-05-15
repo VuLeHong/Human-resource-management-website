@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react'
 import "./Project.css"
 import { } from 'react-icons/bs'
 import { IoSearchSharp } from "react-icons/io5";
-import { FaPlus } from "react-icons/fa6";
-import { BsFillSendFill } from "react-icons/bs"
 import Sidebar from '../sidebar/Sidebar';
 import Header from '../head/Header';
 import axios from 'axios' 
@@ -35,7 +33,7 @@ const Project = () => {
     })
     .catch(err => console.log(err))
   }, [])
-
+  
   const [owner, setOwner] = useState({});
   useEffect(() => {
    axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
@@ -60,9 +58,8 @@ const Project = () => {
                   <div className='task-name'>
                     <h1 className="text">{project.name}</h1>
                   </div>
-
                   <div className="btn">
-                    <button className='move-btn' onClick={() => {toggleProject(index)}}>View Details <IoSearchSharp /></button>
+                    <button className='move-btn' onClick={() => {toggleProject(index)}}><p>View Details</p> <IoSearchSharp /></button>
                   </div>
                   
                 </div>
@@ -70,14 +67,14 @@ const Project = () => {
                 <></>}
                 {show[index] &&
                   <div className="comment">
-                    <Task_modal />
-                    <div className="task-project">
+                    <Task_modal project_id={projects[index]._id}/>
+                    {/* <div className="task-project">
                       <div className="content-project">
                         <h1></h1>
                       </div>
                       <div className="rank-project"></div>
                       <div className="userid-project"></div>
-                    </div>
+                    </div> */}
                   </div>
                 }
               {/* <div className="comment" id='comment'>

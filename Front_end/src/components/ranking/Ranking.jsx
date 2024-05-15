@@ -3,23 +3,20 @@ import axios from "axios";
 import { React, useState, useEffect } from 'react';
 import Header from '../head/Header'
 import Sidebar from '../sidebar/Sidebar'
+import Modal_rank from './Modal/Modal-rank';
 
 const Ranking = () => {
 
-  const [isLoading, setIsLoading] = useState(false);
+
   const [users, setUsers] = useState([])
 
   const getUsers = async () => {
     try {
-      setIsLoading(true);
       const response = await axios.get("http://localhost:5000/home");
       //console.log(response.data)
       setUsers(response.data);
-      setIsLoading(false);
     } catch (error) {
-
       console.error(error.message);
-      setIsLoading(false);
     }
   };
 
@@ -59,6 +56,7 @@ const Ranking = () => {
      ...arr,
      rank: index + 1
    }))
+
   for (let i = 0; i < sumArr.length; i++) {
     users[i].score = (users[i].score || 0) + sumArr[i]
   }
@@ -66,7 +64,7 @@ const Ranking = () => {
   const auth = localStorage.getItem("user");
   const auth1 = JSON.parse(auth);
   const avatar = "https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-541.jpg?size=338&ext=jpg&ga=GA1.1.735520172.1711411200&semt=ais";
-  //console.log(rankedArr);
+
   return (
     <div className='grid-container'>  
       <Header />
@@ -75,22 +73,28 @@ const Ranking = () => {
         <div className="RankTitle">
           <h1>Hello {owner.truename}, here is your total stats!</h1>
         </div>
-        <div className="rank">
-          <div className="rank-number">
-            <h1>{owner.rank}</h1>
-          </div>
-          <div className="profile-comp">
+        {rankedArr.map(user =>(
+          user.user_id == owner.user_id 
+          ?
+          <div className="rank">
+            <div className="rank-number">
+              <h1>{user.rank}</h1>
+            </div>
+            <div className="profile-comp">
               <div className="avatar">
                 <img src={avatar} alt="" width='70' height='70' />
               </div>
               <div className="name">
                 <p>{owner.truename}</p>
               </div>
-          </div>
+            </div>
           <div className="total">
             <h3>{owner.stats === undefined ? auth1.stats.organizational_skill + auth1.stats.techical_skill + auth1.stats.idea_contribution + auth1.stats.communication_skill + auth1.stats.product_optimization: owner.stats.organizational_skill + owner.stats.techical_skill + owner.stats.idea_contribution + owner.stats.communication_skill + owner.stats.product_optimization}</h3>
           </div>
         </div>
+        : 
+        <></>
+        ))}
         <div className='leaderboard'>
           <div className="subTitle">
             <h1>Leaderboard</h1>
@@ -115,12 +119,16 @@ const Ranking = () => {
             <div className="score">
               <h3>{user.stats.organizational_skill + user.stats.techical_skill + user.stats.idea_contribution + user.stats.communication_skill + user.stats.product_optimization}</h3>
             </div>
+            <div className="view-employee">
+              <Modal_rank />
+            </div>
           </div>
           ))
         }
         </div>
       </div>
     </div>
+
   )
 }
 
