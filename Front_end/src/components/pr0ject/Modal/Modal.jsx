@@ -37,7 +37,7 @@ const Modal = () => {
     <>
       <button onClick={toggleModal} className="btn-modal">
         <i className="icon"><TiPlus /></i>
-        OPEN
+        CREATE PROJECT
         </button>
 
       {modal && (
