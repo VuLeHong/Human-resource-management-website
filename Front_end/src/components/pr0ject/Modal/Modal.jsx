@@ -53,7 +53,7 @@ const Modal = () => {
             <form className="form-create" onSubmit={handleAdd}>
                 <div className="name-project">
                     <p className="text-label" htmlFor="">Name :</p>
-                    <input className="input-modal" type="text" placeholder=" Name of project" onChange={ (e) => setName(e.target.value)} required />
+                    <input className="input-modal" type="text" placeholder=" Name of project" onChange={ (e) => setName(e.target.value)} autoFocus required />
                 </div>
                 <div className="desc-project">
                     <label className="text-label" htmlFor="">Description :</label>

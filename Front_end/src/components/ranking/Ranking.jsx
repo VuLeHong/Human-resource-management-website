@@ -120,7 +120,7 @@ const Ranking = () => {
               <h3>{user.stats.organizational_skill + user.stats.techical_skill + user.stats.idea_contribution + user.stats.communication_skill + user.stats.product_optimization}</h3>
             </div>
             <div className="view-employee">
-              <Modal_rank organizational_skill= {user.stats.organizational_skill}  techical_skill= {user.stats.techical_skill} idea_contribution= {user.stats.idea_contribution} communication_skill= {user.stats.communication_skill} product_optimization= {user.stats.product_optimization}/>
+              <Modal_rank user_id= {user.user_id} organizational_skill= {user.stats.organizational_skill}  techical_skill= {user.stats.techical_skill} idea_contribution= {user.stats.idea_contribution} communication_skill= {user.stats.communication_skill} product_optimization= {user.stats.product_optimization}/>
             </div>
           </div>
           ))
