@@ -8,6 +8,7 @@ import axios from 'axios'
 function Task() {
     const [tasks, setTasks] = useState([]);
     const [cmt, setCmt] = useState();
+    const [ans, setAns] = useState();
     const [show, setShow] = useState(Array(tasks.length).fill(false))
     const [upload, setUpload] = useState(Array(tasks.length).fill(false))
     
@@ -41,7 +42,7 @@ function Task() {
       .catch(err => console.log(err))
     }, [])
     const handleCmt = (task_id,cmt) => {
-       axios.post('http://localhost:5000/addcmt', {task_id: task_id, t_desc : cmt})
+       axios.post('http://localhost:5000/addcmt', {task_id: task_id, t_desc: cmt})
        .then( result=> {
          if(result){
            location.reload()
@@ -49,6 +50,15 @@ function Task() {
        })
        .catch(err => console.log(err))
   }
+  const handleAns = (task_id,ans) => {
+    axios.post('http://localhost:5000/result', {task_id: task_id, ans: ans})
+    .then( result=> {
+      if(result){
+        location.reload()
+      }
+    })
+    .catch(err => console.log(err))
+}
   const [owner, setOwner] = useState({});
   useEffect(() => {
    axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
@@ -76,9 +86,10 @@ function Task() {
           {tasks.map((task, index) =>(
               <div key={index} className="separate-btn">
                 {task.user_id === owner.user_id ? 
+                task.isdone === true ? <></> :
                 <div className="task-list">
                   <div className='task-name'>
-                    <p className={task.isdone ? "line_through text" : "text"}>{task.content}</p>
+                    <p className="text">{task.content}</p>
                   </div>
                   <div className="btn">
                     <button className='comment-btn' onClick={() => {toggle(index)}}>Comment<BsChat className='icons'/></button>
@@ -99,8 +110,8 @@ function Task() {
                 <div className='upload'>
                   <form action='' method="post" encType="multipart/form-data">
                     <label htmlFor="">Link:</label>
-                    <input type="text" name="task_id" />
-                    <button type="submit">Upload</button>
+                    <input type="text" name="task_id" onChange={ (e) => setAns(e.target.value)} />
+                    <button type="submit"onClick={() => handleAns(tasks[index]._id,ans)}>Upload</button>
                   </form>
                 </div>
                 }
