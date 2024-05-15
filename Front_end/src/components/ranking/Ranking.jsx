@@ -3,6 +3,7 @@ import axios from "axios";
 import { React, useState, useEffect } from 'react';
 import Header from '../head/Header'
 import Sidebar from '../sidebar/Sidebar'
+import Modal_rank from './Modal/Modal-rank';
 
 const Ranking = () => {
 
@@ -117,6 +118,9 @@ const Ranking = () => {
             </div>
             <div className="score">
               <h3>{user.stats.organizational_skill + user.stats.techical_skill + user.stats.idea_contribution + user.stats.communication_skill + user.stats.product_optimization}</h3>
+            </div>
+            <div className="view-employee">
+              <Modal_rank />
             </div>
           </div>
           ))

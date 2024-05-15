@@ -99,19 +99,20 @@ const Task_modal = (data) => {
             <form onSubmit={handleAdd}>
                 <div className="name-project">
                     <p className="text-label" htmlFor="">Content :</p>
-                    <input type="text" placeholder="Name of project" onChange={ (e) => setContent(e.target.value)} required />
+                    <input type="text" placeholder="Name of project" onChange={ (e) => setContent(e.target.value)} required autoFocus/>
                 </div>
                 <div className="desc-project">
                     <label className="text-label" htmlFor="">Rank :</label>
-                    <input type="text" placeholder="Rank" list="rank" onChange={ (e) => setRank(e.target.value)} required/>
-                    <datalist id="rank">
+                    {/* <input type="text" placeholder="Rank" list="rank" onChange={ (e) => setRank(e.target.value)} required/> */}
+                    <select id="rank" onChange={ (e) => setRank(e.target.value) } required>
                       <option value="S">S</option>
                       <option value="A">A</option>
                       <option value="B">B</option>
                       <option value="C">C</option>
                       <option value="D">D</option>
                       <option value="E">E</option>
-                    </datalist>
+                    </select>
+
                 </div>
 
                 <div className="desc-project">
