@@ -10,14 +10,13 @@ body.active-modal {
     display: block;
     font-size: 18px;
     border: 2px solid black;
-    border-radius: 10%;
+    border-radius: 6px;
     cursor: pointer;
 }
 
-
-
 .btn-modal:hover {
     background-color: black;
+    border-radius: 6px;
     color: white;
     transform: scale(1.2);
     animation-delay: 1ms;
@@ -90,11 +89,18 @@ body.active-modal {
     background-color: tomato;
     color: black;
     cursor: pointer;
-    /* padding: 5px 10px; */
+    padding: 5px 10px;
+    /* padding-top: 10px; */
+    margin-left: 100px;
+    /* padding-bottom: 10px; */
+    /* transform: scale(1.2) ; */
+    
 }
 
 .close-modal:hover {
     background-color: red;
+    transform: scale(1.2) ;
+
 }
 
 .name-project {
@@ -132,11 +138,10 @@ body.active-modal {
 }
 
 .create-project1:hover {
-    border: 2px solid black;
+    border: 2px solid white;
     background-color: aqua;
-    color: white;
+    color: black;
     letter-spacing: 3%;
+    transform: scale(1.2);
 }
-
-
 
