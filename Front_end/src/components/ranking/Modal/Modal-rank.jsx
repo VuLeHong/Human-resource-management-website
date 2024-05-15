@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Modal-rank.css";
 import Radar_rank from "./chart/Radar-rank";
 
-const Modal_rank = () => {
+const Modal_rank = (data) => {
   const [modal, setModal] = useState(false);
   const toggleModal = () => {
     setModal(!modal);
@@ -28,7 +28,7 @@ const Modal_rank = () => {
                 <h2>Vs You</h2>
             </div>
             <div className="radar">
-              <Radar_rank />
+              <Radar_rank organizational_skill= {data.organizational_skill}  techical_skill= {data.techical_skill} idea_contribution= {data.idea_contribution} communication_skill= {data.communication_skill} product_optimization= {data.product_optimization}/>
             </div>
           </div>
         </div>
