@@ -44,7 +44,56 @@ app.get('/home', async(req, res) => {
         res.status(500).json({message: error.message})
     }
 })
-
+app.post('/uprank', asyncHandler(async(req,res) =>{
+    const{
+        user_id: user_id, 
+        organizational_up: organizational_up, 
+        techical_up: techical_up,
+        idea_up: idea_up,
+        communication_up: communication_up,
+        product_up: product_up,
+        organizational_skill:organizational_skill,
+        techical_skill:techical_skill,
+        idea_contribution: idea_contribution,
+        communication_skill: communication_skill,
+        product_optimization: product_optimization
+    } = req.body;
+    const new_total = 
+         parseInt(organizational_skill) + parseInt(organizational_up)
+        + parseInt(techical_skill) + parseInt(techical_up)
+        + parseInt(idea_contribution) + parseInt(idea_up)
+        + parseInt(communication_skill) + parseInt(communication_up)
+        + parseInt(product_optimization) + parseInt(product_up)
+    ;
+    if(new_total===300) 
+        {
+           const rank = "D";
+           const works = await user_collection.findOneAndUpdate({user_id: user_id}, {rank:rank})
+           .then(result => res.json(result))
+           .catch(err => res.json(err))
+        }
+    else if(new_total===1000) 
+        {
+           const rank = "C";
+           const works = await user_collection.findOneAndUpdate({user_id: user_id}, {rank:rank})
+           .then(result => res.json(result))
+           .catch(err => res.json(err))
+        }
+    else if(new_total===2000) 
+        {
+           const rank = "B";
+           const works = await user_collection.findOneAndUpdate({user_id: user_id}, {rank:rank})
+           .then(result => res.json(result))
+           .catch(err => res.json(err))
+        }
+    else if(new_total===5000) 
+        {
+           const rank = "A";
+           const works = await user_collection.findOneAndUpdate({user_id: user_id}, {rank:rank})
+           .then(result => res.json(result))
+           .catch(err => res.json(err))
+        }
+}))
 app.post('/home', async(req, res) => {
     try {
         const user = await user_collection.create(req.body)
