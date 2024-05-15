@@ -4,6 +4,7 @@ Sau khi pull repo này về, hãy mở terminal và nhập các lệnh sau đây
     npm i axios
     npm i react-router-dom
     npm i react-icons --save
+
     npm i recharts
     npm i --save chart.js react-chartjs-2
     npm run dev

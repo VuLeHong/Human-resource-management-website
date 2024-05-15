@@ -112,6 +112,7 @@ const Task_modal = (data) => {
                       <option value="D">D</option>
                       <option value="E">E</option>
                     </select>
+
                 </div>
 
                 <div className="desc-project">
