@@ -65,28 +65,29 @@ app.post('/uprank', asyncHandler(async(req,res) =>{
         + parseInt(communication_skill) + parseInt(communication_up)
         + parseInt(product_optimization) + parseInt(product_up)
     ;
-    if(new_total===300) 
+    if(new_total >= 300 && new_total < 1000) 
         {
+            
            const rank = "D";
            const works = await user_collection.findOneAndUpdate({user_id: user_id}, {rank:rank})
            .then(result => res.json(result))
            .catch(err => res.json(err))
         }
-    else if(new_total===1000) 
+    else if(new_total >= 1000 && new_total < 2000) 
         {
            const rank = "C";
            const works = await user_collection.findOneAndUpdate({user_id: user_id}, {rank:rank})
            .then(result => res.json(result))
            .catch(err => res.json(err))
         }
-    else if(new_total===2000) 
+    else if(new_total >= 2000 && new_total < 5000) 
         {
            const rank = "B";
            const works = await user_collection.findOneAndUpdate({user_id: user_id}, {rank:rank})
            .then(result => res.json(result))
            .catch(err => res.json(err))
         }
-    else if(new_total===5000) 
+    else if(new_total >= 5000) 
         {
            const rank = "A";
            const works = await user_collection.findOneAndUpdate({user_id: user_id}, {rank:rank})
