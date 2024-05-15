@@ -24,6 +24,7 @@ const Radars = () => {
 			<Tooltip />
 			<Legend />
 		</RadarChart>
+
     )
 }
 
