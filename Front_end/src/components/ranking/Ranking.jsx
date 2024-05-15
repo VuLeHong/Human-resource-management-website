@@ -118,6 +118,7 @@ const Ranking = () => {
             <div className="score">
               <h3>{user.stats.organizational_skill + user.stats.techical_skill + user.stats.idea_contribution + user.stats.communication_skill + user.stats.product_optimization}</h3>
             </div>
+            
           </div>
           ))
         }
