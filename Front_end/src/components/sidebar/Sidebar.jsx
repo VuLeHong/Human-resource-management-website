@@ -3,6 +3,7 @@ import { BsFillPersonFill, BsListTask, BsClipboard2Pulse, BsFillArchiveFill } fr
 import logo from '../../assets/logo-white.png'
 import { Link, useNavigate } from 'react-router-dom'
 import './Sidebar.css'
+
 import axios from 'axios'
 
 function Sidebar({openSidebarToggle}) {
