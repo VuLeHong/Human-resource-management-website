@@ -6,7 +6,6 @@
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
     flex-direction: column;
 }
 
@@ -14,11 +13,10 @@
     width: 100%;
     background-color: #fff;
     margin: 30px 0;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 .task-list {
-    /* width: 100%; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -39,7 +37,7 @@
     align-items: center;
 }
 
-.btn button {
+.btn3 button {
     cursor: pointer;
     padding: 10px 20px;
     margin: 0 10px;
@@ -52,8 +50,30 @@
     color: #fff;
 }
 
-.comment-btn {
+.btn3 button:hover {
+    background-color: aqua;
+    color: #000;
+}
+
+.btn2 button {
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 23px;
+    line-height: 32px;
+    color: #fff;
+}
+
+.btn2 button:hover {
     background-color: red;
+    color: #000;
+}
+.comment-btn {
+    background-color: tomato;
     display: flex;
     align-items: center;
 }
@@ -73,9 +93,7 @@
 .line_through {
     text-decoration: line-through;
 }
-.comment {
-    width: 100%;
-}
+
 .title {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
@@ -124,16 +142,41 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     margin: 0 30px;
-    /* margin-right: 20em; */
 }
 
 .btn-send {
-    background-color: #ccc ;
-    padding: 10px 20px;
-    /* border: none; */
-    border-radius: 5px;
-    cursor: pointer;
+   position: relative;
+   padding: 10px 22px;
+   background: #ccc;
+   border-radius: 6px;
+   color: #fff;
+   border: none;
+   font-size: 18px;
+   font-weight: 400;
+   cursor: pointer;
+   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.btn-send:hover {
+    color: black;
+    border-radius: 6px;
+    background-color: lightgreen;
+    transform: scale(1.2);
+}
+
+.upload{
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
     display: flex;
-    align-items: center;
+    /* align-items: center;
+    justify-content: center; */
+    flex-direction: column;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: row;
 }

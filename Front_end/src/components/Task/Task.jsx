@@ -4,11 +4,14 @@ import './Task.css'
 import Header from '../head/Header'
 import Sidebar from '../sidebar/Sidebar'
 import axios from 'axios' 
+import { FaCloudUploadAlt } from "react-icons/fa";
+
 
 function Task() {
     const [tasks, setTasks] = useState([]);
     const [cmt, setCmt] = useState();
     const [show, setShow] = useState(Array(tasks.length).fill(false))
+    const [upload, setUpload] = useState(Array(tasks.length).fill(false))
     
     const toggle = (index) => {
       setShow(prevShow => {
@@ -17,6 +20,15 @@ function Task() {
         return updatedShow;
       });
     };
+
+    const toggleUpload = (i) => {
+      setUpload(prevUpload => {
+        const updatedUpload = [...prevUpload];
+        updatedUpload[i] = !updatedUpload[i];
+        console.log(updatedUpload)
+        return updatedUpload;
+      })
+    }
 
     const auth = localStorage.getItem("user");
     const auth1 = JSON.parse(auth);
@@ -71,8 +83,12 @@ function Task() {
                     <p className={task.isdone ? "line_through text" : "text"}>{task.content}</p>
                   </div>
                   <div className="btn">
+                  <div className="btn2">
                     <button className='comment-btn' onClick={() => {toggle(index)}}>Comment<BsChat className='icons'/></button>
-                    <button className='move-btn' onClick={() => {}}>Upload<BsFillFolderFill className='icons'/></button>
+                  </div>
+                  <div className="btn3">
+                    <button className='move-btn' onClick={() => {toggleUpload(index)}}>Upload <FaCloudUploadAlt className='icons' /></button>
+                  </div>
                   </div>
                 </div>
                 :
@@ -80,10 +96,21 @@ function Task() {
                 {show[index] &&
                   <div className="comment">
                     <div className="comment-div">
-                      <input type="text" placeholder='Comment here...' onChange={ (e) => setCmt(e.target.value)} />
-                      <button className='btn-send' type="submit" onClick={() => handleCmt(tasks[index]._id,cmt)}><BsFillSendFill /></button>
+                      <input type="text" placeholder='Comment here...' onChange={ (e) => setCmt(e.target.value)} required/>
+                      <button className='btn-send' type="submit" onClick={() => handleCmt(tasks[index]._id,cmt)}><BsChat className='icons'/></button>
                     </div>
                   </div>
+                }
+                {upload[index] && 
+                <div className='upload'>
+                  <form action='' method="post" encType="multipart/form-data">
+                    <label htmlFor=""></label>
+                    <div className='comment-div'>
+                    <input type="text" placeholder='Upload here...' name="task_id" required/>
+                    <button className='btn-send' type="submit"><FaCloudUploadAlt className='icons' /></button>
+                    </div>
+                  </form>
+                </div>
                 }
               </div>
             )

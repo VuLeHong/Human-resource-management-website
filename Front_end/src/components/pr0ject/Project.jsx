@@ -58,7 +58,7 @@ const Project = () => {
                   <div className='task-name'>
                     <h1 className="text">{project.name}</h1>
                   </div>
-                  <div className="btn">
+                  <div className="btn3">
                     <button className='move-btn' onClick={() => {toggleProject(index)}}><p>View Details</p> <IoSearchSharp /></button>
                   </div>
                   
@@ -68,13 +68,13 @@ const Project = () => {
                 {show[index] &&
                   <div className="comment">
                     <Task_modal project_id={projects[index]._id}/>
-                    <div className="task-project">
+                    {/* <div className="task-project">
                       <div className="content-project">
                         <h1></h1>
                       </div>
                       <div className="rank-project"></div>
                       <div className="userid-project"></div>
-                    </div>
+                    </div> */}
                   </div>
                 }
               {/* <div className="comment" id='comment'>

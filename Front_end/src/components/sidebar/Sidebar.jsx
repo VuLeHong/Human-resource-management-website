@@ -51,19 +51,19 @@ function Sidebar({openSidebarToggle}) {
                     {owner.rank === 'E'
                     ?
                     <div onClick={notify}>
-                        <a href=""><BsFillArchiveFill className='icon' /> <p>Project</p></a>
+                        <Link className='component-icon-list'><BsFillArchiveFill className='icon'/> <p>Project</p> </Link>
                     </div>
                     :
                     owner.rank === 'D'
                     ?
                     <div onClick={notify}>
-                        <a href=""><BsFillArchiveFill className='icon' /> <p>Project</p></a>
+                        <Link className='component-icon-list'><BsFillArchiveFill className='icon'/> <p>Project</p> </Link>
                     </div>
                     :
                     owner.rank === 'C'
                     ?
                     <div onClick={notify}>
-                        <a href=""><BsFillArchiveFill className='icon' /> <p>Project</p></a>
+                        <Link className='component-icon-list'><BsFillArchiveFill className='icon'/> <p>Project</p> </Link>
                     </div>
                     :
                     <Link className='component-icon-list'to='/project'><BsFillArchiveFill className='icon'/> <p>Project</p> </Link>

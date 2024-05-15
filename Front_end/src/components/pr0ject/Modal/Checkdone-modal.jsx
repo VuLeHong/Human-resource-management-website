@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react' 
 import "./Checkdone-modal.css";
 import { MdCheckBoxOutlineBlank, MdCheckBox } from "react-icons/md"
@@ -28,6 +29,7 @@ const Checkdone_modal = (data) => {
   } else {
     document.body.classList.remove('active-modal')
   }
+
   const [owner, setOwner] = useState({});
   useEffect(() => {
    axios.post('http://localhost:5000/get', {user_id: data.user_id}) 
@@ -57,6 +59,7 @@ const Checkdone_modal = (data) => {
         }
       })
       .catch(err => console.log(err))
+
       axios.post('http://localhost:5000/updone', {task_id: data.task_id})
        .then(result=> {
          if(result){
@@ -64,6 +67,26 @@ const Checkdone_modal = (data) => {
          }
        })
        .catch(err => console.log(err))
+
+       axios.post('http://localhost:5000/uprank', {
+        user_id: data.user_id,
+        organizational_up: Organization, 
+        techical_up: Technology,
+        idea_up: Idea,
+        communication_up: Communication,
+        product_up: Product,
+        organizational_skill: owner.stats.organizational_skill,
+        techical_skill: owner.stats.techical_skill,
+        idea_contribution: owner.stats.idea_contribution,
+        communication_skill: owner.stats.communication_skill,
+        product_optimization: owner.stats.product_optimization
+      })
+      .then(result=> {
+        if(result){
+          location.reload()
+        }
+      })
+      .catch(err => console.log(err))
   }
   const total = parseInt(Organization) + parseInt(Technology) + parseInt(Idea) + parseInt(Communication) + parseInt(Product);
 
@@ -72,7 +95,6 @@ const Checkdone_modal = (data) => {
       <button onClick={toggleModal} className="btn-modalcheck">
         Check Done
       </button>
-
       {modal && (
         <div className="modalcheck">
           <div className="overlay" onClick={toggleModal}></div>
@@ -228,6 +250,7 @@ const Checkdone_modal = (data) => {
                 }
             </div>
           </form>
+
           </div>
         </div>
       )}

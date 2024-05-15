@@ -37,7 +37,7 @@ const Modal = () => {
     <>
       <button onClick={toggleModal} className="btn-modal">
         <i className="icon"><TiPlus /></i>
-        OPEN
+        CREATE PROJECT
         </button>
 
       {modal && (
@@ -53,7 +53,7 @@ const Modal = () => {
             <form className="form-create" onSubmit={handleAdd}>
                 <div className="name-project">
                     <p className="text-label" htmlFor="">Name :</p>
-                    <input type="text" placeholder=" Name of project" onChange={ (e) => setName(e.target.value)} required />
+                    <input className="input-modal" type="text" placeholder=" Name of project" onChange={ (e) => setName(e.target.value)} required />
                 </div>
                 <div className="desc-project">
                     <label className="text-label" htmlFor="">Description :</label>
