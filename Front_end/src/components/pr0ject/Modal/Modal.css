@@ -61,7 +61,7 @@ body.active-modal {
     width: 200px;
 }
 
-input[type="text"] {
+.form-create input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;

@@ -68,13 +68,13 @@ const Project = () => {
                 {show[index] &&
                   <div className="comment">
                     <Task_modal project_id={projects[index]._id}/>
-                    <div className="task-project">
+                    {/* <div className="task-project">
                       <div className="content-project">
                         <h1></h1>
                       </div>
                       <div className="rank-project"></div>
                       <div className="userid-project"></div>
-                    </div>
+                    </div> */}
                   </div>
                 }
               {/* <div className="comment" id='comment'>
