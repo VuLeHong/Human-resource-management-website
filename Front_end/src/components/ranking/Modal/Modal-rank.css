@@ -41,7 +41,7 @@ body.active-modal {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #ccc;
+    background: #fff;
     border-radius: 10px;
     padding: 30px 30px;
     display: flex;

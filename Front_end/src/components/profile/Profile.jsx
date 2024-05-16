@@ -67,9 +67,6 @@ function Profile (){
             </div>
           </div>
         </div>
-        {/* <div className="chart-container">
-          <Radars />
-        </div> */}
       </div>
     </div>
     
