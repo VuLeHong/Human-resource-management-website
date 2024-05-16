@@ -1,27 +1,13 @@
-import { React, useState, useEffect } from 'react';
+import React, { useState } from "react";
 import "./Modal-rank.css";
 import Radar_rank from "./chart/Radar-rank";
-import axios from "axios";
 
 const Modal_rank = (data) => {
   const [modal, setModal] = useState(false);
   const toggleModal = () => {
     setModal(!modal);
   };
-  const compa = () => {
-    alert("You're comparing yourself");
-  };
-  const auth = localStorage.getItem("user");
-  const auth1 = JSON.parse(auth);
-  const [owner, setOwner] = useState({});
-  useEffect(() => {
-   axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
-   .then(result => {
-           setOwner(result.data)
-           console.log(owner.stats)
-   })
-   .catch(err => console.log(err))
- },[])
+
   if(modal) {
     document.body.classList.add('active-modal')
   } else {
@@ -30,9 +16,10 @@ const Modal_rank = (data) => {
 
   return (
     <>
-      <button onClick={owner.user_id===data.user_id ? compa :toggleModal} className="btn-click">
+      <button onClick={toggleModal} className="btn-click">
         View Details
         </button>
+
       {modal && (
         <div className="modal">
           <div className="overlay" onClick={toggleModal}></div>

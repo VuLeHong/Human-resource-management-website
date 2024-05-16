@@ -9,6 +9,7 @@
     background-color: rgba(72, 10, 243, 0.3);
     transition: 0.5s;
     transform: scale(1.05);
+    animation-delay: 1ms;
 }
 
 .sidebar-list-item a {

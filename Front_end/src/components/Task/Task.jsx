@@ -96,7 +96,7 @@ function Task() {
                 {show[index] &&
                   <div className="comment">
                     <div className="comment-div">
-                      <input type="text" placeholder='Comment here...' onChange={ (e) => setCmt(e.target.value)} autoFocus required/>
+                      <input type="text" placeholder='Comment here...' onChange={ (e) => setCmt(e.target.value)} required/>
                       <button className='btn-send' type="submit" onClick={() => handleCmt(tasks[index]._id,cmt)}><BsChat className='icons'/></button>
                     </div>
                   </div>
@@ -106,7 +106,7 @@ function Task() {
                   <form action='' method="post" encType="multipart/form-data">
                     <label htmlFor=""></label>
                     <div className='comment-div'>
-                    <input type="text" placeholder='Upload here...' name="task_id" autoFocus required/>
+                    <input type="text" placeholder='Upload here...' name="task_id" required/>
                     <button className='btn-send' type="submit"><FaCloudUploadAlt className='icons' /></button>
                     </div>
                   </form>
