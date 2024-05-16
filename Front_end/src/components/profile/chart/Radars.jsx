@@ -34,7 +34,11 @@ const Radars = () => {
     .catch(err => console.log(err))
   	},[])
   	const data = {
-		labels: ["Organizational Skill", "Technical Skill", "Idea Contribution", "Communication Skill", "Product Optimization"],
+		labels: [`Organizational Skill:${owner.stats === undefined ? auth1.stats.organizational_skill : owner.stats.organizational_skill}`, 
+		`Technical Skill: ${owner.stats === undefined ? auth1.stats.techical_skill : owner.stats.techical_skill}`, 
+		`Idea Contribution: ${owner.stats === undefined ? auth1.stats.idea_contribution : owner.stats.idea_contribution}`, 
+		`Communication Skill: ${owner.stats === undefined ? auth1.stats.communication_skill : owner.stats.communication_skill}`, 
+		`Product Optimization: ${owner.stats === undefined ? auth1.stats.product_optimization : owner.stats.product_optimization}`],
 		datasets: [
 			{
 				label: "you",
