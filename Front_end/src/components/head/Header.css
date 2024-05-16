@@ -18,6 +18,10 @@
 .logout:hover {
     background-color: red;
     /* Keep the hover effect as before */
+    transition: 0.3s;
+    animation-delay: 1ms;
+    letter-spacing: 2%;
+    transform: scale(1.2);
 }
 
 .logout:hover a{

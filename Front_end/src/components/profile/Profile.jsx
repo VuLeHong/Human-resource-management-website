@@ -19,7 +19,7 @@ function Profile (){
     })
     .catch(err => console.log(err))
   },[])
-
+  const total = owner.stats === undefined ? auth1.stats.organizational_skill + auth1.stats.techical_skill + auth1.stats.idea_contribution + auth1.stats.communication_skill + auth1.stats.product_optimization : owner.stats.organizational_skill + owner.stats.techical_skill + owner.stats.idea_contribution + owner.stats.communication_skill + owner.stats.product_optimization
 
   return (
     <div className='grid-container'>
@@ -47,10 +47,47 @@ function Profile (){
                 </div>
                 <div className='process'>
                   <p>Rank : {owner.rank}</p>
-                  <div className="progress-bar">
-                    <progress value="50" max="100"></progress>
-                    <p>50/100</p>
-                  </div>
+                  {
+                    owner.rank === 'E'
+                    ?
+                    <div className="progress-bar">
+                      <progress value = {total} max="300"></progress>
+                      <p>{total} / 300</p> 
+                    </div>
+                    :
+                    owner.rank === 'D'
+                    ?
+                    <div className="progress-bar">
+                      <progress value = {total} max="100"></progress>
+                      <p>{total} / 1000</p> 
+                    </div>
+                    :
+                    owner.rank === 'C'
+                    ?
+                    <div className="progress-bar">
+                      <progress value = {total} max="2000"></progress>
+                      <p>{total} / 2000</p> 
+                    </div>
+                    :
+                    owner.rank === 'B'
+                    ?
+                    <div className="progress-bar">
+                      <progress value = {total} max="5000"></progress>
+                      <p>{total} / 5000</p> 
+                    </div>
+                    :
+                    owner.rank === 'A'
+                    ?
+                    <div className="progress-bar">
+                      <progress value = {total} max="8000"></progress>
+                      <p>{total} / 8000</p> 
+                    </div>
+                    :
+                    <div className="progress-bar">
+                      <progress value = {total}></progress>
+                      <p>{total} / {total}</p> 
+                    </div>
+                  }
                 </div>
               </div>
             </div>
@@ -64,14 +101,13 @@ function Profile (){
                 <li>Product Optimization: {owner.stats === undefined ? auth1.stats.product_optimization : owner.stats.product_optimization}</li>
               </ul> */}
               <Radars />
-            </div>
           </div>
+          </div>
+          
         </div>
-        {/* <div className="chart-container">
-          <Radars />
-        </div> */}
+          
+        </div>
       </div>
-    </div>
     
   )
 }

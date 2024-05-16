@@ -4,6 +4,8 @@ import './Task.css'
 import Header from '../head/Header'
 import Sidebar from '../sidebar/Sidebar'
 import axios from 'axios' 
+import { FaCloudUploadAlt } from "react-icons/fa";
+
 
 function Task() {
     const [tasks, setTasks] = useState([]);
@@ -92,8 +94,12 @@ function Task() {
                     <p className="text">{task.content}</p>
                   </div>
                   <div className="btn">
+                  <div className="btn2">
                     <button className='comment-btn' onClick={() => {toggle(index)}}>Comment<BsChat className='icons'/></button>
-                    <button className='move-btn' onClick={() => {toggleUpload(index)}}>Upload<BsFillFolderFill className='icons'/></button>
+                  </div>
+                  <div className="btn3">
+                    <button className='move-btn' onClick={() => {toggleUpload(index)}}>Upload <FaCloudUploadAlt className='icons' /></button>
+                  </div>
                   </div>
                 </div>
                 :
@@ -101,17 +107,25 @@ function Task() {
                 {show[index] &&
                   <div className="comment">
                     <div className="comment-div">
-                      <input type="text" placeholder='Comment here...' onChange={ (e) => setCmt(e.target.value)} />
-                      <button className='btn-send' type="submit" onClick={() => handleCmt(tasks[index]._id,cmt)}><BsFillSendFill /></button>
+                      <input type="text" placeholder='Comment here...' onChange={ (e) => setCmt(e.target.value)} autoFocus required/>
+                      <button className='btn-send' type="submit" onClick={() => handleCmt(tasks[index]._id,cmt)}><BsChat className='icons'/></button>
                     </div>
                   </div>
                 }
                 {upload[index] && 
                 <div className='upload'>
                   <form action='' method="post" encType="multipart/form-data">
+<<<<<<< HEAD
                     <label htmlFor="">Link:</label>
                     <input type="text" name="task_id" onChange={ (e) => setAns(e.target.value)} />
                     <button type="submit"onClick={() => handleAns(tasks[index]._id,ans)}>Upload</button>
+=======
+                    <label htmlFor=""></label>
+                    <div className='comment-div'>
+                    <input type="text" placeholder='Upload here...' name="task_id" autoFocus required/>
+                    <button className='btn-send' type="submit"><FaCloudUploadAlt className='icons' /></button>
+                    </div>
+>>>>>>> 0c35f6e62e088642cc7270020ad2771a1eae04c6
                   </form>
                 </div>
                 }
