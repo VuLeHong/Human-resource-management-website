@@ -2,7 +2,7 @@ body.active-modal {
     overflow-y: hidden;
 }
 
-.btn-modal {
+.btn-click {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,17 +10,18 @@ body.active-modal {
     display: block;
     font-size: 18px;
     border: 2px solid black;
-    border-radius: 10%;
+    border-radius: 6px;
     cursor: pointer;
+    height: 20%;
 }
 
-
-
-.btn-modal:hover {
+.btn-click:hover {
+    border-radius: 6px;
     background-color: black;
     color: white;
     transform: scale(1.2);
     animation-delay: 1ms;
+    transition: 0.5s;
 }
 
 .modal, .overlay {

@@ -100,7 +100,7 @@ const Checkdone_modal = (data) => {
           <div className="overlay" onClick={toggleModal}></div>
           <div className="check-content">
             <div className="title-check">
-                <h2>Task</h2>
+                <h2>Check Done</h2>
             </div>
             <div className="content-task-project">
                 <h3>Content of the task: {data.content}</h3>
@@ -125,13 +125,13 @@ const Checkdone_modal = (data) => {
                     <div className="plus">
                         <label htmlFor="">Organization skill:</label>
                         {
-                        data.rank === 'F' ? <input type="number" min="0" max="5" onChange={ (e) => setOrganization(e.target.value)} required /> :
-                        data.rank === 'E' ? <input type="number" min="0" max="15" onChange={ (e) => setOrganization(e.target.value)} required /> :
-                        data.rank === 'D' ? <input type="number" min="0" max="25" onChange={ (e) => setOrganization(e.target.value)} required /> :
-                        data.rank === 'C' ? <input type="number" min="0" max="35" onChange={ (e) => setOrganization(e.target.value)} required /> :
-                        data.rank === 'B' ? <input type="number" min="0" max="55" onChange={ (e) => setOrganization(e.target.value)} required /> :
-                        data.rank === 'A' ? <input type="number" min="0" max="70" onChange={ (e) => setOrganization(e.target.value)} required /> :
-                        data.rank === 'S' ? <input type="number" min="0" max="80" onChange={ (e) => setOrganization(e.target.value)} required /> :
+                        data.rank === 'F' ? <input type="number" min="0" max="5" onChange={ (e) => setOrganization(e.target.value)} required autoFocus/> :
+                        data.rank === 'E' ? <input type="number" min="0" max="15" onChange={ (e) => setOrganization(e.target.value)} required autoFocus/> :
+                        data.rank === 'D' ? <input type="number" min="0" max="25" onChange={ (e) => setOrganization(e.target.value)} required autoFocus/> :
+                        data.rank === 'C' ? <input type="number" min="0" max="35" onChange={ (e) => setOrganization(e.target.value)} required autoFocus/> :
+                        data.rank === 'B' ? <input type="number" min="0" max="55" onChange={ (e) => setOrganization(e.target.value)} required autoFocus/> :
+                        data.rank === 'A' ? <input type="number" min="0" max="70" onChange={ (e) => setOrganization(e.target.value)} required autoFocus/> :
+                        data.rank === 'S' ? <input type="number" min="0" max="80" onChange={ (e) => setOrganization(e.target.value)} required autoFocus/> :
                         <></>
                         }
                     </div>
@@ -194,57 +194,57 @@ const Checkdone_modal = (data) => {
                 ? 
                 total === 5 
                   ? 
-                  <button className="create-project1" type="submit" onClick={handleAdd}>Submit</button>
+                  <button className="create-project2" type="submit" onClick={handleAdd}>Submit</button>
                   :
-                  <button className="create-project1" onClick={wrong_submit}>Submit</button>
+                  <button className="create-project2" onClick={wrong_submit}>Submit</button>
                 :
                 data.rank === 'E' 
                 ? 
                 total === 15 
                   ? 
-                  <button className="create-project1" type="submit" onClick={handleAdd}>Submit</button>
+                  <button className="create-project2" type="submit" onClick={handleAdd}>Submit</button>
                   :
-                  <button className="create-project1" onClick={wrong_submit}>Submit</button>
+                  <button className="create-project2" onClick={wrong_submit}>Submit</button>
                 :
                 data.rank === 'D' 
                 ? 
                 total === 25 
                   ? 
-                  <button className="create-project1" type="submit" onClick={handleAdd}>Submit</button>
+                  <button className="create-project2" type="submit" onClick={handleAdd}>Submit</button>
                   :
-                  <button className="create-project1" onClick={wrong_submit}>Submit</button>
+                  <button className="create-project2" onClick={wrong_submit}>Submit</button>
                 :
                 data.rank === 'C' 
                 ? 
                 total === 35 
                   ? 
-                  <button className="create-project1" type="submit" onClick={handleAdd}>Submit</button>
+                  <button className="create-project2" type="submit" onClick={handleAdd}>Submit</button>
                   :
-                  <button className="create-project1" onClick={wrong_submit}>Submit</button>
+                  <button className="create-project2" onClick={wrong_submit}>Submit</button>
                 :
                 data.rank === 'B' 
                 ? 
                 total === 55 
                   ? 
-                  <button className="create-project1" type="submit" onClick={handleAdd}>Submit</button>
+                  <button className="create-project2" type="submit" onClick={handleAdd}>Submit</button>
                   :
-                  <button className="create-project1" onClick={wrong_submit}>Submit</button>
+                  <button className="create-project2" onClick={wrong_submit}>Submit</button>
                 :
                 data.rank === 'A' 
                 ? 
                 total === 70 
                   ? 
-                  <button className="create-project1" type="submit" onClick={handleAdd}>Submit</button>
+                  <button className="create-project2" type="submit" onClick={handleAdd}>Submit</button>
                   :
-                  <button className="create-project1" onClick={wrong_submit}>Submit</button>
+                  <button className="create-project2" onClick={wrong_submit}>Submit</button>
                 :
                 data.rank === 'S' 
                 ? 
                 total === 80
                   ? 
-                  <button className="create-project1" type="submit" onClick={handleAdd}>Submit</button>
+                  <button className="create-project2" type="submit" onClick={handleAdd}>Submit</button>
                   :
-                  <button className="create-project1" onClick={wrong_submit}>Submit</button>
+                  <button className="create-project2" onClick={wrong_submit}>Submit</button>
                 :
                 <></>
                 }

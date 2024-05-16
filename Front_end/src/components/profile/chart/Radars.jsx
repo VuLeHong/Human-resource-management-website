@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react'
 import {
 	Chart as ChartJs,
@@ -75,6 +76,7 @@ const Radars = () => {
         },
         
     }
+
 
     return (
     	<Radar options={options} data={data} />
