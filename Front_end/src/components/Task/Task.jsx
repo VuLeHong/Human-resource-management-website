@@ -38,7 +38,7 @@ function Task() {
       .then(result => {
         //console.log(result.data)
         setTasks(result.data)
-        //console.log(tasks)
+        console.log(tasks)
         
       })
       .catch(err => console.log(err))
