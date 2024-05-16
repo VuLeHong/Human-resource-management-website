@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React, { useEffect, useState } from 'react'
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, Tooltip, Legend } from 'recharts';
-import axios from 'axios';
-=======
+
 
 import React, { useEffect, useState } from 'react'
 import {
@@ -25,7 +21,6 @@ ChartJs.register(
 	Tooltip,
 	Legend
 )
->>>>>>> 0c35f6e62e088642cc7270020ad2771a1eae04c6
 
 const Radars = () => {
 	const auth = localStorage.getItem("user");
@@ -39,15 +34,7 @@ const Radars = () => {
     })
     .catch(err => console.log(err))
   	},[])
-<<<<<<< HEAD
-  	const data = [
-	{ name: 'Organizational skill', you: owner.stats === undefined ? auth1.stats.organizational_skill : owner.stats.organizational_skill },
-	{ name: 'Technology', you: owner.stats === undefined ? auth1.stats.techical_skill : owner.stats.techical_skill },
-	{ name: 'Idea Contribution', you: owner.stats === undefined ? auth1.stats.idea_contribution : owner.stats.idea_contribution },
-	{ name: 'Communication skill', you: owner.stats === undefined ? auth1.stats.communication_skill : owner.stats.communication_skill },
-	{ name: 'Product Optimization', you: owner.stats === undefined ? auth1.stats.product_optimization : owner.stats.product_optimization },
-]
-=======
+
   	const data = {
 		labels: [`Organizational Skill:${owner.stats === undefined ? auth1.stats.organizational_skill : owner.stats.organizational_skill}`, 
 		`Technical Skill: ${owner.stats === undefined ? auth1.stats.techical_skill : owner.stats.techical_skill}`, 
@@ -96,7 +83,7 @@ const Radars = () => {
         
     }
 
->>>>>>> 0c35f6e62e088642cc7270020ad2771a1eae04c6
+
 
     return (
     	<Radar options={options} data={data} />
