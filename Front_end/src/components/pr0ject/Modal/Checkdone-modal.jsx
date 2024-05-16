@@ -100,7 +100,7 @@ const Checkdone_modal = (data) => {
           <div className="overlay" onClick={toggleModal}></div>
           <div className="check-content">
             <div className="title-check">
-                <h2>Task</h2>
+                <h2>Check Done</h2>
             </div>
             <div className="content-task-project">
                 <h3>Content of the task: {data.content}</h3>
@@ -194,57 +194,57 @@ const Checkdone_modal = (data) => {
                 ? 
                 total === 5 
                   ? 
-                  <button className="create-project1" type="submit" onClick={handleAdd}>Submit</button>
+                  <button className="create-project2" type="submit" onClick={handleAdd}>Submit</button>
                   :
-                  <button className="create-project1" onClick={wrong_submit}>Submit</button>
+                  <button className="create-project2" onClick={wrong_submit}>Submit</button>
                 :
                 data.rank === 'E' 
                 ? 
                 total === 15 
                   ? 
-                  <button className="create-project1" type="submit" onClick={handleAdd}>Submit</button>
+                  <button className="create-project2" type="submit" onClick={handleAdd}>Submit</button>
                   :
-                  <button className="create-project1" onClick={wrong_submit}>Submit</button>
+                  <button className="create-project2" onClick={wrong_submit}>Submit</button>
                 :
                 data.rank === 'D' 
                 ? 
                 total === 25 
                   ? 
-                  <button className="create-project1" type="submit" onClick={handleAdd}>Submit</button>
+                  <button className="create-project2" type="submit" onClick={handleAdd}>Submit</button>
                   :
-                  <button className="create-project1" onClick={wrong_submit}>Submit</button>
+                  <button className="create-project2" onClick={wrong_submit}>Submit</button>
                 :
                 data.rank === 'C' 
                 ? 
                 total === 35 
                   ? 
-                  <button className="create-project1" type="submit" onClick={handleAdd}>Submit</button>
+                  <button className="create-project2" type="submit" onClick={handleAdd}>Submit</button>
                   :
-                  <button className="create-project1" onClick={wrong_submit}>Submit</button>
+                  <button className="create-project2" onClick={wrong_submit}>Submit</button>
                 :
                 data.rank === 'B' 
                 ? 
                 total === 55 
                   ? 
-                  <button className="create-project1" type="submit" onClick={handleAdd}>Submit</button>
+                  <button className="create-project2" type="submit" onClick={handleAdd}>Submit</button>
                   :
-                  <button className="create-project1" onClick={wrong_submit}>Submit</button>
+                  <button className="create-project2" onClick={wrong_submit}>Submit</button>
                 :
                 data.rank === 'A' 
                 ? 
                 total === 70 
                   ? 
-                  <button className="create-project1" type="submit" onClick={handleAdd}>Submit</button>
+                  <button className="create-project2" type="submit" onClick={handleAdd}>Submit</button>
                   :
-                  <button className="create-project1" onClick={wrong_submit}>Submit</button>
+                  <button className="create-project2" onClick={wrong_submit}>Submit</button>
                 :
                 data.rank === 'S' 
                 ? 
                 total === 80
                   ? 
-                  <button className="create-project1" type="submit" onClick={handleAdd}>Submit</button>
+                  <button className="create-project2" type="submit" onClick={handleAdd}>Submit</button>
                   :
-                  <button className="create-project1" onClick={wrong_submit}>Submit</button>
+                  <button className="create-project2" onClick={wrong_submit}>Submit</button>
                 :
                 <></>
                 }

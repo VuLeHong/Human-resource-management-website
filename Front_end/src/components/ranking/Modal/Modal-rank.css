@@ -21,6 +21,7 @@ body.active-modal {
     color: white;
     transform: scale(1.2);
     animation-delay: 1ms;
+    transition: 0.5s;
 }
 
 .modal, .overlay {
