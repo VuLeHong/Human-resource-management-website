@@ -29,7 +29,8 @@ const Radars = () => {
     axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
     .then(result => {
             setOwner(result.data)
-            console.log(owner.stats)
+            // console.log(owner.stats)
+			console.log(result.data.stats)
     })
     .catch(err => console.log(err))
   	},[])
@@ -57,7 +58,10 @@ const Radars = () => {
 	const options = {
         scales: {
             r: {
+				min: 0,
+				// max: 
                 ticks: {
+					stepsize: 10,
                     display: false,
                 },
                 angleLines: {
@@ -83,7 +87,7 @@ const Radars = () => {
 
 
     return (
-    	<Radar options={options} data={data} />
+    	<Radar options={options} height={300} width={400} data={data} />
     )
 }
 

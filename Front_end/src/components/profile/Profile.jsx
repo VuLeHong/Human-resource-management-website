@@ -39,7 +39,7 @@ function Profile (){
                 <div className="gender">
                   {owner.ismale === true ? <p>Gender : Male</p> : <p>Gender: Female</p>}
                 </div>
-                <div className="staff">
+                <div className="role">
                   <p>Role/Dept : {owner.role}</p>
                 </div>
                 <div className="user_id">
@@ -92,14 +92,6 @@ function Profile (){
               </div>
             </div>
             <div className='stats'>
-              {/* <ul>
-                <p className='job'>STATS : </p>
-                <li>Organizational skill: {owner.stats === undefined ? auth1.stats.organizational_skill : owner.stats.organizational_skill}</li>
-                <li>Technology skill: {owner.stats === undefined ? auth1.stats.techical_skill : owner.stats.techical_skill}</li>
-                <li>Idea contribution: {owner.stats === undefined ? auth1.stats.idea_contribution : owner.stats.idea_contribution}</li>
-                <li>Communication skill: {owner.stats === undefined ? auth1.stats.communication_skill : owner.stats.communication_skill}</li>
-                <li>Product Optimization: {owner.stats === undefined ? auth1.stats.product_optimization : owner.stats.product_optimization}</li>
-              </ul> */}
               <Radars />
           </div>
           </div>

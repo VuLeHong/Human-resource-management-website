@@ -61,7 +61,9 @@ useEffect(() => {
     const options = {
         scales: {
             r: {
+                min: 0,
                 ticks: {
+                    stepsize: 10,
                     display: false,
                 },
                 angleLines: {
