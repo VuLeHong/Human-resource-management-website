@@ -1,4 +1,5 @@
 
+
 import React, { useEffect, useState } from 'react'
 import {
 	Chart as ChartJs,
@@ -34,6 +35,7 @@ const Radars = () => {
     })
     .catch(err => console.log(err))
   	},[])
+
   	const data = {
 		labels: [`Organizational Skill:${owner.stats === undefined ? auth1.stats.organizational_skill : owner.stats.organizational_skill}`, 
 		`Technical Skill: ${owner.stats === undefined ? auth1.stats.techical_skill : owner.stats.techical_skill}`, 
@@ -84,6 +86,7 @@ const Radars = () => {
         },
         
     }
+
 
 
     return (

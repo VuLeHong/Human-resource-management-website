@@ -10,6 +10,7 @@ import { FaCloudUploadAlt } from "react-icons/fa";
 function Task() {
     const [tasks, setTasks] = useState([]);
     const [cmt, setCmt] = useState();
+    const [ans, setAns] = useState();
     const [show, setShow] = useState(Array(tasks.length).fill(false))
     const [upload, setUpload] = useState(Array(tasks.length).fill(false))
     
@@ -37,13 +38,13 @@ function Task() {
       .then(result => {
         //console.log(result.data)
         setTasks(result.data)
-        //console.log(tasks)
+        console.log(tasks)
         
       })
       .catch(err => console.log(err))
     }, [])
     const handleCmt = (task_id,cmt) => {
-       axios.post('http://localhost:5000/addcmt', {task_id: task_id, t_desc : cmt})
+       axios.post('http://localhost:5000/addcmt', {task_id: task_id, t_desc: cmt})
        .then( result=> {
          if(result){
            location.reload()
@@ -51,6 +52,15 @@ function Task() {
        })
        .catch(err => console.log(err))
   }
+  const handleAns = (task_id,ans) => {
+    axios.post('http://localhost:5000/result', {task_id: task_id, ans: ans})
+    .then( result=> {
+      if(result){
+        location.reload()
+      }
+    })
+    .catch(err => console.log(err))
+}
   const [owner, setOwner] = useState({});
   useEffect(() => {
    axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
@@ -78,9 +88,10 @@ function Task() {
           {tasks.map((task, index) =>(
               <div key={index} className="separate-btn">
                 {task.user_id === owner.user_id ? 
+                task.isdone === true ? <></> :
                 <div className="task-list">
                   <div className='task-name'>
-                    <p className={task.isdone ? "line_through text" : "text"}>{task.content}</p>
+                    <p className="text">{task.content}</p>
                   </div>
                   <div className="btn">
                   <div className="btn2">
@@ -104,10 +115,11 @@ function Task() {
                 {upload[index] && 
                 <div className='upload'>
                   <form action='' method="post" encType="multipart/form-data">
+
                     <label htmlFor=""></label>
                     <div className='comment-div'>
-                    <input type="text" placeholder='Upload here...' name="task_id" autoFocus required/>
-                    <button className='btn-send' type="submit"><FaCloudUploadAlt className='icons' /></button>
+                    <input type="text" placeholder='Upload here...' name="task_id" onChange={ (e) => setAns(e.target.value)} autoFocus required/>
+                    <button className='btn-send' type="submit" onClick={() => handleAns(tasks[index]._id,ans)}><FaCloudUploadAlt className='icons' /></button>
                     </div>
                   </form>
                 </div>

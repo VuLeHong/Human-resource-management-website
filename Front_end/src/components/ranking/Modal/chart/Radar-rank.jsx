@@ -45,6 +45,7 @@ useEffect(() => {
                         owner.stats === undefined ? auth1.stats.communication_skill : owner.stats.communication_skill, 
                         owner.stats === undefined ? auth1.stats.product_optimization : owner.stats.product_optimization],
                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
+
                 borderColor: 'rgba(255, 99, 132, 1)',
                 borderWidth: 3,
             },
@@ -80,6 +81,7 @@ useEffect(() => {
     }
 
     return <Radar data={data} options={options} height={500} width={600} />
+
 }
 
 export default Radar_rank
