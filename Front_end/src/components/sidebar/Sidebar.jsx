@@ -50,33 +50,25 @@ function Sidebar({openSidebarToggle}) {
             <li className='sidebar-list-item'>
                     {owner.rank === 'E'
                     ?
-                    <div className='notify' onClick={notify}>
-                        <a href="">
-                            <Link className='component-icon-list'><BsFillArchiveFill className='icon'/> <p>Project</p> </Link>
-                        </a>
-                    </div>
+                    <a href="" className='notify' onClick={notify}>
+                        <Link className='component-icon-list'><BsFillArchiveFill className='icon'/> <p>Project</p> </Link>
+                    </a>
                     :
                     owner.rank === 'D'
                     ?
-                    <div className='notify' onClick={notify}>
-                        <a href="">
-                            <Link className='component-icon-list'><BsFillArchiveFill className='icon'/> <p>Project</p> </Link>
-                        </a>
-                    </div>
+                    <a href="" className='notify' onClick={notify}>
+                        <Link className='component-icon-list'><BsFillArchiveFill className='icon'/> <p>Project</p> </Link>
+                    </a>
                     :
                     owner.rank === 'C'
                     ?
-                    <div className='notify' onClick={notify}>
-                        <a href="">
-                            <Link className='component-icon-list'><BsFillArchiveFill className='icon'/> <p>Project</p> </Link>
-                        </a>
-                    </div>
+                    <a href="" className='notify' onClick={notify}>
+                        <Link className='component-icon-list'><BsFillArchiveFill className='icon'/> <p>Project</p> </Link>
+                    </a>
                     :
-                    <div>
                         <a href="">
                             <Link className='component-icon-list' to='/project'><BsFillArchiveFill className='icon'/> <p>Project</p> </Link>
                         </a>
-                    </div>
                     }
             </li>
         </ul>
