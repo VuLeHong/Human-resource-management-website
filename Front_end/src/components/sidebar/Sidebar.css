@@ -14,24 +14,17 @@
     }
 }
 
-.sidebar-list-item:hover {
+.sidebar-list-item:hover, .notify:hover {
     cursor: pointer;
-    background-color: rgba(72, 10, 243, 0.3);
+    background-color: darkgray;
     transition: 0.5s;
-    transform: scale(1.05);
     animation-delay: 1ms;
 }
 
-.sidebar-list-item a {
+.sidebar-list-item a, .notify a {
     width: 100%;
-    padding: 5px;
+    padding: 1px;
     color: white;
     cursor: pointer;
     text-decoration: none;
 }
-
-/* .sidebar-list-item a:hover {
-    background-color: rgba(0, 0, 0, 0.3);
-    transition: 0.5s;
-    transform: scale(1.15);
-} */
