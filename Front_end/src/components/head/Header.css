@@ -1,6 +1,10 @@
-/* Modal.css */
 
 /* ... (other styles) ... */
+
+.header {
+    height: 100px;
+    margin-bottom: 20px;
+}
 
 .logout {
     padding: 10px;
@@ -16,16 +20,12 @@
 }
 
 .logout:hover {
-    background-color: red;
+    background-color: tomato;
     /* Keep the hover effect as before */
     transition: 0.3s;
     animation-delay: 1ms;
     letter-spacing: 2%;
     transform: scale(1.2);
-}
-
-.logout:hover a{
-    color: black;
 }
 
 .logout a{

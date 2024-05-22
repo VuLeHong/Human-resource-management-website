@@ -45,21 +45,43 @@ useEffect(() => {
                         owner.stats === undefined ? auth1.stats.communication_skill : owner.stats.communication_skill, 
                         owner.stats === undefined ? auth1.stats.product_optimization : owner.stats.product_optimization],
                 backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 0.2)',
-                borderWidth: 1,
+
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 3,
             },
             {
                 label: 'Your Competitor',
                 data: [props.organizational_skill, props.techical_skill, props.idea_contribution, props.communication_skill, props.product_optimization],
                 backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 0.2)',
-                borderWidth: 1,
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 3,
             }
         ]
     }
-    console.log(props)
+    
+    const options = {
+        scales: {
+            r: {
+                min: 0,
+                ticks: {
+                    stepsize: 10,
+                    display: false,
+                },
+                angleLines: {
+                    display: false // Disables the angle lines
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                position: 'bottom',
+            },
+        },
+        
+    }
 
-    return <Radar data={data} height={400} width={500} />
+    return <Radar data={data} options={options} height={500} width={600} />
+
 }
 
 export default Radar_rank

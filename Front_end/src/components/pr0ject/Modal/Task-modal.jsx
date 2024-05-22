@@ -12,6 +12,7 @@ const Task_modal = (data) => {
   const [tasks, setTasks] = useState([]);
   const [modal, setModal] = useState(false);
   const [content, setContent] = useState();
+  const [task_id, setTask_id] = useState();
   const [rank, setRank] = useState();
   const [user_id, setUser_id] = useState();
   const toggleModal = () => {
@@ -34,11 +35,28 @@ const Task_modal = (data) => {
    const handleAdd = () => {
      axios.post('http://localhost:5000/addtask', {content:content, rank:rank, Project_id: data.project_id, user_id:user_id})
      .then(result=> {
+      setTask_id(result.data._id);
+      if(result){
+         location.reload()
+       }
+     })
+     .catch(err => console.log(err))
+
+     axios.post('http://localhost:5000/addtaskid', {user_id:user_id, task_id: task_id})
+     .then(result=> {
        if(result){
          location.reload()
        }
      })
      .catch(err => console.log(err))
+     axios.post('http://localhost:5000/pushtaskid', {Project_id: data.project_id, task_id: task_id})
+     .then(result=> {
+       if(result){
+         location.reload()
+       }
+     })
+     .catch(err => console.log(err))
+
  }
   return (
     <>
@@ -53,7 +71,7 @@ const Task_modal = (data) => {
               <p className="check">{task.content}</p>
             </div>
             <div className="rank-taskproj">
-              <p className="check">Rank: {task.rank}</p>
+              <p className="check">User_id: {task.user_id}</p>
             </div>
           </div>
           <div className="downtask">
@@ -99,7 +117,7 @@ const Task_modal = (data) => {
             <form onSubmit={handleAdd}>
                 <div className="name-project">
                     <p className="text-label" htmlFor="">Content :</p>
-                    <input type="text" className="content" placeholder="Name of project" onChange={ (e) => setContent(e.target.value)} required autoFocus/>
+                    <input type="text" className="content" placeholder="Name of task" onChange={ (e) => setContent(e.target.value)} required autoFocus/>
                 </div>
                 <div className="desc-project">
                     <label className="text-label" htmlFor="">Rank :</label>

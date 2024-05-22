@@ -1,10 +1,11 @@
 import React from 'react'
-import {BsFillBellFill, BsFillEnvelopeFill, BsPersonCircle} from 'react-icons/bs'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './Header.css'
+
 const logout = ()=>{
   localStorage.clear();
 }
+
 function Header() {
   return (
     <header className='header'>

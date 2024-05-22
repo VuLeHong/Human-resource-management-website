@@ -51,7 +51,7 @@
 }
 
 .btn3 button:hover {
-    background-color: aqua;
+    background-color: lightblue;
     color: #000;
     animation-delay: 1ms;
     transition: 0.5s;

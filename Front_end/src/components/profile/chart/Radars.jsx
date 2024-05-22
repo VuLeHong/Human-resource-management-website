@@ -1,29 +1,96 @@
-import React from 'react'
-// import "./Radars.css"
-import { Radar, 
-	RadarChart, 
-	PolarGrid, 
-	PolarAngleAxis,
+
+
+import React, { useEffect, useState } from 'react'
+import {
+	Chart as ChartJs,
+	RadialLinearScale,
+	PointElement,
+	LineElement,
+	Filler,
 	Tooltip,
-	Legend } from 'recharts';
+	Legend
+} from "chart.js"
+import { Radar } from "react-chartjs-2"
+import axios from 'axios';
+
+ChartJs.register(
+	RadialLinearScale,
+	PointElement,
+	LineElement,
+	Filler,
+	Tooltip,
+	Legend
+)
 
 const Radars = () => {
-  const data = [
-	{ name: 'Organizational skill', you: 875 },
-	{ name: 'Technology', you: 1421 },
-	{ name: 'Idea Contribution', you: 765 },
-	{ name: 'Communication skill', you: 1269 },
-	{ name: 'Product Optimization', you: 1542 },
-]
+	const auth = localStorage.getItem("user");
+  	const auth1 = JSON.parse(auth);
+	const [owner, setOwner] = useState({});
+   	useEffect(() => {
+    axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
+    .then(result => {
+            setOwner(result.data)
+            // console.log(owner.stats)
+			console.log(result.data.stats)
+    })
+    .catch(err => console.log(err))
+  	},[])
+
+  	const data = {
+		labels: [`Organizational Skill:${owner.stats === undefined ? auth1.stats.organizational_skill : owner.stats.organizational_skill}`, 
+		`Technical Skill: ${owner.stats === undefined ? auth1.stats.techical_skill : owner.stats.techical_skill}`, 
+		`Idea Contribution: ${owner.stats === undefined ? auth1.stats.idea_contribution : owner.stats.idea_contribution}`, 
+		`Communication Skill: ${owner.stats === undefined ? auth1.stats.communication_skill : owner.stats.communication_skill}`, 
+		`Product Optimization: ${owner.stats === undefined ? auth1.stats.product_optimization : owner.stats.product_optimization}`],
+		datasets: [
+			{
+				label: "you",
+				data: [owner.stats === undefined ? auth1.stats.organizational_skill : owner.stats.organizational_skill,
+						owner.stats === undefined ? auth1.stats.techical_skill : owner.stats.techical_skill, 
+						owner.stats === undefined ? auth1.stats.idea_contribution : owner.stats.idea_contribution, 
+						owner.stats === undefined ? auth1.stats.communication_skill : owner.stats.communication_skill, 
+						owner.stats === undefined ? auth1.stats.product_optimization : owner.stats.product_optimization],
+				backgroundColor: "rgba(255, 99, 132, 0.5)",
+				borderColor: "rgba(255, 99, 132, 1)",
+				borderWidth: 3
+			}
+		]
+	}
+
+	const options = {
+        scales: {
+            r: {
+				min: 0,
+				// max: 
+                ticks: {
+					stepsize: 10,
+                    display: false,
+                },
+                angleLines: {
+                    display: true,
+                    color: "rgba(255, 255, 255, 0.5)" // Lighter color for angle lines
+                },
+                grid: {
+                    display: true,
+                    color: "rgba(255, 255, 255, 0.2)" // Lighter color for grid lines
+                },
+                pointLabels: {
+                    color: "white" // Brighter color for point labels
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                position: 'bottom',
+            },
+        },
+        
+    }
+
+
 
     return (
-    	<RadarChart height={400} width={500} outerRadius="70%" data={data}>
-			<PolarGrid />
-			<PolarAngleAxis dataKey="name" fontSize={11} fontWeight={700} />
-			<Radar dataKey="you" stroke="green" fill="green" fillOpacity={0.8} />
-			<Tooltip wrapperStyle={{width: 150, height: 30, fontSize: 12}} />
-			<Legend />
-		</RadarChart>
+    	<Radar options={options} height={300} width={400} data={data} />
     )
 }
 
