@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'  
 import { BsFillPersonFill, BsListTask, BsClipboard2Pulse, BsFillArchiveFill } from 'react-icons/bs'
 import logo from "../../assets/images.png";
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './Sidebar.css'
 
 import axios from 'axios'
@@ -50,23 +50,25 @@ function Sidebar({openSidebarToggle}) {
             <li className='sidebar-list-item'>
                     {owner.rank === 'E'
                     ?
-                    <div onClick={notify}>
+                    <a href="" className='notify' onClick={notify}>
                         <Link className='component-icon-list'><BsFillArchiveFill className='icon'/> <p>Project</p> </Link>
-                    </div>
+                    </a>
                     :
                     owner.rank === 'D'
                     ?
-                    <div onClick={notify}>
+                    <a href="" className='notify' onClick={notify}>
                         <Link className='component-icon-list'><BsFillArchiveFill className='icon'/> <p>Project</p> </Link>
-                    </div>
+                    </a>
                     :
                     owner.rank === 'C'
                     ?
-                    <div onClick={notify}>
+                    <a href="" className='notify' onClick={notify}>
                         <Link className='component-icon-list'><BsFillArchiveFill className='icon'/> <p>Project</p> </Link>
-                    </div>
+                    </a>
                     :
-                    <Link className='component-icon-list'to='/project'><BsFillArchiveFill className='icon'/> <p>Project</p> </Link>
+                        <a href="">
+                            <Link className='component-icon-list' to='/project'><BsFillArchiveFill className='icon'/> <p>Project</p> </Link>
+                        </a>
                     }
             </li>
         </ul>
