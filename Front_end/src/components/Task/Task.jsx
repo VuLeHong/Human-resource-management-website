@@ -115,7 +115,6 @@ function Task() {
                 {upload[index] && 
                 <div className='upload'>
                   <form action=''>
-
                     <label htmlFor=""></label>
                     <div className='comment-div'>
                     <input type="text" placeholder='Upload here...'  onChange={ (e) => setAns(e.target.value)} autoFocus required/>

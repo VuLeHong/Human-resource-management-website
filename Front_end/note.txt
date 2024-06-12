@@ -7,6 +7,7 @@ Sau khi pull repo này về, hãy mở terminal và nhập các lệnh sau đây
     npm i --save chart.js react-chartjs-2
     npm run dev
     cd Back_end/
+    npm i
     npm i dotenv
     npm i express-async-handler
     npm start
