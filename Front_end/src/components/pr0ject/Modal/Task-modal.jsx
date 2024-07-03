@@ -6,7 +6,10 @@ import axios from 'axios'
 import Checkdone_modal from "./Checkdone-modal";
 
 import { MdCheckBox } from "react-icons/md"
+const dotenv = require('dotenv');
+dotenv.config();
 
+const URL = process.env.URL;
 const Task_modal = (data) => {
   const [checkIsDone, setCheckIsDone] = useState(false)
   const [tasks, setTasks] = useState([]);
@@ -26,14 +29,14 @@ const Task_modal = (data) => {
   }
 
   useEffect(() => {
-    axios.get('http://localhost:5000/gettasks') 
+    axios.get(`${URL}/gettasks`) 
     .then(result => {
       setTasks(result.data)
     })
     .catch(err => console.log(err))
   }, [])
    const handleAdd = () => {
-     axios.post('http://localhost:5000/addtask', {content:content, rank:rank, Project_id: data.project_id, user_id:user_id})
+     axios.post(`${URL}/addtask`, {content:content, rank:rank, Project_id: data.project_id, user_id:user_id})
      .then(result=> {
       setTask_id(result.data._id);
       if(result){
@@ -42,14 +45,14 @@ const Task_modal = (data) => {
      })
      .catch(err => console.log(err))
 
-     axios.post('http://localhost:5000/addtaskid', {user_id:user_id, task_id: task_id})
+     axios.post(`${URL}/addtaskid`, {user_id:user_id, task_id: task_id})
      .then(result=> {
        if(result){
          location.reload()
        }
      })
      .catch(err => console.log(err))
-     axios.post('http://localhost:5000/pushtaskid', {Project_id: data.project_id, task_id: task_id})
+     axios.post(`${URL}/pushtaskid`, {Project_id: data.project_id, task_id: task_id})
      .then(result=> {
        if(result){
          location.reload()

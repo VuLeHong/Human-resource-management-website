@@ -5,7 +5,10 @@ import { Link } from 'react-router-dom'
 import './Sidebar.css'
 
 import axios from 'axios'
+const dotenv = require('dotenv');
+dotenv.config();
 
+const URL = process.env.URL;
 function Sidebar({openSidebarToggle}) {
     const auth = localStorage.getItem("user");
     const auth1 = JSON.parse(auth);
@@ -14,7 +17,7 @@ function Sidebar({openSidebarToggle}) {
         alert("Your rank is not enough")
     };
     useEffect(() => {
-        axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
+        axios.post(`${URL}/get`, {user_id: auth1.user_id}) 
         .then(result => {
                 setOwner(result.data)
                 //console.log(owner.stats)
