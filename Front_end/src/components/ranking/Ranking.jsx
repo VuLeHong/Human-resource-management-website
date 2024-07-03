@@ -5,6 +5,8 @@ import Header from '../head/Header'
 import Sidebar from '../sidebar/Sidebar'
 import Modal_rank from './Modal/Modal-rank';
 
+
+const URL = 'https://rpg-ranking-system.onrender.com';
 const Ranking = () => {
 
 
@@ -12,7 +14,7 @@ const Ranking = () => {
 
   const getUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/home");
+      const response = await axios.get(`${URL}/home`);
       //console.log(response.data)
       setUsers(response.data);
     } catch (error) {

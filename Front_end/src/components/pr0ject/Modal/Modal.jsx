@@ -3,7 +3,7 @@ import "./Modal.css";
 import axios from 'axios'
 import { IoMdClose } from "react-icons/io";
 import { TiPlus } from "react-icons/ti";
-
+const URL = 'https://rpg-ranking-system.onrender.com';
 
 
 
@@ -24,7 +24,7 @@ const Modal = () => {
   }
 
   const handleAdd = () => {
-    axios.post('http://localhost:5000/project', {owner_id:auth1.user_id, name: name, desc: Desc})
+    axios.post(`${URL}/project`, {owner_id:auth1.user_id, name: name, desc: Desc})
     .then( result=> {
       if(result){
         location.reload()

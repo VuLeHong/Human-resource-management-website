@@ -6,6 +6,7 @@ import Sidebar from '../sidebar/Sidebar'
 import axios from 'axios' 
 import { FaCloudUploadAlt } from "react-icons/fa";
 
+const URL = 'https://rpg-ranking-system.onrender.com';
 
 function Task() {
     const [tasks, setTasks] = useState([]);
@@ -34,7 +35,7 @@ function Task() {
     const auth = localStorage.getItem("user");
     const auth1 = JSON.parse(auth);
     useEffect(() => {
-      axios.get('http://localhost:5000/gettasks') 
+      axios.get(`${URL}/gettasks`) 
       .then(result => {
         //console.log(result.data)
         setTasks(result.data)
@@ -44,7 +45,7 @@ function Task() {
       .catch(err => console.log(err))
     }, [])
     const handleCmt = (task_id,cmt) => {
-       axios.post('http://localhost:5000/addcmt', {task_id: task_id, t_desc: cmt})
+       axios.post(`${URL}/addcmt`, {task_id: task_id, t_desc: cmt})
        .then( result=> {
          if(result){
            location.reload()
@@ -53,7 +54,7 @@ function Task() {
        .catch(err => console.log(err))
   }
   const handleAns = (task_id,ans) => {
-    axios.post('http://localhost:5000/result', {task_id: task_id, ans: ans})
+    axios.post(`${URL}/result`, {task_id: task_id, ans: ans})
     .then( result=> {
       if(result){
         location.reload()
@@ -63,7 +64,7 @@ function Task() {
 }
   const [owner, setOwner] = useState({});
   useEffect(() => {
-   axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
+   axios.post(`${URL}/get`, {user_id: auth1.user_id}) 
    .then(result => {
            setOwner(result.data)
            //console.log(owner.tasks)

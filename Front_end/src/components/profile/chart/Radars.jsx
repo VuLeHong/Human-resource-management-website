@@ -12,7 +12,7 @@ import {
 } from "chart.js"
 import { Radar } from "react-chartjs-2"
 import axios from 'axios';
-
+const URL = 'https://rpg-ranking-system.onrender.com';
 ChartJs.register(
 	RadialLinearScale,
 	PointElement,
@@ -27,7 +27,7 @@ const Radars = () => {
   	const auth1 = JSON.parse(auth);
 	const [owner, setOwner] = useState({});
    	useEffect(() => {
-    axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
+    axios.post(`${URL}/get`, {user_id: auth1.user_id}) 
     .then(result => {
             setOwner(result.data)
             // console.log(owner.stats)

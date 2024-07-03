@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import "./Checkdone-modal.css";
 import { MdCheckBoxOutlineBlank, MdCheckBox } from "react-icons/md"
 import axios from 'axios'
-
+const URL = 'https://rpg-ranking-system.onrender.com';
 const Checkdone_modal = (data) => {
   const [modal, setModal] = useState(false);
   const [Organization, setOrganization] = useState();
@@ -32,7 +32,7 @@ const Checkdone_modal = (data) => {
 
   const [owner, setOwner] = useState({});
   useEffect(() => {
-   axios.post('http://localhost:5000/get', {user_id: data.user_id}) 
+   axios.post(`${URL}/get`, {user_id: data.user_id}) 
    .then(result => {
            setOwner(result.data)
    })
@@ -40,7 +40,7 @@ const Checkdone_modal = (data) => {
  },[])
   const handleAdd = () => {
     alert("You submit successfully")
-      axios.post('http://localhost:5000/upscore', {
+      axios.post(`${URL}/upscore`, {
         user_id: data.user_id,
         organizational_up: Organization, 
         techical_up: Technology,
@@ -60,7 +60,7 @@ const Checkdone_modal = (data) => {
       })
       .catch(err => console.log(err))
 
-      axios.post('http://localhost:5000/updone', {task_id: data.task_id})
+      axios.post(`${URL}/updone`, {task_id: data.task_id})
        .then(result=> {
          if(result){
            location.reload()
@@ -68,7 +68,7 @@ const Checkdone_modal = (data) => {
        })
        .catch(err => console.log(err))
 
-       axios.post('http://localhost:5000/uprank', {
+       axios.post(`${URL}/uprank`, {
         user_id: data.user_id,
         organizational_up: Organization, 
         techical_up: Technology,

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'  
 import { BsFillPersonFill, BsListTask, BsClipboard2Pulse, BsFillArchiveFill } from 'react-icons/bs'
 import logo from "../../assets/images.png";
-import { Link } from 'react-router-dom'
-import './Sidebar.css'
-
+import { Link } from 'react-router-dom';
+import './Sidebar.css';
 import axios from 'axios'
 
+
+const URL = 'https://rpg-ranking-system.onrender.com';
 function Sidebar({openSidebarToggle}) {
     const auth = localStorage.getItem("user");
     const auth1 = JSON.parse(auth);
@@ -14,7 +15,7 @@ function Sidebar({openSidebarToggle}) {
         alert("Your rank is not enough")
     };
     useEffect(() => {
-        axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
+        axios.post(`${URL}/get`, {user_id: auth1.user_id}) 
         .then(result => {
                 setOwner(result.data)
                 //console.log(owner.stats)

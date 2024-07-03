@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import axios from "axios";
 import './Login.css';
-
+const URL = 'https://rpg-ranking-system.onrender.com';
 const LoginForm = () => {
   const history = useNavigate();
   const [user_id, setUsername] = useState('');
@@ -11,7 +11,7 @@ const LoginForm = () => {
   async function submit(e){
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/login",{
+      await axios.post(`${URL}/login`,{
         user_id,password
       })
       .then(res => {

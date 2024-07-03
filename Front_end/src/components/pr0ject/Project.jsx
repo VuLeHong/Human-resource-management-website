@@ -7,7 +7,7 @@ import Header from '../head/Header';
 import axios from 'axios' 
 import Modal from './Modal/Modal';
 import Task_modal from './Modal/Task-modal';
-
+const URL = 'https://rpg-ranking-system.onrender.com';
 const Project = () => {
 
   const [projects, setProjects] = useState([]);
@@ -26,7 +26,7 @@ const Project = () => {
   const auth1 = JSON.parse(auth);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/getprojects') 
+    axios.get(`${URL}/getprojects`) 
     .then(result => {
       //console.log(result.data)
       setProjects(result.data)
@@ -36,7 +36,7 @@ const Project = () => {
   
   const [owner, setOwner] = useState({});
   useEffect(() => {
-   axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
+   axios.post(`${URL}/get`, {user_id: auth1.user_id}) 
    .then(result => {
            setOwner(result.data)
            //console.log(owner.stats)
