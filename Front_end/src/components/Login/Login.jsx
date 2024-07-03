@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import axios from "axios";
 import './Login.css';
-const dotenv = require('dotenv');
-dotenv.config();
-
-const URL = process.env.URL;
+const URL = 'https://rpg-ranking-system.onrender.com';
 const LoginForm = () => {
   const history = useNavigate();
   const [user_id, setUsername] = useState('');

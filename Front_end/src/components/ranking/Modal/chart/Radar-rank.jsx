@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-const dotenv = require('dotenv');
-dotenv.config();
-
-const URL = process.env.URL;
+const URL = 'https://rpg-ranking-system.onrender.com';
 import {
     Chart as ChartJs,
     RadialLinearScale,

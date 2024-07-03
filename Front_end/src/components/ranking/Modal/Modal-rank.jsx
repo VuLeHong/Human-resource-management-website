@@ -2,10 +2,8 @@ import { React, useState, useEffect } from 'react';
 import "./Modal-rank.css";
 import Radar_rank from "./chart/Radar-rank";
 import axios from "axios";
-const dotenv = require('dotenv');
-dotenv.config();
 
-const URL = process.env.URL;
+const URL = 'https://rpg-ranking-system.onrender.com';
 const Modal_rank = (data) => {
   const [modal, setModal] = useState(false);
   const toggleModal = () => {

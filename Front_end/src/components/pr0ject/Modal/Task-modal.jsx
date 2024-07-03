@@ -6,10 +6,7 @@ import axios from 'axios'
 import Checkdone_modal from "./Checkdone-modal";
 
 import { MdCheckBox } from "react-icons/md"
-const dotenv = require('dotenv');
-dotenv.config();
-
-const URL = process.env.URL;
+const URL = 'https://rpg-ranking-system.onrender.com';
 const Task_modal = (data) => {
   const [checkIsDone, setCheckIsDone] = useState(false)
   const [tasks, setTasks] = useState([]);

@@ -12,10 +12,7 @@ import {
 } from "chart.js"
 import { Radar } from "react-chartjs-2"
 import axios from 'axios';
-const dotenv = require('dotenv');
-dotenv.config();
-
-const URL = process.env.URL;
+const URL = 'https://rpg-ranking-system.onrender.com';
 ChartJs.register(
 	RadialLinearScale,
 	PointElement,

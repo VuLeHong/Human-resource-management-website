@@ -5,10 +5,8 @@ import Header from '../head/Header'
 import Sidebar from '../sidebar/Sidebar'
 import axios from 'axios' 
 import { FaCloudUploadAlt } from "react-icons/fa";
-const dotenv = require('dotenv');
-dotenv.config();
 
-const URL = process.env.URL;
+const URL = 'https://rpg-ranking-system.onrender.com';
 
 function Task() {
     const [tasks, setTasks] = useState([]);

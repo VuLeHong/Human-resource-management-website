@@ -4,10 +4,9 @@ import { React, useState, useEffect } from 'react';
 import Header from '../head/Header'
 import Sidebar from '../sidebar/Sidebar'
 import Modal_rank from './Modal/Modal-rank';
-const dotenv = require('dotenv');
-dotenv.config();
 
-const URL = process.env.URL;
+
+const URL = 'https://rpg-ranking-system.onrender.com';
 const Ranking = () => {
 
 

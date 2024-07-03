@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react'  
 import { BsFillPersonFill, BsListTask, BsClipboard2Pulse, BsFillArchiveFill } from 'react-icons/bs'
 import logo from "../../assets/images.png";
-import { Link } from 'react-router-dom'
-import './Sidebar.css'
-
+import { Link } from 'react-router-dom';
+import './Sidebar.css';
 import axios from 'axios'
-const dotenv = require('dotenv');
-dotenv.config();
 
-const URL = process.env.URL;
+
+const URL = 'https://rpg-ranking-system.onrender.com';
 function Sidebar({openSidebarToggle}) {
     const auth = localStorage.getItem("user");
     const auth1 = JSON.parse(auth);

@@ -3,10 +3,7 @@ import "./Modal.css";
 import axios from 'axios'
 import { IoMdClose } from "react-icons/io";
 import { TiPlus } from "react-icons/ti";
-const dotenv = require('dotenv');
-dotenv.config();
-
-const URL = process.env.URL;
+const URL = 'https://rpg-ranking-system.onrender.com';
 
 
 
