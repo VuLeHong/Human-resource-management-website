@@ -28,7 +28,7 @@ const Ranking = () => {
 
   const [owner, setOwner] = useState({});
   useEffect(() => {
-   axios.post('http://localhost:5000/get', {user_id: auth1.user_id}) 
+   axios.post(`${URL}/get`, {user_id: auth1.user_id}) 
    .then(result => {
            setOwner(result.data)
            console.log(owner.stats)
